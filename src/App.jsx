@@ -3,7 +3,7 @@ import './App.css'
 function App() {
 
   return (
-    <div className='relative text-3xl bg-slate-950 w-full min-h-screen text-gray-100 flex-col pt-[430px] md:pt-[530px] items-center justify-center'>
+    <div className='relative text-3xl bg-slate-950 w-full min-h-screen text-gray-100 flex-col pt-[360px] md:pt-[530px] items-center justify-center'>
       <div className='flex items-center justify-center'>
         <div className='absolute w-[300px] h-[300px] md:w-[800px] md:h-[800px]'>
           <svg id="sw-js-blob-svg" className="blur-md magicpattern" viewBox="-50 -50 150 150">  
