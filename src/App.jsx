@@ -100,11 +100,11 @@ function App() {
           Login / Sign in
         </button>
       </div>
-      <h1 className='text-[70px] md:text-[150px] font-bold font-roboto-serif'>
+      <h1 className='text-[55px] md:text-[150px] font-bold font-roboto-serif'>
         <Lg gradient={['to right', '#c2e59c, #be5869']}>
           Model
         </Lg>
-        <span className='text-[70px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
+        <span className='text-[55px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
       </h1>
       {/* <h1 className='text-[150px] text-[#555555] font-bold font-roboto-serif leading-[20px]'>
         mate
