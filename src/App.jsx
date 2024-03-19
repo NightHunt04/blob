@@ -89,7 +89,7 @@ function App() {
 
 
 
-    <div className='bg-black w-full min-h-screen flex flex-col items-center justify-start select-none'>
+    <div className='bg-black w-full min-h-screen flex flex-col items-center justify-start select-none pb-7'>
       <div className='flex items-center justify-between px-[30px] md:px-[94px] w-full pt-6 md:pt-10 cursor-pointer'>
         <h1 className='text-[24px] md:text-[30px] font-bold font-roboto-serif'>
           <Lg gradient={['to right', '#c2e59c, #be5869']}>
