@@ -8,6 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'dm': ['DM Sans', 'sans-serif'],
+        'roboto-serif': ['Roboto Serif', 'serif'],
+        'inter': ['Inter', 'sans-serif']
       }
     },
   },

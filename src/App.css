@@ -36,3 +36,13 @@
   50% { transform: translate(5px, 9px); }
   100% { transform: translate(0, 0px); }
 }
+
+.title {
+  padding-top: 53px;
+  height: 170px;
+  -webkit-background-clip: text;
+  background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3g2M3M2NHRtem00cHdvc2duMzk0YXZoZ2kzcGxkYjV2cDZ5ZG1xNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3owyplNkncaF5Xax20/giphy.gif);
+  -webkit-text-fill-color: transparent;
+  background-position: center;
+  background-repeat: none;
+}
