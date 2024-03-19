@@ -100,32 +100,32 @@ function App() {
           Login / Sign in
         </button>
       </div>
-      <h1 className='text-[55px] md:text-[150px] font-bold font-roboto-serif'>
+      <h1 className='text-[60px] md:text-[150px] font-bold font-roboto-serif'>
         <Lg gradient={['to right', '#c2e59c, #be5869']}>
           Model
         </Lg>
-        <span className='text-[55px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
+        <span className='text-[60px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
       </h1>
       {/* <h1 className='text-[150px] text-[#555555] font-bold font-roboto-serif leading-[20px]'>
         mate
       </h1> */}
-      <p className='font-inter text-[16px] md:text-[18px] text-[#c4c4c4] leading-3 pb-8 md:pb-16'>Have your own buddy AI bot !</p>
-      <button className='font-inter text-[18px] md:text-[20px] bg-gradient-to-r from-[#c2e59c] to-[#be5869] text-black px-5 py-1 rounded-[28px] hover:opacity-80'>Get Started</button>
-      <p className='font-inter text-[16px] text-[#c4c4c4] pt-8 md:pt-16'>Tools</p>
+      <p className='font-inter text-[15px] md:text-[18px] text-[#c4c4c4] leading-3 pb-8 md:pb-16'>Have your own buddy AI bot !</p>
+      <button className='font-inter text-[16px] md:text-[20px] bg-gradient-to-r from-[#c2e59c] to-[#be5869] text-black px-5 py-1 rounded-[28px] hover:opacity-80'>Get Started</button>
+      <p className='font-inter text-[14px] text-[#c4c4c4] pt-8 md:pt-16'>Tools</p>
       
-      <div className='w-full md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3'>
+      <div className='w-full h-[500px] md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3'>
         <img src="/Assets/talk-up.JPG" alt="img" className='w-full h-full object-cover rounded-xl'/>
       </div>
       <p className='font-inter text-[28px] font-bold text-[#c4c4c4] pt-12'>Chat with the model</p>
       <p className='font-inter text-[18px] font-regular text-[#c4c4c4] max-w-full px-6 md:max-w-[580px] text-center pb-12'>Embrace Curiosity, Empower Learning: Journey into the Depths of Knowledge with AI, Where Every Question Unveils a New Realm of Insight and Understanding</p>
       
-      <div className='w-full md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3'>
+      <div className='w-full h-[500px] md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3'>
         <img src="/Assets/bob.JPG" alt="img" className='w-full h-full object-cover rounded-xl'/>
       </div>
       <p className='font-inter text-[28px] font-bold text-[#c4c4c4] pt-12'>Generate images</p>
       <p className='font-inter text-[18px] font-regular text-[#c4c4c4] max-w-full px-6 md:max-w-[580px] text-center pb-12'>Unleash Your Imagination, Transforming Ideas into Captivating Visuals: Harness the Power of AI to Craft Beautiful Images from Your Thoughts and Words</p>
 
-      <div className='w-full md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3'>
+      <div className='w-full h-[500px] md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3'>
         <img src="/Assets/tune.JPG" alt="img" className='w-full h-full object-cover rounded-xl'/>
       </div>
       <p className='font-inter text-[28px] font-bold text-[#c4c4c4] pt-12'>Tune your own model</p>
