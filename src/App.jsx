@@ -100,16 +100,16 @@ function App() {
           Login / Sign in
         </button>
       </div>
-      <h1 className='text-[70px] md:text-[150px] font-bold font-roboto-serif'>
+      <h1 className='text-[120px] md:text-[150px] font-bold font-roboto-serif'>
         <Lg gradient={['to right', '#c2e59c, #be5869']}>
           Model
         </Lg>
-        <span className='flex items-center justify-center leading-[30px] pb-10 md:pb-0 md:leading-none md:inline-block text-[70px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
+        <span className='flex items-center justify-center leading-[30px] pb-10 md:pb-0 md:leading-none md:inline-block text-[120px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
       </h1>
       {/* <h1 className='text-[150px] text-[#555555] font-bold font-roboto-serif leading-[20px]'>
         mate
       </h1> */}
-      <p className='font-inter text-[15px] md:text-[18px] text-[#c4c4c4] leading-3 pb-8 md:pb-16'>Have your own buddy AI bot !</p>
+      <p className='font-inter text-[14px] md:text-[18px] text-[#c4c4c4] leading-3 pb-8 md:pb-16'>Have your own buddy AI bot !</p>
       <button className='font-inter text-[16px] md:text-[20px] bg-gradient-to-r from-[#c2e59c] to-[#be5869] text-black px-5 py-1 rounded-[28px] hover:opacity-80'>Get Started</button>
       <p className='font-inter text-[14px] text-[#c4c4c4] pt-8 md:pt-16'>Tools</p>
       
