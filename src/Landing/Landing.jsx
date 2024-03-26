@@ -4,6 +4,7 @@ import Lottie from 'lottie-react'
 // import animationData from '../../public/Assets/abstract-1.json'
 import animationData from '../../public/Assets/abstract-2.json'
 import Header from './Header/Header'
+import Footer from './Footer/Footer'
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
       <p className='font-inter text-[25px] md:text-[29px] font-bold text-[#c4c4c4] pt-12'>Tune your own model</p>
       <p className='font-inter text-[15px] md:text-[18px] font-regular text-[#c4c4c4] max-w-full px-6 md:max-w-[580px] text-center pb-12'>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
 
+      <Footer />
     </div>
   )
 }

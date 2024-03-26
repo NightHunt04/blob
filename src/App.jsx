@@ -1,5 +1,6 @@
 import './App.css'
 import Landing from './Landing/Landing'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
 
@@ -88,8 +89,9 @@ function App() {
     // </div>
 
 
-
-    <Landing />
+    <BrowserRouter>
+      <Landing />
+    </BrowserRouter>
   )
 }
 
