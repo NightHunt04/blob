@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --body_background: rgb(241, 241, 241);
+    --body-color: black;
+}
+
+[data-theme='dark'] {
+    --body_background: black;
+    --body-color: #555555;
+}
