@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useModelContext } from '../../context/ModelContext'
 
 function Header() {
-    const { lightTheme, toggleLightTheme} = useModelContext()
-    
+    const { lightTheme, toggleLightTheme } = useModelContext()
+
     return (
         <div className='flex items-center justify-between px-[30px] md:px-[94px] w-full pt-6 md:pt-10 cursor-pointer'>
             <h1 className='text-[24px] md:text-[30px] font-bold font-roboto-serif'>
