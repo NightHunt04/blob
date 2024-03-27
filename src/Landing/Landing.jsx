@@ -5,14 +5,20 @@ import Lottie from 'lottie-react'
 import animationData from '../../public/Assets/abstract-2.json'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
+import { useState } from 'react'
 
 function App() {
+  const [light, setLight] = useState(false)
+
+  const toggleTheme = () => {
+    setLight(prev => !prev)
+  }
 
   return (
     <div className='bg-black w-full min-h-screen flex flex-col items-center justify-start select-none pb-7'>
-      <div className='fixed left-3 bottom-[110px] md:bottom-10 w-[45px] h-[45px] flex items-center justify-center bg-gray-400 rounded-lg shadow-lg'>
+      <div className={`fixed left-3 bottom-[110px] md:bottom-10 w-[45px] h-[45px] flex items-center justify-center ${light ? 'bg-slate-900 text-gray-300' : 'bg-gray-400 text-gray-900'} rounded-lg shadow-lg`} onClick={toggleTheme}>
         <div className='border-2 border-gray-700 w-[37px] h-[37px] flex items-center justify-center rounded-lg'>
-          <i className="fa-solid fa-sun"></i>
+          <i className={`fa-solid ${light ? 'fa-moon' : 'fa-sun'}`}></i>
         </div>
       </div>
       <Header />
