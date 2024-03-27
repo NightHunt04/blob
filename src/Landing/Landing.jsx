@@ -10,6 +10,11 @@ function App() {
 
   return (
     <div className='bg-black w-full min-h-screen flex flex-col items-center justify-start select-none pb-7'>
+      <div className='fixed left-3 bottom-10 w-[45px] h-[45px] flex items-center justify-center bg-gray-500 rounded-lg'>
+        <div className='border-2 border-gray-700 w-[37px] h-[37px] flex items-center justify-center rounded-lg'>
+        <i className="fa-solid fa-sun"></i>
+        </div>
+      </div>
       <Header />
       <div className='w-full flex flex-col items-center justify-center pt-6'>
         <h1 className='text-[120px] md:text-[150px] font-bold font-roboto-serif'>
