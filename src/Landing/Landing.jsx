@@ -13,6 +13,7 @@ function App() {
   return (
     <div className={`${lightTheme ? 'bg-[#e8e8e8]' : 'bg-[#151515]'} w-full min-h-screen flex flex-col items-center justify-start select-none pb-7`}>
       <Header />
+
       <div className='w-full flex flex-col items-center justify-center pt-6'>
         <h1 className='text-[120px] md:text-[150px] font-bold font-roboto-serif'>
           <Lg gradient={['to right', '#c2e59c, #be5869']}>
@@ -34,14 +35,14 @@ function App() {
            <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
              <defs>                        
                <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
-                 <stop id="stop1" stop-color="rgba(168.212, 55, 248, 1)" offset="0%"></stop>
-                 <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        
+                 <stop id="stop1" stop-color="rgba(194, 229, 156, 1)" offset="0%"></stop>
+                 <stop id="stop2" stop-color="rgba(190, 88, 105, 1)" offset="100%"></stop>                        
                </linearGradient>                    
              </defs>                
              <path fill="url(#sw-gradient)" width="100%" height="100%" transform="translate(0 0)" strokeWidth="0">
                <animate
                  attributeName='d'
-                 dur='30s'
+                 dur='17s'
                  repeatCount='indefinite'
                  values='
                    M79,63Q81,76,69.5,84.5Q58,93,43,91Q28,89,20.5,76Q13,63,14.5,50.5Q16,38,23.5,27.5Q31,17,43,19Q55,21,60.5,29Q66,37,71.5,43.5Q77,50,79,63Z;
@@ -68,14 +69,14 @@ function App() {
            <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
              <defs>                        
                <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
-                 <stop id="stop1" stop-color="rgba(168.212, 55, 248, 1)" offset="0%"></stop>
-                 <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        
+                 <stop id="stop1" stop-color="rgba(194, 229, 156, 1)" offset="0%"></stop>
+                 <stop id="stop2" stop-color="rgba(190, 88, 105, 1)" offset="100%"></stop>                        
                </linearGradient>                    
              </defs>                
              <path fill="url(#sw-gradient)" width="100%" height="100%" transform="translate(0 0)" strokeWidth="0">
                <animate
                  attributeName='d'
-                 dur='30s'
+                 dur='17s'
                  repeatCount='indefinite'
                  values='
                    M79,63Q81,76,69.5,84.5Q58,93,43,91Q28,89,20.5,76Q13,63,14.5,50.5Q16,38,23.5,27.5Q31,17,43,19Q55,21,60.5,29Q66,37,71.5,43.5Q77,50,79,63Z;
@@ -102,14 +103,14 @@ function App() {
           <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
              <defs>                        
                <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
-                 <stop id="stop1" stop-color="rgba(168.212, 55, 248, 1)" offset="0%"></stop>
-                 <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        
+                 <stop id="stop1" stop-color="rgba(194, 229, 156, 1)" offset="0%"></stop>
+                 <stop id="stop2" stop-color="rgba(190, 88, 105, 1)" offset="100%"></stop>                        
                </linearGradient>                    
              </defs>                
              <path fill="url(#sw-gradient)" width="100%" height="100%" transform="translate(0 0)" strokeWidth="0">
                <animate
                  attributeName='d'
-                dur='17000ms'
+                dur='17s'
                  repeatCount='indefinite'
                  values='
                    M79,63Q81,76,69.5,84.5Q58,93,43,91Q28,89,20.5,76Q13,63,14.5,50.5Q16,38,23.5,27.5Q31,17,43,19Q55,21,60.5,29Q66,37,71.5,43.5Q77,50,79,63Z;
