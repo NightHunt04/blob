@@ -2,7 +2,9 @@ import { createContext, useContext } from "react";
 
 export const ModelContext = createContext({
     lightTheme : false,
-    toggleLightTheme: () => {},
+    entrance : false,
+    toggleEntrance : () => {},
+    toggleLightTheme : () => {},
 })
 
 export function useModelContext() {
