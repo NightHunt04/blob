@@ -3,7 +3,7 @@ import { useModelContext } from '../../context/ModelContext'
 
 
 function LandContent() {
-    const { lightTheme, entrance } = useModelContext()
+    const { lightTheme, entrance, toggleEntrance } = useModelContext()
 
     return (
         <div className={`${entrance ? 'blur-sm' : ''}`}>

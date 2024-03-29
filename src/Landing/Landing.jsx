@@ -10,7 +10,7 @@ import LandContent from './LandContent/LandContent'
 import Entrance from '../components/Entrance'
 
 function App() {
-  const { lightTheme } = useModelContext()
+  const { lightTheme, toggleEntrance } = useModelContext()
 
   return (
     <div className={`${lightTheme ? 'bg-[#e8e8e8]' : 'bg-[#151515]'} w-full min-h-screen flex flex-col items-center justify-start select-none pb-7`}>
