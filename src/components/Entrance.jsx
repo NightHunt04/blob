@@ -14,44 +14,44 @@ function Entrance() {
 
             <p className="font-medium text-white-800 py-3 text-[20px]">Sign Up</p>
 
-            <div className="relative w-9/12 flex flex-col items-center justify-center z-30 my-4">
+            <div className="relative w-9/12 flex items-center justify-center z-30 my-4">
                 <input 
                     type="email" 
                     placeholder="Email"
-                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-2 rounded-lg z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-yellow-400 focus:outline-none"/>
                 <label 
                     htmlFor="email"
-                    className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Email</label>
+                    className="absolute transition-all left-0 -top-[23px] px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Email</label>
             </div>
 
-            <div className="relative w-9/12 flex flex-col items-center justify-center z-30 my-4">
+            <div className="relative w-9/12 flex items-center justify-center z-30 my-4">
                 <input 
                     type="text" 
                     placeholder="Username"
-                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-2 z-40 rounded-lg  text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-yellow-400 focus:outline-none"/>
                 <label 
                     htmlFor="text"
-                    className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Set Username</label>
+                    className="absolute transition-all left-0 -top-[23px] px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Set Username</label>
             </div>
 
-            <div className="relative w-9/12 flex flex-col items-center justify-center z-30 my-4">
+            <div className="relative w-9/12 flex items-center justify-center z-30 my-4">
                 <input 
                     type="password" 
                     placeholder="Password"
-                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-2 rounded-lg z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-yellow-400 focus:outline-none"/>
                 <label 
                     htmlFor="password"
-                    className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Set Password</label>
+                    className="absolute transition-all left-0 -top-[23px] px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Set Password</label>
             </div>
 
-            <div className="relative w-9/12 flex flex-col items-center justify-center z-30 my-4">
+            <div className="relative w-9/12 flex items-center justify-center z-30 my-4">
                 <input 
                     type="password" 
                     placeholder="Password"
-                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-2 rounded-lg z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-yellow-400 focus:outline-none"/>
                 <label 
                     htmlFor="password"
-                    className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2">Confirm password</label>
+                    className="absolute transition-all left-0 -top-[23px] px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2">Confirm password</label>
             </div>
 
             <button className="bg-gray-800 outline-none border-none text-gray-300 z-30 rounded-2xl px-3 py-1 md:px-6 md:py-3 mt-5 hover:text-white hover:bg-gray-900 transition-all">Sign Up</button>
