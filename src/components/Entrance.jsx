@@ -18,7 +18,7 @@ function Entrance() {
                 <input 
                     type="email" 
                     placeholder="Email"
-                    className="peer border-b-2 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
                 <label 
                     htmlFor="email"
                     className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Email</label>
@@ -28,7 +28,7 @@ function Entrance() {
                 <input 
                     type="text" 
                     placeholder="Username"
-                    className="peer border-b-2 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
                 <label 
                     htmlFor="text"
                     className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Set Username</label>
@@ -38,7 +38,7 @@ function Entrance() {
                 <input 
                     type="password" 
                     placeholder="Password"
-                    className="peer border-b-2 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
                 <label 
                     htmlFor="password"
                     className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-200 peer-placeholder-shown:top-2">Set Password</label>
@@ -48,7 +48,7 @@ function Entrance() {
                 <input 
                     type="password" 
                     placeholder="Password"
-                    className="peer border-b-2 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
+                    className="peer border-b-2 z-40 text-[16px] md:text-[19px] placeholder-transparent bg-transparent border-gray-300 w-full px-3 h-10 py-3 focus:border-red-600 focus:outline-none"/>
                 <label 
                     htmlFor="password"
                     className="absolute transition-all left-0 -top-4 px-3 text-gray-400 text-[15px] peer-placeholder-shown:text-[17px] md:peer-placeholder-shown:text-[19px] peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2">Confirm password</label>
