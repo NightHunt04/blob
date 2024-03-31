@@ -2,15 +2,19 @@ import { LinearGradient as Lg } from 'react-text-gradients'
 import { useModelContext } from '../../context/ModelContext'
 import { auth, googleProvider } from '../../config/firebase'
 import { signInWithPopup } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
     const { lightTheme, toggleLightTheme, entrance, toggleEntrance } = useModelContext()
+    const navigate = useNavigate()
 
     const handleEntrance = async() => {
         //toggleEntrance()
 
         try {
             await signInWithPopup(auth, googleProvider)
+            console.log(`Name : ${auth?.currentUser?.displayName} \n'UID' : ${auth?.currentUser?.uid}`)
+            navigate('action')
         } catch(err) {
             console.error(err)
         }
