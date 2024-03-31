@@ -1,12 +1,19 @@
 import { LinearGradient as Lg } from 'react-text-gradients'
-import { useState } from 'react'
 import { useModelContext } from '../../context/ModelContext'
+import { auth, googleProvider } from '../../config/firebase'
+import { signInWithPopup } from 'firebase/auth'
 
 function Header() {
     const { lightTheme, toggleLightTheme, entrance, toggleEntrance } = useModelContext()
 
-    const handleEntrance = () => {
-        toggleEntrance()
+    const handleEntrance = async() => {
+        //toggleEntrance()
+
+        try {
+            await signInWithPopup(auth, googleProvider)
+        } catch(err) {
+            console.error(err)
+        }
     }
 
     return (
