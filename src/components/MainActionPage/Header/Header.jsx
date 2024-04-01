@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 function Header() {
     const navigate = useNavigate()
     const { lightTheme } = useModelContext()
+    console.log(lightTheme)
     const navigateHome = () => {
         navigate('/')
     }
@@ -23,10 +24,10 @@ function Header() {
                     <div className="w-[25px] h-[25px] md:w-[30px] md:h-[30px] rounded-full overflow-hidden">
                         <img src={`${auth?.currentUser?.photoURL}`} alt="profile" className='w-full h-full object-cover rounded-full'/>
                     </div>
-                    <p className={`font-inter text-[14px] ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'}`}>{auth?.currentUser?.displayName}</p>
+                    <p className={`font-inter text-[14px] ${lightTheme ? 'text-[#e6e6e6]' : 'text-black'}`}>{auth?.currentUser?.displayName}</p>
                 </div>
                 <button className='w-[34px] h-[34px] md:w-[40px] md:h-[40px] bg-[#353535] hover:bg-[#303030] rounded-full flex items-center justify-center'>
-                    <i className={`fa-solid fa-gear text-[15px] md:text-[17px] hover:animate-spin ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'}`}></i>
+                    <i className={`fa-solid fa-gear text-[15px] md:text-[17px] hover:animate-spin ${lightTheme ? 'text-[#e6e6e6]' : 'text-black'}`}></i>
                 </button>
             </div>
         </div>

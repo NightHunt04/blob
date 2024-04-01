@@ -1,12 +1,27 @@
 import './App.css'
 import Landing from './Landing/Landing'
 import { ModelProvider } from './context/ModelContext' 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [lightTheme, setLightTheme] = useState(false)
-  
+
+  useEffect(() => {
+    if(localStorage.getItem('lightTheme') !== null) {
+      if(localStorage.getItem('lightTheme') === 'true') {
+        setLightTheme(true)
+        console.log('light mode is on')
+      }
+      // else {
+      //   setLightTheme(false)
+      //   console.log('dark mode is on')
+      // }
+    }
+  }, [])
+
   const toggleLightTheme = () => {
+    if(lightTheme) localStorage.setItem('lightTheme', false)
+    else localStorage.setItem('lightTheme', true)
     setLightTheme(prev => !prev)
   }
 
