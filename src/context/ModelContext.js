@@ -3,10 +3,8 @@ import { createContext, useContext } from "react";
 export const ModelContext = createContext({
     lightTheme : false,
     toggleLightTheme : () => {},
-    displayName : '',
-    writeDisplayName : () => {},
-    userUUID : '',
-    writeUserUUID : () => {},
+    settings : false,
+    toggleSettings : () => {},
 })
 
 export function useModelContext() {

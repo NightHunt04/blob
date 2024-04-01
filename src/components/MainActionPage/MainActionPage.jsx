@@ -3,11 +3,11 @@ import MainActionLanding from "./MainActionLanding/MainActionLanding"
 import { ModelProvider, useModelContext } from "../../context/ModelContext"
 import { useEffect, useState } from "react"
 import { auth } from "../../config/firebase"
+import Settings from "../Settings/Settings"
 
 function MainActionPage() {
-    const [displayName, setDisplayName] = useState(auth?.currentUser?.displayName)
-    const [userUUID, setUserUUID] = useState(auth?.currentUser?.uid)
     const [lightTheme, setLightTheme] = useState(false)
+    const [settings, setSettings] = useState(false)
 
     useEffect(() => {
         if(localStorage.getItem('lightTheme') !== null) {
@@ -20,19 +20,24 @@ function MainActionPage() {
           //   console.log('dark mode is on')
           // }
         }
-      }, [])
-    
-      const toggleLightTheme = () => {
+    }, [])
+
+    const toggleLightTheme = () => {
         if(lightTheme) localStorage.setItem('lightTheme', false)
         else localStorage.setItem('lightTheme', true)
         setLightTheme(prev => !prev)
-      }
+    }
+
+    const toggleSettings = () => {
+        setSettings(prev => !prev)
+    }
 
     return (
-        <ModelProvider value={{displayName, userUUID, lightTheme, toggleLightTheme}}>
-            <div className={`${lightTheme ? 'bg-[#e8e8e8]' : 'bg-[#151515]'} w-full min-h-screen flex flex-col items-center justify-start select-none pb-7`}>
+        <ModelProvider value={{lightTheme, toggleLightTheme, settings, toggleSettings}}>
+            <div className={`${lightTheme ? 'bg-[#e8e8e8]' : 'bg-[#151515]'} w-full min-h-screen flex flex-col items-center justify-start select-none pb-7 overflow-hidden`}>
                 <Header />
                 <MainActionLanding />
+                <Settings />
             </div>
         </ModelProvider>
     )

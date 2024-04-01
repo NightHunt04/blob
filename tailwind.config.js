@@ -10,7 +10,7 @@ export default {
         'dm': ['DM Sans', 'sans-serif'],
         'roboto-serif': ['Roboto Serif', 'serif'],
         'inter': ['Inter', 'sans-serif']
-      }
+      },
     },
   },
   plugins: [],

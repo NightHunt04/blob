@@ -3,7 +3,7 @@ import { useModelContext } from '../../../context/ModelContext'
 import { auth } from '../../../config/firebase'
 
 function MainActionLanding() {
-    const { displayName, userUUID } = useModelContext()
+    const displayName = localStorage.getItem('currentUserDisplayName')
 
     return (
         <div className="w-full flex flex-col items-start justify-center px-[20px] md:px-[100px] pt-5">

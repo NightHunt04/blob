@@ -12,6 +12,12 @@ function Header() {
         try {
             await signInWithPopup(auth, googleProvider)
             console.log(`Name : ${auth?.currentUser?.displayName} \n'UID' : ${auth?.currentUser?.uid}`)
+
+            // set the details regarding the current user in localstorage
+            localStorage.setItem('currentUserDisplayName', auth?.currentUser?.displayName)
+            localStorage.setItem('currentUserUUID', auth?.currentUser?.uid)
+            localStorage.setItem('currentUserProfileURL', auth?.currentUser?.photoURL)
+
             navigate('action')
         } catch(err) {
             console.error(err)
@@ -29,7 +35,7 @@ function Header() {
                 <div className={`flex items-center justify-center w-[30px] h-[30px] md:w-[40px] md:h-[40px] ${lightTheme ? 'bg-slate-900 text-gray-300' : 'bg-gray-400 text-gray-900'} rounded-full border-gray-500 border-2`} onClick={toggleLightTheme}>
                     <i className={`fa-solid ${lightTheme ? 'fa-moon' : 'fa-sun'}`}></i>
                 </div>
-                <button className='entrance-btn bg-[#3b3b3b] font-inter text-[14px] md:text-[17px] px-[8px] py-[4px] md:px-[11px] md:py-[6px] rounded-[28px] text-[#EBEBEB] hover:opacity-80' onClick={handleEntrance}>
+                <button className='entrance-btn bg-[#3b3b3b] font-inter text-[14px] md:text-[17px] px-[8px] py-[4px] md:px-[11px] md:py-[6px] rounded-[28px] text-[#dedede] hover:opacity-80' onClick={handleEntrance}>
                     <i className="fa-brands fa-google px-1 text-[#DB4437]"></i> <span>Sign in</span>
                 </button>
             </div>
