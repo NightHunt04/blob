@@ -3,7 +3,7 @@ import { useModelContext } from '../../context/ModelContext'
 
 
 function LandContent() {
-    const { lightTheme, entrance, toggleEntrance } = useModelContext()
+    const { lightTheme } = useModelContext()
 
     return (
         <div>

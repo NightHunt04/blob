@@ -1,13 +1,18 @@
 import { LinearGradient as Lg } from 'react-text-gradients'
 import { useModelContext } from '../../../context/ModelContext'
 import { auth } from '../../../config/firebase'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+    const navigate = useNavigate()
     const { lightTheme } = useModelContext()
+    const navigateHome = () => {
+        navigate('/')
+    }
 
     return (
         <div className="flex items-center justify-between px-[30px] md:px-[94px] w-full pt-6 pb-6 md:pt-10 cursor-pointer border-[#4c4c4c] border-b-2">
-            <h1 className='text-[24px] md:text-[30px] font-bold font-roboto-serif'>
+            <h1 className='text-[24px] md:text-[30px] font-bold font-roboto-serif' onClick={navigateHome}>
                 <Lg gradient={['to right', '#c2e59c, #be5869']}>
                 m.
                 </Lg>
