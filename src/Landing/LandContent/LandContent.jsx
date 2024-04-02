@@ -8,7 +8,7 @@ function LandContent() {
     return (
         <div>
             <div className={`relative w-full flex flex-col items-center justify-center pt-6 overflow-hidden`}>
-                <h1 className='text-[120px] md:text-[150px] z-30 font-bold font-roboto-serif'>
+                <h1 className='text-[100px] md:text-[150px] z-30 font-bold font-roboto-serif'>
                     <Lg gradient={['to right', '#c2e59c, #be5869']}>Model</Lg>
                     <span className='flex items-center justify-center z-30 leading-[30px] pb-10 md:pb-0 md:inline-block text-[120px] md:text-[150px] text-[#555555] font-bold font-roboto-serif'>Mate</span>
                 </h1>
