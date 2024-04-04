@@ -16,7 +16,7 @@ function LogoutPopUp() {
     }
 
     return (
-        <div className={`${logoutPopUp ? 'translate-y-[100px] md:translate-y-[180px]' : '-translate-y-[1000px]'} transition-all text-[15px] md:text-[17px] font-inter z-40 w-[300px] md:w-[730px] ${lightTheme ? 'bg-white' : 'bg-[#292929]'} shadow-2xl  mx-auto top-[300px] rounded-xl`}>
+        <div className={`${logoutPopUp ? 'translate-y-[80px] md:translate-y-[180px]' : '-translate-y-[1000px]'} transition-all text-[15px] md:text-[17px] font-inter z-40 w-[300px] md:w-[730px] ${lightTheme ? 'bg-white' : 'bg-[#292929]'} shadow-2xl  mx-auto top-[300px] rounded-xl`}>
             <div className="w-full h-full flex flex-col items-center justify-start text-gray-300">
                 <p className="pt-5 px-4 md:max-w-[680px]">Are you sure, you want to logout from the account <span className="text-[#d60000]">{currentUserEmail}</span>?</p>
                 <p className="px-4 md:max-w-[680px]">You will be redirect back to the home/landing page.</p>
