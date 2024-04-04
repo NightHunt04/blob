@@ -5,6 +5,8 @@ export const ModelContext = createContext({
     toggleLightTheme : () => {},
     settings : false,
     toggleSettings : () => {},
+    logoutPopUp : false,
+    toggleLogoutPopUp : () => {},
 })
 
 export function useModelContext() {

@@ -3,7 +3,6 @@ import { useModelContext } from '../../context/ModelContext'
 import { auth, googleProvider } from '../../config/firebase'
 import { signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
 function Header() {
     const { lightTheme, toggleLightTheme } = useModelContext()
@@ -19,14 +18,14 @@ function Header() {
                 localStorage.setItem('currentUserDisplayName', auth?.currentUser?.displayName)
                 localStorage.setItem('currentUserUUID', auth?.currentUser?.uid)
                 localStorage.setItem('currentUserProfileURL', auth?.currentUser?.photoURL)
+                localStorage.setItem('currentUserEmail', auth?.currentUser?.email)
     
                 navigate('action')
             } catch(err) {
                 console.error(err)
             }
         }
-        else 
-            navigate('action')
+        else navigate('action')   
     }
 
     return (
@@ -41,10 +40,11 @@ function Header() {
                     <i className={`fa-solid ${lightTheme ? 'fa-moon' : 'fa-sun'}`}></i>
                 </div>
                 <button className='entrance-btn bg-[#3b3b3b] font-inter text-[14px] md:text-[17px] px-[8px] py-[4px] md:px-[11px] md:py-[6px] rounded-[28px] text-[#dedede] hover:opacity-80' onClick={handleEntrance}>
-                    {localStorage.getItem('currentUserDisplayName') !== null ?   
-                        <div>Go to lobby</div>                  
+                    {
+                        localStorage.getItem('currentUserDisplayName') !== null ?
+                            <div><span className='text-[14px] px-1 md:text-[16px] font-inter'>Go to action</span></div>
                         :
-                        <div><i className="fa-brands fa-google px-1 text-[#DB4437]"></i> <span>Sign in</span></div>
+                            <div><i className="fa-brands fa-google px-1 text-[#DB4437]"></i> <span>Sign in</span></div>
                     }
                 </button>
             </div>

@@ -27,7 +27,7 @@ function Header() {
                     </div>
                     <p className={`font-inter text-[14px] text-[#ececec]`}>{displayName}</p>
                 </div>
-                <button className={`${settings ? '-translate-y-3 -translate-x-[250px]' : ''} transition-all w-[34px] h-[34px] md:w-[40px] md:h-[40px] bg-[#353535] hover:bg-[#303030] rounded-full flex items-center justify-center z-30 shadow-2xl`} onClick={toggleSettings}>
+                <button className={`setting-btn ${settings ? '-translate-y-3 -translate-x-[250px]' : ''} transition-all w-[34px] h-[34px] md:w-[40px] md:h-[40px] bg-[#353535] hover:bg-[#303030] rounded-full flex items-center justify-center z-30 shadow-2xl`} onClick={toggleSettings}>
                     <i className={`fa-solid ${settings ? 'fa-circle-xmark md:text-[18px]' : 'fa-gear md:text-[17px]'} text-[15px]  text-[#d4d4d4]`}></i>
                 </button>
             </div>

@@ -14,7 +14,7 @@ function LandContent() {
                 </h1>
                 <p className={`font-inter text-[14px] md:text-[19px] ${lightTheme ? 'text-black' : 'text-[#c4c4c4]'} pt-12 md:pb-0`}>Have your own buddy AI bot !</p>
 
-                <div className='absolute transform translate-x-[320px] z-10 -translate-y-[130px] md:translate-x-[675px]  md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-50'>
+                <div className='absolute transform translate-x-[320px] z-10 -translate-y-[130px] md:translate-x-[675px]  md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
@@ -40,7 +40,7 @@ function LandContent() {
                     </svg>
                 </div>
 
-                <div className='absolute transform translate-x-[60px] z-10 translate-y-[20px] md:-translate-x-[60px]  md:-translate-y-[110px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-50'>
+                <div className='absolute transform translate-x-[60px] z-10 translate-y-[20px] md:-translate-x-[60px]  md:-translate-y-[110px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
@@ -74,7 +74,7 @@ function LandContent() {
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
                 <p className={`font-inter text-[25px] md:text-[32px] font-bold z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12`}>Chat with the model</p>
                 <p className={`font-inter text-[15px] md:text-[20px] font-regular z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Embrace Curiosity, Empower Learning: Journey into the Depths of Knowledge with AI, Where Every Question Unveils a New Realm of Insight and Understanding</p>
-                <div className='absolute transform translate-x-[40px] translate-y-[50px] md:translate-x-[235px] md:translate-y-[170px] w-[440px] h-[440px] md:w-[700px] md:h-[800px] opacity-50 z-10'>
+                <div className='absolute transform translate-x-[40px] translate-y-[50px] md:translate-x-[235px] md:translate-y-[170px] w-[440px] h-[440px] md:w-[700px] md:h-[800px] opacity-30 z-10'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
@@ -85,7 +85,7 @@ function LandContent() {
                         <path fill="url(#sw-gradient)" width="100%" height="100%" transform="translate(0 0)" strokeWidth="0">
                             <animate
                                 attributeName='d'
-                                dur='17s'
+                                dur='40s'
                                 repeatCount='indefinite'
                                 values='
                                     M79,63Q81,76,69.5,84.5Q58,93,43,91Q28,89,20.5,76Q13,63,14.5,50.5Q16,38,23.5,27.5Q31,17,43,19Q55,21,60.5,29Q66,37,71.5,43.5Q77,50,79,63Z;
@@ -108,7 +108,7 @@ function LandContent() {
                 <p className={`font-inter text-[25px] md:text-[29px] z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12`}>Generate images</p>
                 <p className={`font-inter text-[15px] md:text-[18px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Unleash Your Imagination, Transforming Ideas into Captivating Visuals: Harness the Power of AI to Craft Beautiful Images from Your Thoughts and Words</p>
 
-                <div className='absolute transform translate-x-[130px] translate-y-[70px] md:translate-x-[105px] md:translate-y-[120px] w-[340px] h-[340px] md:w-[600px] md:h-[600px] opacity-50 z-10'>
+                <div className='absolute transform translate-x-[130px] translate-y-[70px] md:translate-x-[105px] md:translate-y-[120px] w-[340px] h-[340px] md:w-[600px] md:h-[600px] opacity-30 z-10'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
@@ -119,7 +119,7 @@ function LandContent() {
                         <path fill="url(#sw-gradient)" width="100%" height="100%" transform="translate(0 0)" strokeWidth="0">
                             <animate
                                 attributeName='d'
-                                dur='17s'
+                                dur='40s'
                                 repeatCount='indefinite'
                                 values='
                                     M79,63Q81,76,69.5,84.5Q58,93,43,91Q28,89,20.5,76Q13,63,14.5,50.5Q16,38,23.5,27.5Q31,17,43,19Q55,21,60.5,29Q66,37,71.5,43.5Q77,50,79,63Z;
@@ -142,7 +142,7 @@ function LandContent() {
                 <p className={`font-inter text-[25px] md:text-[29px] z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12`}>Tune your own model</p>
                 <p className={`font-inter text-[15px] md:text-[18px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
 
-                <div className='absolute transform translate-x-[60px] translate-y-[20px] md:translate-x-[175px] md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-50'>
+                <div className='absolute transform translate-x-[60px] translate-y-[20px] md:translate-x-[175px] md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
