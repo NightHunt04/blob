@@ -12,10 +12,6 @@ function App() {
         setLightTheme(true)
         console.log('light mode is on')
       }
-      // else {
-      //   setLightTheme(false)
-      //   console.log('dark mode is on')
-      // }
     }
   }, [])
 
