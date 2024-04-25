@@ -15,8 +15,8 @@ function Header() {
     return (
         <div className={`flex items-center justify-between px-[30px] md:px-[94px] w-full pt-6 pb-6 md:pt-10 cursor-pointer ${lightTheme ? 'border-[#ababab]' : 'border-[#383838]'} border-b-2`}>
             <h1 className='text-[24px] md:text-[30px] font-bold font-roboto-serif' onClick={navigateHome}>
-                <Lg gradient={['to right', '#c2e59c, #be5869']}>
-                m.
+                <Lg gradient={['to right', '#ABDE73, #be5869']}>
+                    m.
                 </Lg>
             </h1>
 
