@@ -73,7 +73,7 @@ function LandContent() {
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
                 <p className={`font-inter text-[25px] md:text-[32px] text-center font-bold z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 max-w-full px-3`}>Chat with the model</p>
-                <p className={`font-inter text-[15px] md:text-[20px] font-regular z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Embrace Curiosity, Empower Learning: Journey into the Depths of Knowledge with AI, Where Every Question Unveils a New Realm of Insight and Understanding</p>
+                <p className={`font-inter text-[14px] md:text-[19px] font-regular z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Embrace Curiosity, Empower Learning: Journey into the Depths of Knowledge with AI, Where Every Question Unveils a New Realm of Insight and Understanding</p>
                 <div className='absolute transform translate-x-[40px] translate-y-[50px] md:translate-x-[235px] md:translate-y-[170px] w-[440px] h-[440px] md:w-[700px] md:h-[800px] opacity-30 z-10'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
                         <defs>                        
@@ -105,8 +105,8 @@ function LandContent() {
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
-                <p className={`font-inter text-[25px] md:text-[29px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 max-w-full px-3`}>Generate images</p>
-                <p className={`font-inter text-[15px] md:text-[18px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Unleash Your Imagination, Transforming Ideas into Captivating Visuals: Harness the Power of AI to Craft Beautiful Images from Your Thoughts and Words</p>
+                <p className={`font-inter text-[25px] md:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 max-w-full px-3`}>Generate images</p>
+                <p className={`font-inter text-[14px] md:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Unleash Your Imagination, Transforming Ideas into Captivating Visuals: Harness the Power of AI to Craft Beautiful Images from Your Thoughts and Words</p>
 
                 <div className='absolute transform translate-x-[130px] translate-y-[70px] md:translate-x-[105px] md:translate-y-[120px] w-[340px] h-[340px] md:w-[600px] md:h-[600px] opacity-30 z-10'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
@@ -139,8 +139,8 @@ function LandContent() {
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
-                <p className={`font-inter text-[25px] md:text-[29px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 max-w-full px-3`}>Tune your own model</p>
-                <p className={`font-inter text-[15px] md:text-[18px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
+                <p className={`font-inter text-[25px] md:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 max-w-full px-3`}>Tune your own model</p>
+                <p className={`font-inter text-[14px] md:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} max-w-full px-6 md:max-w-[580px] text-center pb-12`}>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
 
                 <div className='absolute transform translate-x-[60px] translate-y-[20px] md:translate-x-[175px] md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
                     <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
