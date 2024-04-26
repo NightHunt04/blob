@@ -13,10 +13,12 @@ function MainActionLanding() {
                 <p className='font-bold font-roboto-serif text-[52px] md:text-[100px] -mt-3 leading-[55px]'><Lg gradient={['to right', '#ABDE73, #be5869']}>{displayName}</Lg></p>
             </div>
 
-            <div className='mb-[70px] border-[1px] border-[#c51111] rounded-lg px-3 py-2 w-full md:w-9/12 opacity-80 bg-[#000000]'>
+            <div className='mb-[75px] md:mb-[120px] border-[1px] border-[#c51111] rounded-lg px-3 py-2 w-full md:w-9/12 opacity-80 bg-[#000000]'>
                 <span className='text-red-500 text-[13px] md:text-[17px]'>Note:&nbsp;</span>
-                <span className='text-[12px] md:text-[16px] text-gray-300'>The APIs which are being used for fetching the responses from the below models are reversed engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are some chances of internal server error which isn't in my hands, and for that I apologise.</span>
+                <span className='text-[12px] md:text-[16px] text-gray-300'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are some chances of internal server error which isn't in my hands, and for that I apologise.</span>
             </div>
+
+            <p className='text-[13px] md:text-[16px] font-inter text-gray-400 text-center w-full'>Click on the model you want to try.</p>
 
             <div className={`pt-6 md:pt-[50px] py-2 w-full ${lightTheme ? 'text-gray-900' : 'text-gray-300'}`}>
                 <div className='grid grid-cols-1 md:grid-cols-2 items-start justify-center'>
