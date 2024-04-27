@@ -17,16 +17,16 @@ function ChatModel() {
                 <p className="font-semibold text-[18px] md:text-[21px] py-2 text-left w-full"><span className="text-[#ff9e29]">Mistral 7B</span> (Default model)</p>
                 <p className={`text-[15px] md:text-[17px] ${lightTheme ? 'text-gray-700' : 'text-gray-300'}`}>The Mistral 7B model, crafted by Nova Performance Paragliders, stands out as a high-performance glider favored by experienced pilots. Tailored for intermediate to advanced aviators, it offers a balance of agility, speed, and stability, making it an ideal choice for both cross-country flying and competitive endeavors. With its moderate aspect ratio and refined design, the Mistral 7B ensures precise handling and enhanced aerodynamic efficiency across a wide range of conditions. Renowned for its exceptional performance capabilities and reliability, it remains a top pick for pilots looking to push their boundaries in the skies.</p>
                 <p className="pt-5 pb-3 text-[16px] md:text-[18px] font-medium">Ask some questions from the given example below : </p>
-                <p className="px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] bg-[#3e3e3e]">How much does the cloud weigh?</p>
-                <p className="px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] bg-[#3e3e3e]">How can I incorporate mindfulness into my morning routine?</p>
-                <p className="px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] bg-[#3e3e3e]">How can I overcome writer's block?</p>
-                <p className="px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] bg-[#3e3e3e]">How can I incorporate mindfulness into my morning routine?</p>
+                <p className={`px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How much does the cloud weigh?</p>
+                <p className={`px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
+                <p className={`px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I overcome writer's block?</p>
+                <p className={`px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
             </div>
 
-            <div className="fixed bottom-5 border-[1px] border-gray-500 rounded-lg flex items-center justify-center gap-3 px-2 py-2 shadow-lg bg-[#1b1b1b]">
+            <div className={`fixed bottom-5 border-[1px] rounded-lg flex items-center justify-center gap-3 px-2 py-2 shadow-lg ${lightTheme ? 'bg-[#f4f4f4] border-gray-200' : 'bg-[#1b1b1b] border-gray-500'}`}>
                 <input type="text" className="w-9/12 md:w-[700px] md:px-4 py-1 text-[15px] md:text-[18px] font-inter bg-transparent outline-none" placeholder="Your prompt here"/>
                 <div className="flex items-center justify-center">
-                    <i className="fa-solid fa-paper-plane px-3 md:px-4"></i>
+                    <i className="fa-solid fa-paper-plane px-3 md:px-4 hover:opacity-60 hover:cursor-pointer"></i>
                 </div>
             </div>
         </div>
