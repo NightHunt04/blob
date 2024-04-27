@@ -44,6 +44,6 @@ function MainActionPage() {
             </div>
         </ModelProvider>
     )
-}
+} 
 
 export default MainActionPage

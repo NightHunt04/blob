@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LandContent from './Landing/LandContent/LandContent.jsx'
 import MainActionPage from './components/MainActionPage/MainActionPage.jsx'
 import { ModelProvider } from './context/ModelContext' 
+import ChatModel from './components/ChatModel/ChatModel.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,10 +15,13 @@ const router = createBrowserRouter([
   },
   {
     path : 'action',
-    element : <MainActionPage />
+    element : <MainActionPage />,
+  },
+  {
+    path : 'action/bot-1334',
+    element: <ChatModel />
   }
 ])
-
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
