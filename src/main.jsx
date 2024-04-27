@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element : <MainActionPage />,
   },
   {
-    path : 'action/bot-1334',
+    path : 'action/mistral-7b',
     element: <ChatModel />
   }
 ])

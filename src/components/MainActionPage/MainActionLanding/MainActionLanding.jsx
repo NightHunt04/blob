@@ -30,13 +30,13 @@ function MainActionLanding() {
                         <p className='font-inter text-[15px] md:text-[20px] font-medium ml-3 py-2'>My space</p>
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[850px] mb-8`}>
                             <div className='grid grid-cols-4 items-center justify-center gap-2 w-full md:w-[850px]'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('bot-1334')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('mistral-7b')}>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <Lg gradient={['to right', '#c2e59c, #be5869']}>
                                             <i className="fa-solid fa-robot text-[21px] md:text-[28px]"></i>
                                         </Lg>
                                     </div>
-                                    <p className={`font-inter text-[13px] pt-1 md:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Bot-13340</p>
+                                    <p className={`font-inter text-[13px] pt-1 md:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Mistral 7B</p>
                                 </div>
 
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer'>
