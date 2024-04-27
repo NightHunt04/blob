@@ -23,8 +23,8 @@ function ChatModel() {
                 <p className={`px-3 py-2 my-2 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
             </div>
 
-            <div className={`fixed bottom-5 border-[1px] rounded-lg flex items-center justify-center gap-3 px-2 py-2 shadow-lg ${lightTheme ? 'bg-[#f4f4f4] border-gray-200' : 'bg-[#1b1b1b] border-gray-500'}`}>
-                <input type="text" className="w-9/12 md:w-[700px] md:px-4 py-1 text-[15px] md:text-[18px] font-inter bg-transparent outline-none" placeholder="Your prompt here"/>
+            <div className={`fixed bottom-5 border-[1px] rounded-lg flex items-center justify-center gap-3 px-2 py-2 w-[90%] md:w-[720px] shadow-lg ${lightTheme ? 'bg-[#f4f4f4] border-gray-200' : 'bg-[#1b1b1b] border-gray-500'}`}>
+                <input type="text" className="w-full md:w-[700px] md:px-4 py-1 text-[15px] md:text-[18px] font-inter bg-transparent outline-none" placeholder="Your prompt here"/>
                 <div className="flex items-center justify-center">
                     <i className="fa-solid fa-paper-plane px-3 md:px-4 hover:opacity-60 hover:cursor-pointer"></i>
                 </div>
