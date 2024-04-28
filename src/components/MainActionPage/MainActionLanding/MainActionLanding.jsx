@@ -28,8 +28,8 @@ function MainActionLanding() {
                     {/* custom space */}
                     <div>
                         <p className='font-inter text-[15px] md:text-[20px] font-medium ml-3 py-2'>Models</p>
-                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[800px] mb-8`}>
-                            <div className='grid grid-cols-4 items-center justify-center gap-2 w-full md:w-[780px]'>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[750px] mb-8`}>
+                            <div className='grid grid-cols-4 items-center justify-center gap-2 w-full md:w-[730px]'>
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b')}>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/mistral-7b.jpeg" alt="Mistal" className='w-full h-full object-cover'/>
@@ -53,9 +53,16 @@ function MainActionLanding() {
 
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
-                                        <img src="Assets/llama.jpeg" alt="Gemini" className='w-full h-full object-cover'/>
+                                        <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-[13px] pt-1 md:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>LLama</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('dalle')}>
+                                    <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
+                                        <img src="Assets/dalle.png" alt="Dall-E" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-[13px] pt-1 md:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Dall-E</p>
                                 </div>
 
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer'>
@@ -71,8 +78,8 @@ function MainActionLanding() {
                     {/* models for fun */}
                     <div>
                         <p className='font-inter text-[15px] md:text-[20px] font-medium ml-3 py-2'>Models for fun</p>
-                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[800px] mb-8`}>
-                            <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[780px]'>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[750px] mb-8`}>
+                            <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[730px]'>
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/ai-art.jpeg" alt="Rahul Gandhi" className='w-full h-full object-cover'/>
@@ -135,8 +142,8 @@ function MainActionLanding() {
                     {/* experts */}
                     <div>
                         <p className='font-inter text-[15px] md:text-[20px] font-medium ml-3 py-2'>Experts</p>
-                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[800px] mb-8`}>
-                            <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[780px]'>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} shadow-lg w-full md:w-[750px] mb-8`}>
+                            <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[730px]'>
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <i className="fa-solid fa-robot text-[21px] md:text-[28px] text-red-500"></i>
