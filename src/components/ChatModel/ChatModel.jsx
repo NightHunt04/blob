@@ -105,6 +105,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     }
                 } catch (error) {
                     console.error(error);
+                    setErrorOccured(true)
+                    break
                 }
                 await sleep(4000)
             }
@@ -120,7 +122,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             </div>
 
             <div className={`${hideDescription ? 'flex flex-col' : 'hidden'} pt-[100px] w-[90%] md:w-9/12 items-center justify-center`}>
-                <div className="flex items-center justify-start w-[95%] md:w-6/12 pb-7 gap-3">
+                <div className="flex items-start justify-start w-[95%] md:w-6/12 pb-7 gap-3">
                     <img src={photoURL} alt="profile" className="w-[20px] h-[20px] md:w-[27px] md:h-[27px] flex items-center justify-center rounded-full object-cover" />
                     <p className="font-inter text-[15px] md:text-[19px]">{prevPrompt}</p>
                 </div>
