@@ -2,7 +2,6 @@ import axios from "axios"
 
 async function useGenerateImage({prompt, model_id}) {      
     console.log('this is from util', typeof(model_id))  
-    console.log(typeof(import.meta.env.VITE_APP_MODELS3_GEN_IMAGE_BASE_URL), import.meta.env.VITE_APP_RAPID_API_KEY)
     let options = {
         method: 'POST',
         url: import.meta.env.VITE_APP_MODELS3_GEN_IMAGE_BASE_URL,

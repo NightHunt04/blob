@@ -22,7 +22,6 @@ async function FetchImage({ taskId, requestId }) {
             request_id: requestId
         }
     }
-    let response_gen = ''
     while(true) {
         try {
             let response_gen = await axios.request(options_gen)
