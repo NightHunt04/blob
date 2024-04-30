@@ -1,4 +1,3 @@
-import './App.css'
 import Landing from './Landing/Landing'
 import { ModelProvider } from './context/ModelContext' 
 import { useEffect, useState } from 'react'

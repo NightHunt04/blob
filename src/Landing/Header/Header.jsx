@@ -39,14 +39,17 @@ function Header() {
                 <div className={`flex items-center justify-center w-[30px] h-[30px] md:w-[40px] md:h-[40px] ${lightTheme ? 'bg-slate-900 text-gray-300' : 'bg-gray-400 text-gray-900'} rounded-full border-gray-500 border-2`} onClick={toggleLightTheme}>
                     <i className={`fa-solid ${lightTheme ? 'fa-moon' : 'fa-sun'}`}></i>
                 </div>
-                <button className='entrance-btn bg-[#3b3b3b] font-inter text-[14px] md:text-[17px] px-[8px] py-[4px] md:px-[11px] md:py-[6px] rounded-[28px] text-[#dedede] hover:opacity-80' onClick={handleEntrance}>
-                    {
-                        localStorage.getItem('currentUserDisplayName') !== null ?
-                            <div><span className='text-[14px] px-1 md:text-[16px] font-inter'>Go to action</span></div>
-                        :
-                            <div><i className="fa-brands fa-google px-1 text-[#DB4437]"></i> <span>Sign in</span></div>
-                    }
-                </button>
+                <div className='relative group'>
+                    <div className='absolute rounded-[28px] -inset-[1px] opacity-75 bg-gradient-to-r from-[#ABDE73] to-[#be5869]'></div>
+                    <button className='relative bg-[#323232] group-hover:bg-[#282828] transition duration-300 font-inter text-[14px] md:text-[17px] px-[8px] py-[4px] md:px-[11px] md:py-[6px] rounded-[28px] text-[#dedede]' onClick={handleEntrance}>
+                        {
+                            localStorage.getItem('currentUserDisplayName') !== null ?
+                                <div><span className='text-[14px] px-1 md:text-[16px] font-inter group-hover:text-white transition duration-200'>Go to action</span></div>
+                            :
+                                <div><i className="fa-brands fa-google px-1 text-[#DB4437]"></i> <span className='group-hover:text-white transition duration-200'>Sign in</span></div>
+                        }
+                    </button>
+                </div>
             </div>
         </div>
     )

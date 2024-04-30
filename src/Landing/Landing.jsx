@@ -1,8 +1,3 @@
-import '../App.css'
-import { LinearGradient as Lg } from 'react-text-gradients'
-import Lottie from 'lottie-react'
-// import animationData from '../../public/Assets/abstract-1.json'
-import animationData from '../../public/Assets/abstract-2.json'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import { useModelContext } from '../context/ModelContext'

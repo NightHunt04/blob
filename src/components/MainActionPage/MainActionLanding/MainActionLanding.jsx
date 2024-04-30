@@ -10,14 +10,14 @@ function MainActionLanding() {
 
     return (
         <div className="w-full flex flex-col items-start justify-center px-[20px] md:px-[100px] pt-5">
-            <div className='md:flex items-center justify-center pb-2'>
+            {/* <div className='md:flex items-center justify-center pb-2'>
                 <p className="text-[#555555] font-bold font-roboto-serif text-[52px] md:text-[100px]">Hello,&nbsp;</p>
                 <p className='font-bold font-roboto-serif text-[52px] md:text-[100px] -mt-3 leading-[55px]'><Lg gradient={['to right', '#ABDE73, #be5869']}>{displayName}</Lg></p>
-            </div>
+            </div> */}
 
             <div className='mb-[75px] md:mb-[120px] border-[1px] border-[#c51111] rounded-lg px-3 py-2 w-full md:w-9/12 opacity-80 bg-[#000000]'>
                 <span className='text-red-500 text-[13px] md:text-[17px]'>Note:&nbsp;</span>
-                <span className='text-[12px] md:text-[16px] text-gray-300'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are some chances of internal server error which isn't in my hands, and for that I apologise.</span>
+                <span className='text-[12px] md:text-[16px] text-gray-300'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are may occur internal server error which isn't in my hands, and for that I apologise.</span>
             </div>
 
             <p className='text-[13px] md:text-[16px] font-inter text-gray-400 text-center w-full'>Click on the model you want to try.</p>

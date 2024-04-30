@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import axios from "axios"
-import Lottie from "lottie-react"
-import animationData from '../../../public/Assets/abstract-1.json'
+import useGenerateImage from "../../utils/useGenerateImage"
+import FetchImage from "../../utils/FetchImage"
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator}) {
     // const location = useLocation()
@@ -12,111 +11,126 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     const [prevPrompt, setPrevPrompt] = useState(prompt)
     const [isDisabled, setIsDisabled] = useState(false)
     const [imageURL, setImageURL] = useState('')
-    const [errorOccured, setErrorOccured] = useState('')
     const photoURL = localStorage.getItem('currentUserProfileURL')
-
-    // const [taskId, setTaskId] = useState(null)
-    // const [requestId, setRequestId] = useState(null)
+    let prevPromptNonState = ''
+    let task_id = '', request_id = ''
 
     const navigate = useNavigate()
     const [lightTheme, setLightTheme] = useState(false)
 
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds));
-    }
 
     useEffect(() => {
         if(localStorage.getItem('lightTheme') !== null) {
           if(localStorage.getItem('lightTheme') === 'true') {
             setLightTheme(true)
-            console.log('light mode is on')
           }
         }
-        console.log(modelName, modelDescription, modelImage)
     }, [])
 
-    const handleRequest = async() => {
+    const fetchImage = async() => {
+        const response = await FetchImage({ taskId: task_id, requestId: request_id })
+        console.log(response)
+
+        if(response.status === 1)
+            setImageURL(response.imageURL)
+    }
+
+    const generateImage = async(model_id) => {
+        const response = await useGenerateImage({ prompt: prevPromptNonState, model_id: model_id })
+        console.log(response)
+        task_id = response.task_id
+        request_id = response.request_id
+
+        fetchImage()
+    }
+
+    const handleRequest = () => {
         setHideDescription(true)
+        prevPromptNonState = prompt
+        console.log(prevPromptNonState)
         setPrevPrompt(prompt)
         setPrompt('')
         setIsDisabled(true)
 
         if(modelName === 'Dall-E') {
             setImageURL('')
-            let options = {
-                method: 'POST',
-                url: 'https://models3.p.rapidapi.com/inference',
-                params: {
-                    model_id: '10 (write in body)',
-                    prompt: 'Positive Prompt (write in body)',
-                    negative_prompt: 'Negative Prompt (write in body)',
-                    num_images: '1 (write in body)'
-                },
-                headers: {
-                    'content-type': 'application/json',
-                    'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
-                    'X-RapidAPI-Host': 'models3.p.rapidapi.com'
-                },
-                data: {
-                    model_id: 33,
-                    prompt: prompt,
-                    negative_prompt: 'low quality, low resolution, ugly, deformed, non realistic, low detailed, bad lighting, nsfw, multiple hands, bad face, bad hands, bad body, bad shapes',
-                    num_images: 1
-                }
-            }
+
+            generateImage(33)
+
+            // let options = {
+            //     method: 'POST',
+            //     url: 'https://models3.p.rapidapi.com/inference',
+            //     params: {
+            //         model_id: '10 (write in body)',
+            //         prompt: 'Positive Prompt (write in body)',
+            //         negative_prompt: 'Negative Prompt (write in body)',
+            //         num_images: '1 (write in body)'
+            //     },
+            //     headers: {
+            //         'content-type': 'application/json',
+            //         'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
+            //         'X-RapidAPI-Host': 'models3.p.rapidapi.com'
+            //     },
+            //     data: {
+            //         model_id: 33,
+            //         prompt: prompt,
+            //         negative_prompt: 'low quality, low resolution, ugly, deformed, non realistic, low detailed, bad lighting, nsfw, multiple hands, bad face, bad hands, bad body, bad shapes',
+            //         num_images: 1
+            //     }
+            // }
             
-            let taskId = '', requestId = ''
+            // let taskId = '', requestId = ''
               
-            try {
-                let response = await axios.request(options)
-                taskId = response.data.task_id
-                requestId = response.data.request_id
-            } catch (error) {
-                console.error(error)
-            }
+            // try {
+            //     let response = await axios.request(options)
+            //     taskId = response.data.task_id
+            //     requestId = response.data.request_id
+            // } catch (error) {
+            //     console.error(error)
+            // }
 
-            let options_gen = {
-                method: 'POST',
-                url: 'https://models3.p.rapidapi.com/inference/task',
-                params: {
-                    task_id: '(write in body)task_id from request image generation ',
-                    request_id: '(write in body)request_id from request image generation'
-                },
-                headers: {
-                    'content-type': 'application/json',
-                    'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
-                    'X-RapidAPI-Host': 'models3.p.rapidapi.com'
-                },
-                data: {
-                    task_id: taskId,
-                    request_id: requestId
-                }
-            };
-            let response_gen = ''
+            // let options_gen = {
+            //     method: 'POST',
+            //     url: 'https://models3.p.rapidapi.com/inference/task',
+            //     params: {
+            //         task_id: '(write in body)task_id from request image generation ',
+            //         request_id: '(write in body)request_id from request image generation'
+            //     },
+            //     headers: {
+            //         'content-type': 'application/json',
+            //         'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
+            //         'X-RapidAPI-Host': 'models3.p.rapidapi.com'
+            //     },
+            //     data: {
+            //         task_id: taskId,
+            //         request_id: requestId
+            //     }
+            // };
+            // let response_gen = ''
 
-            while(true) {  
-                try {
-                    let response_gen = await axios.request(options_gen);
-                    console.log(response_gen.data);
+            // while(true) {  
+            //     try {
+            //         let response_gen = await axios.request(options_gen);
+            //         console.log(response_gen.data);
 
-                    if(response_gen.data.message === 'finished') {
-                        setImageURL(response_gen.data.img_urls)
-                        break
-                    }
-                } catch (error) {
-                    console.error(error);
-                    setErrorOccured(true)
-                    break
-                }
-                await sleep(4000)
-            }
+            //         if(response_gen.data.message === 'finished') {
+            //             setImageURL(response_gen.data.img_urls)
+            //             break
+            //         }
+            //     } catch (error) {
+            //         console.error(error);
+            //         setErrorOccured(true)
+            //         break
+            //     }
+            //     await sleep(5000)
+            // }
         }
 
         setIsDisabled(false)
     }
 
     return (
-        <div className={`${lightTheme ? 'bg-[#e8e8e8] text-black' : 'bg-[#151515] text-gray-200'} relative w-full min-h-screen flex flex-col items-center justify-start select-none pb-7 overflow-hidden`}>
+        <div className={`${lightTheme ? 'bg-[#e8e8e8] text-black' : 'bg-[#151515] text-gray-200'} relative w-full min-h-screen flex flex-col items-center justify-start select-none overflow-hidden`}>
             <div className={`fixed px-2 py-1 md:px-4 md:py-2 -left-[1500px] top-[20px] md:left-[80px] md:top-[60px] hover:cursor-pointer hover:opacity-80 rounded-lg ${lightTheme ? 'bg-[#ffffff] shadow-lg' : 'bg-[#333333]'}`} onClick={() => navigate(-1)}>
                 <i className="fa-solid fa-arrow-left text-[16px]"></i>
             </div>
@@ -127,15 +141,15 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     <p className="font-inter text-[15px] md:text-[19px]">{prevPrompt}</p>
                 </div>
                 {
-                    imageURL === '' ? 
+                    imageURL === '' && isImageGenerator ? 
                     <div className="relative w-full flex flex-col items-center justify-center">
-                        <img src="https://i.gifer.com/origin/3c/3c82e43002a5c632edebf76eadc6499a_w200.webp" alt="waiting" className="rounded-lg w-[90%] md:w-6/12 object-cover"/>
+                        <img src="https://i.gifer.com/origin/3c/3c82e43002a5c632edebf76eadc6499a_w200.webp" alt="waiting" className="rounded-lg w-[90%] md:w-[40%] object-cover"/>
                         <p className="absolute text-[14px] md:text-[16px] font-inter bottom-0 md:bottom-[30px]">Wait for a while, generating your image...</p>
                     </div>
                     :
-                    <img src={imageURL} className={`${imageURL !== '' ? 'flex' : 'hidden'} rounded-lg w-[95%] md:w-6/12 object-cover`} />
+                    <img src={imageURL} className={`rounded-lg w-[95%] md:w-[40%] object-cover`} />
                 }
-                <div className={`px-3 py-2 fixed bottom-[100px] rounded-lg mt-[140px] w-9/12 md:w-[550px] ${lightTheme ? 'bg-[#ffffff]' : 'bg-[#343434]'}`}>
+                <div className={`${isImageGenerator ? 'fixed' : 'hidden'} px-3 py-2 bottom-[100px] rounded-lg mt-[140px] w-9/12 md:w-[550px] ${lightTheme ? 'bg-[#ffffff]' : 'bg-[#343434]'}`}>
                     <p className="font-inter text-[14px] md:text-[17px]"><span className="text-red-500 font-medium">Note:&nbsp;</span>You may need to turn off the ad-blockers for this one to get the images.</p>
                 </div>
             </div> 
