@@ -11,9 +11,12 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     const [prevPrompt, setPrevPrompt] = useState(prompt)
     const [isDisabled, setIsDisabled] = useState(false)
     const [imageURL, setImageURL] = useState('')
+    const [isServerError, setIsServerError] = useState(false)
+
+    let isRegenerate = false
     const photoURL = localStorage.getItem('currentUserProfileURL')
     let prevPromptNonState = ''
-    let task_id = '', request_id = ''
+    // let task_id = '', request_id = ''
 
     const navigate = useNavigate()
     const [lightTheme, setLightTheme] = useState(false)
@@ -27,35 +30,53 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         }
     }, [])
 
-    const fetchImage = async() => {
+    // to fetch the generated image
+    const fetchImage = async(task_id, request_id) => {
         const response = await useFetchImage({ taskId: task_id, requestId: request_id })
         console.log(response)
 
-        if(response.status === 1)
+        if(response.status === 1) {
             setImageURL(response.imageURL)
+            
+            if(isRegenerate)
+                isRegenerate = false
+        }
+
+        else 
+            setIsServerError(true)
     }
 
+    // to generate the image
     const generateImage = async(model_id) => {
         const response = await useGenerateImage({ prompt: prevPromptNonState, model_id: model_id })
         console.log(response)
-        task_id = response.task_id
-        request_id = response.request_id
+        let task_id = response.task_id
+        let request_id = response.request_id
 
-        fetchImage()
+        fetchImage(task_id, request_id)
     }
 
     const handleRequest = () => {
         setHideDescription(true)
-        prevPromptNonState = prompt
+        console.log('isRegenerate', isRegenerate)
+        setIsServerError(false)
+
+        if(!isRegenerate) {
+            prevPromptNonState = prompt
+            localStorage.setItem('prevPrompt', prevPromptNonState)
+            setPrevPrompt(prompt)
+            setPrompt('')
+        }
+        else {
+            prevPromptNonState = localStorage.getItem('prevPrompt')
+        }
+
         console.log(prevPromptNonState)
-        setPrevPrompt(prompt)
-        setPrompt('')
         setIsDisabled(true)
 
         if(modelName === 'Dall-E') {
             setImageURL('')
-
-            generateImage(33)
+            generateImage(33) // model id for dalle
         }
 
         setIsDisabled(false)
@@ -73,14 +94,32 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     <p className="font-inter text-[15px] md:text-[19px]">{prevPrompt}</p>
                 </div>
                 {
-                    imageURL === '' && isImageGenerator ? 
+                    imageURL === '' && isImageGenerator && !isServerError ? 
                     <div className="relative w-full flex flex-col items-center justify-center">
                         <img src="https://i.gifer.com/origin/3c/3c82e43002a5c632edebf76eadc6499a_w200.webp" alt="waiting" className="rounded-lg w-[90%] md:w-[40%] object-cover"/>
-                        <p className="absolute text-[14px] md:text-[16px] font-inter bottom-0 md:bottom-[30px]">Wait for a while, generating your image...</p>
+                        <p className="absolute text-[14px] text-gray-400 md:text-[17px] font-inter -bottom-8 md:bottom-[30px]">Wait for a while, generating your image...</p>
                     </div>
                     :
                     <img src={imageURL} className={`rounded-lg w-[95%] md:w-[40%] object-cover`} />
                 }
+
+                {/* internal server indicator */}
+                <div className={`${isServerError ? 'flex' : 'hidden'} rounded-lg p-4 flex-col items-center justify-center shadow-md w-[95%] md:w-[40%] ${lightTheme ? 'bg-white' : 'bg-[#282828]'}`}>
+                    <p className="bg-red-600 font-inter rounded-lg px-2 py-1 md:px-3 md:py-2 font-medium text-white text-[13px] md:text-[15px]">Internal server error!</p>
+                    <img src="https://i.imgflip.com/f0pti.jpg" alt="internal server error" className="my-5 rounded-lg w-full object-cover"/>
+                    <p className="font-inter text-[14px] w-full text-center md:text-[17px] ">Please, try again by re-writing your prompt! Or if it's not responding then try again later.</p>
+                </div>
+                {/* re-generate button */}
+                <button 
+                    className={`${imageURL !== '' && isImageGenerator ? 'flex' : 'hidden'} gap-1 px-2 py-1 md:px-3 md:py-2 ${lightTheme ? 'bg-white' : 'bg-[#343434]'} items-center justify-center text-[13px] md:text-[15px] font-inter font-medium border-[1px] border-gray-500 shadow-md hover:opacity-80 mt-5 rounded-lg`} 
+                    onClick={() => {
+                        isRegenerate = true
+                        handleRequest()
+                    }}>
+                        Re-generate 
+                    <i className="fa-solid fa-arrows-rotate text-[11px] md:text-[13px]"></i>
+                </button>
+                
                 <div className={`${isImageGenerator ? 'fixed' : 'hidden'} px-3 py-2 bottom-[100px] rounded-lg mt-[140px] w-9/12 md:w-[550px] ${lightTheme ? 'bg-[#ffffff]' : 'bg-[#343434]'}`}>
                     <p className="font-inter text-[14px] md:text-[17px]"><span className="text-red-500 font-medium">Note:&nbsp;</span>You may need to turn off the ad-blockers for this one to get the images.</p>
                 </div>
