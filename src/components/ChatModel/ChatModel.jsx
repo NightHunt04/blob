@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import useGenerateImage from "../../utils/useGenerateImage"
-import FetchImage from "../../utils/FetchImage"
+import useFetchImage from "../../utils/useFetchImage"
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator}) {
     // const location = useLocation()
@@ -28,7 +28,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     }, [])
 
     const fetchImage = async() => {
-        const response = await FetchImage({ taskId: task_id, requestId: request_id })
+        const response = await useFetchImage({ taskId: task_id, requestId: request_id })
         console.log(response)
 
         if(response.status === 1)
@@ -56,74 +56,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setImageURL('')
 
             generateImage(33)
-
-            // let options = {
-            //     method: 'POST',
-            //     url: 'https://models3.p.rapidapi.com/inference',
-            //     params: {
-            //         model_id: '10 (write in body)',
-            //         prompt: 'Positive Prompt (write in body)',
-            //         negative_prompt: 'Negative Prompt (write in body)',
-            //         num_images: '1 (write in body)'
-            //     },
-            //     headers: {
-            //         'content-type': 'application/json',
-            //         'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
-            //         'X-RapidAPI-Host': 'models3.p.rapidapi.com'
-            //     },
-            //     data: {
-            //         model_id: 33,
-            //         prompt: prompt,
-            //         negative_prompt: 'low quality, low resolution, ugly, deformed, non realistic, low detailed, bad lighting, nsfw, multiple hands, bad face, bad hands, bad body, bad shapes',
-            //         num_images: 1
-            //     }
-            // }
-            
-            // let taskId = '', requestId = ''
-              
-            // try {
-            //     let response = await axios.request(options)
-            //     taskId = response.data.task_id
-            //     requestId = response.data.request_id
-            // } catch (error) {
-            //     console.error(error)
-            // }
-
-            // let options_gen = {
-            //     method: 'POST',
-            //     url: 'https://models3.p.rapidapi.com/inference/task',
-            //     params: {
-            //         task_id: '(write in body)task_id from request image generation ',
-            //         request_id: '(write in body)request_id from request image generation'
-            //     },
-            //     headers: {
-            //         'content-type': 'application/json',
-            //         'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
-            //         'X-RapidAPI-Host': 'models3.p.rapidapi.com'
-            //     },
-            //     data: {
-            //         task_id: taskId,
-            //         request_id: requestId
-            //     }
-            // };
-            // let response_gen = ''
-
-            // while(true) {  
-            //     try {
-            //         let response_gen = await axios.request(options_gen);
-            //         console.log(response_gen.data);
-
-            //         if(response_gen.data.message === 'finished') {
-            //             setImageURL(response_gen.data.img_urls)
-            //             break
-            //         }
-            //     } catch (error) {
-            //         console.error(error);
-            //         setErrorOccured(true)
-            //         break
-            //     }
-            //     await sleep(5000)
-            // }
         }
 
         setIsDisabled(false)

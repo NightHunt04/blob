@@ -1,6 +1,6 @@
 import axios from "axios"
 
-async function FetchImage({ taskId, requestId }) {
+async function useFetchImage({ taskId, requestId }) {
     const sleep = (milliseconds) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds));
     }
@@ -39,4 +39,4 @@ async function FetchImage({ taskId, requestId }) {
     }
 }
 
-export default FetchImage
+export default useFetchImage
