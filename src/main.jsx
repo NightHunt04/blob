@@ -58,7 +58,18 @@ const router = createBrowserRouter([
               modelDescription={'DALL-E is an artificial intelligence (AI) tool that generates images from text prompts in various styles, including paintings, emoji, and photorealistic imagery. It uses natural language processing (NLP), large language models (LLMs), and diffusion processing to create new images.'}
               modelImage={'../Assets/dalle.png'}
               modelTitleColor={'text-gray-400'}
-              isImageGenerator={true}/>
+              isImageGenerator={true}
+              showcaseImages={'https://api.time.com/wp-content/uploads/2022/11/best-inventions-2022-OpenAI-DALL-E-2.jpg'}/>
+  },
+  {
+    path: 'action/sdxl',
+    element: <ChatModel 
+              modelName={'SDXL'}
+              modelDescription={"SDXL stands for Stable Diffusion XL, and it's an open-source text-to-image model that can generate high-resolution images from text prompts. SDXL uses deep learning techniques to interpret text descriptions and produce images that match the prompt's intent."}
+              modelImage={'0'}
+              modelTitleColor={'text-orange-400'}
+              isImageGenerator={true}
+              showcaseImages={'https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/01.png'}/>
   },
   {
     path : 'action/rahul-gandhi',
