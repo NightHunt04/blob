@@ -52,6 +52,16 @@ const router = createBrowserRouter([
               isImageGenerator={false}/>
   },
   {
+    path: 'action/pollinations',
+    element: <ChatModel 
+              modelName={'Pollinations'}
+              modelDescription={"Pollinations is designed to bridge the gap between AI and human creativity, and is intended for content creators, artists, and anyone interested in AI-assisted creation. The platform's team includes data scientists, machine-learning specialists, artists, and futurists."}
+              modelImage={'../Assets/pollination.png'}
+              modelTitleColor={'text-yellow-400'}
+              isImageGenerator={true}
+              showcaseImages={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShRo4yLC0LiNnX0q8JOhyj9A9MhOGdcuwDfOA2UL7phg&s'}/>
+  },
+  {
     path: 'action/dalle',
     element: <ChatModel 
               modelName={'Dall-E'}

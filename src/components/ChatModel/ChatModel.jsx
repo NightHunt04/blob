@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import useGenerateImage from "../../utils/useGenerateImage"
 import useFetchImage from "../../utils/useFetchImage"
+import useGenPollinationsImg from "../../utils/useGenPollinationsImg"
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
     // const location = useLocation()
@@ -56,6 +57,11 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         fetchImage(task_id, request_id)
     }
 
+    // to generate pollinations image
+    const generatePollinationsImage = async() => {
+        await useGenPollinationsImg({ prompt : prevPromptNonState })
+    }
+
     const handleRequest = () => {
         setHideDescription(true)
         console.log('isRegenerate', isRegenerate)
@@ -80,6 +86,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
         else if(modelName === 'SDXL')
             generateImage(10)
+
+        else if(modelName === 'Pollinations') 
+            generatePollinationsImage()
 
         setIsDisabled(false)
     }

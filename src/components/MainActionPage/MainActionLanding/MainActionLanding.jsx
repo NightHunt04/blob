@@ -81,6 +81,13 @@ function MainActionLanding() {
                             {/* image generators */}
                             <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[730px]'>
 
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('pollinations')}>
+                                    <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
+                                        <img src="Assets/pollination.png" alt="Pollinations" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-[13px] pt-1 md:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Pollinations</p>
+                                </div>
+
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('dalle')}>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/dalle.png" alt="Dall-E" className='w-full h-full object-cover'/>
@@ -172,7 +179,6 @@ function MainActionLanding() {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
