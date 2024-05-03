@@ -1,7 +1,7 @@
 import axios from "axios"
 
 async function useGenPollinationsImg({ prompt }) {
-    const BASE_URL = 'http://admin1334.pythonanywhere.com/hub'
+    const BASE_URL = 'https://admin1334.pythonanywhere.com/hub'
     const params = {
         'prompt' : prompt,
         'model' : '10'
