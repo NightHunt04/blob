@@ -59,7 +59,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
     // to generate pollinations image
     const generatePollinationsImage = async() => {
-        await useGenPollinationsImg({ prompt : prevPromptNonState })
+        const response = await useGenPollinationsImg({ prompt : prevPromptNonState })
+        setImageURL(response)
     }
 
     const handleRequest = () => {
@@ -87,8 +88,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else if(modelName === 'SDXL')
             generateImage(10)
 
-        else if(modelName === 'Pollinations') 
+        else if(modelName === 'Pollinations') { 
             generatePollinationsImage()
+        }
 
         setIsDisabled(false)
     }

@@ -8,7 +8,7 @@ async function useGenPollinationsImg({ prompt }) {
     }
 
     const response = await axios.get(BASE_URL, { params : params })
-    console.log(response)
+    return response.data.response
 }
 
 export default useGenPollinationsImg
