@@ -113,7 +113,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                         <p className="absolute text-[14px] text-gray-400 md:text-[17px] font-inter -bottom-8 md:bottom-[30px]">Wait for a while, generating your image...</p>
                     </div>
                     :
-                    <img src={imageURL} className={`rounded-lg w-[95%] md:w-[40%] object-cover`} />
+                    <img src={imageURL} alt='try again' className={`rounded-lg w-[95%] md:w-[40%] object-cover`} />
                 }
 
                 {/* internal server indicator */}

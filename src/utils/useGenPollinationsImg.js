@@ -1,7 +1,7 @@
 import axios from "axios"
 
 async function useGenPollinationsImg({ prompt }) {
-    const BASE_URL = 'https://admin1334.pythonanywhere.com/hug'
+    const BASE_URL = import.meta.env.VITE_APP_ADMIN_POLLINATIONS_BASE_URL
     const params = {
         'prompt' : prompt,
         'model' : '10'
