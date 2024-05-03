@@ -43,8 +43,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 isRegenerate = false
         }
 
-        else 
-            setIsServerError(true)
+        else setIsServerError(true)
     }
 
     // to generate the image
@@ -60,12 +59,16 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     // to generate pollinations image
     const generatePollinationsImage = async() => {
         const response = await useGenPollinationsImg({ prompt : prevPromptNonState })
-        setImageURL(response)
+
+        if(response !== 'ERROR')
+            setImageURL(response)
+        else setIsServerError(true)
     }
 
     const handleRequest = () => {
         setHideDescription(true)
         console.log('isRegenerate', isRegenerate)
+
         setIsServerError(false)
 
         if(!isRegenerate) {
@@ -86,11 +89,15 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             generateImage(33) // model id for dalle
 
         else if(modelName === 'SDXL')
-            generateImage(10)
-
-        else if(modelName === 'Pollinations') { 
-            generatePollinationsImage()
+            generateImage(10) // model id for sdxl
+    
+        else if(modelName === 'SD') {
+            generateImage(16) // model id for sd
+            console.log('bava apun toh sd h')
         }
+
+        else if(modelName === 'Pollinations') 
+            generatePollinationsImage()
 
         setIsDisabled(false)
     }

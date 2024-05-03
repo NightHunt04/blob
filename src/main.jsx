@@ -72,6 +72,16 @@ const router = createBrowserRouter([
               showcaseImages={'https://api.time.com/wp-content/uploads/2022/11/best-inventions-2022-OpenAI-DALL-E-2.jpg'}/>
   },
   {
+    path: 'action/sd',
+    element: <ChatModel 
+              modelName={'SD'}
+              modelDescription={"Stable Diffusion is open source and is a generative artificial intelligence (AI) model that creates photorealistic images from text prompts. It uses deep learning to generate images from text, and can also create videos and animations."}
+              modelImage={'0'}
+              modelTitleColor={'text-yellow-400'}
+              isImageGenerator={true}
+              showcaseImages={'https://cdm.link/app/uploads/2022/08/stablediffusion.jpg'}/>
+  },
+  {
     path: 'action/sdxl',
     element: <ChatModel 
               modelName={'SDXL'}
