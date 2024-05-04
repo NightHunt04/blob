@@ -4,10 +4,9 @@ import useGenerateImage from "../../utils/useGenerateImage"
 import useFetchImage from "../../utils/useFetchImage"
 import useGenPollinationsImg from "../../utils/useGenPollinationsImg"
 import useGenStableDiffusion from "../../utils/useGenStableDiffusion"
+import useGenProdia from "../../utils/useGenProdia"
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
-    // const location = useLocation()
-    // const { modelName, modelDescription, modelImage } = location.state || {};
     const [hideDescription, setHideDescription] = useState(false)
     const [prompt, setPrompt] = useState('')
     const [prevPrompt, setPrevPrompt] = useState(prompt)
@@ -18,7 +17,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     let isRegenerate = false
     const photoURL = localStorage.getItem('currentUserProfileURL')
     let prevPromptNonState = ''
-    // let task_id = '', request_id = ''
 
     const navigate = useNavigate()
     const [lightTheme, setLightTheme] = useState(false)
@@ -66,13 +64,22 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else setIsServerError(true)
     }
 
+    // to generate sd images from nexra's api
     const generateStableDiff = async() => {
-        const url = await useGenStableDiffusion({ prompt : prevPromptNonState })
-        if(url === 'ERROR')
+        const response = await useGenStableDiffusion({ prompt : prevPromptNonState })
+        if(response === 'ERROR')
             setIsServerError(true)
         else
-            setImageURL(url)
-        
+            setImageURL(response)
+    }
+
+    // to generate prodia images from nexra's api
+    const generateProdia = async() => {
+        const response = await useGenProdia({ prompt : prevPromptNonState})
+        if(response === 'ERROR')
+            setIsServerError(true)
+        else
+            setImageURL(response)
     }
 
     const handleRequest = () => {
@@ -101,12 +108,14 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else if(modelName === 'SDXL')
             generateImage(10) // model id for sdxl
     
-        else if(modelName === 'SD') {
+        else if(modelName === 'SD') 
             generateStableDiff()
-        }
 
         else if(modelName === 'Pollinations') 
             generatePollinationsImage()
+
+        else if(modelName === 'Prodia')
+            generateProdia()
 
         setIsDisabled(false)
     }

@@ -92,6 +92,16 @@ const router = createBrowserRouter([
               showcaseImages={'https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/01.png'}/>
   },
   {
+    path: 'action/prodia',
+    element: <ChatModel 
+              modelName={'Prodia'}
+              modelDescription={"Prodia Labs provides an AI-powered image generation API that allows you to easily integrate generative AI capabilities into your applications. Their Diffusion API leverages stable diffusion models to generate stunning visuals from text prompts within seconds."}
+              modelImage={'../Assets/prodia.png'}
+              modelTitleColor={'text-yellow-500'}
+              isImageGenerator={true}
+              showcaseImages={'https://framerusercontent.com/images/1R4HMVwOTPISKT7dGZl6dkkTVLo.png'}/>
+  },
+  {
     path : 'action/rahul-gandhi',
     element: <ChatModel 
               modelName={'Rahul Gandhi'} 
