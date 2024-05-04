@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import useGenerateImage from "../../utils/useGenerateImage"
 import useFetchImage from "../../utils/useFetchImage"
 import useGenPollinationsImg from "../../utils/useGenPollinationsImg"
+import useGenStableDiffusion from "../../utils/useGenStableDiffusion"
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
     // const location = useLocation()
@@ -65,6 +66,15 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else setIsServerError(true)
     }
 
+    const generateStableDiff = async() => {
+        const url = await useGenStableDiffusion({ prompt : prevPromptNonState })
+        if(url === 'ERROR')
+            setIsServerError(true)
+        else
+            setImageURL(url)
+        
+    }
+
     const handleRequest = () => {
         setHideDescription(true)
         console.log('isRegenerate', isRegenerate)
@@ -92,8 +102,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             generateImage(10) // model id for sdxl
     
         else if(modelName === 'SD') {
-            generateImage(16) // model id for sd
-            console.log('bava apun toh sd h')
+            generateStableDiff()
         }
 
         else if(modelName === 'Pollinations') 
