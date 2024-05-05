@@ -124,10 +124,16 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setImageURL(response)
     }
 
-    const handleRequest = () => {
+    const handleRequest = (defaultQuestion=false, question) => {
         setHideDescription(true)
 
         setIsServerError(false)
+
+        if(defaultQuestion) {
+            prevPromptNonState = question
+            console.log(question)
+            localStorage.setItem('prevPrompt', prevPromptNonState)
+        }
 
         if(!isRegenerate) {
             prevPromptNonState = prompt
@@ -135,10 +141,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setPrevPrompt(prompt)
             setPrompt('')
         }
-        else {
-            prevPromptNonState = localStorage.getItem('prevPrompt')
-        }
-
+        
+        prevPromptNonState = localStorage.getItem('prevPrompt')
+        
         console.log(prevPromptNonState)
         setIsDisabled(true)
         setImageURL('')
@@ -159,6 +164,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             generateProdia()
 
         else if(modelName === 'OpenHermes') {
+            console.log('in', prevPromptNonState)
             const newUuid = uuid()
             const message = {
                 isSentFromUser : true,
@@ -175,7 +181,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             const messageV2 = {
                 isSentFromUser : false,
                 text : '',
-                profilePhotoURL : '../../../../public/Assets/openhermes.jpg',
+                profilePicture : modelImage,
                 uuid : newUuid2
             }
             setMessages(prev => [...prev, messageV2])
@@ -264,9 +270,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     !isImageGenerator ? 
                     <div className="w-full">
                         <p className="pt-8 pb-3 text-[16px] md:text-[18px] font-medium">Ask some questions from the given example below : </p>
-                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onclick={() => {
-                                                                                                                                                                                        setPrompt('How much does the cloud weigh?')
-                                                                                                                                                                                        handleRequest()
+                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onClick={() => {
+                                                                                                                                                                                        handleRequest(true, 'How much does the cloud weigh?')
                                                                                                                                                                                         }}>How much does the cloud weigh?</p>
                         <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
                         <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I overcome writer's block?</p>
