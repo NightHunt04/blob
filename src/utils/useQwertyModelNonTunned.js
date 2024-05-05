@@ -3,20 +3,16 @@ import axios from "axios"
 async function useQwertyModelNonTunned({ prompt, modelId }) {
     const options = {
         method: 'POST',
-        url: 'https://models3.p.rapidapi.com/',
+        url: import.meta.env.VITE_APP_QWERTY_BASE_URL,
         params: {
           model_id: modelId,
           prompt: prompt
         },
         headers: {
           'content-type': 'application/json',
-          'X-RapidAPI-Key': '7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71',
+          'X-RapidAPI-Key': import.meta.env.VITE_APP_RAPID_API_KEY,
           'X-RapidAPI-Host': 'models3.p.rapidapi.com'
         },
-        data: {
-          key1: 'value',
-          key2: 'value'
-        }
       }
       
       try {

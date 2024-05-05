@@ -7,6 +7,7 @@ import useGenStableDiffusion from "../../utils/useGenStableDiffusion"
 import useGenProdia from "../../utils/useGenProdia"
 import useQwertyModelNonTunned from "../../utils/useQwertyModelNonTunned"
 import uuid from 'react-uuid'
+import useHuggingFaceModels from "../../utils/useHugginFaceModels"
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -98,8 +99,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
     // call the qwerty chat completion model
     const callQwertyModel = async(prompt, modelId, newUuid) => {
-
-
         const response = await useQwertyModelNonTunned({ prompt : prompt, modelId : modelId })
 
         if(response.code === 2) {
@@ -122,6 +121,54 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setIsServerError(true)
         else
             setImageURL(response)
+    }
+
+    // call admin's api
+    const callAdminHugFaceModels = async(prompt, model, newUuid) => {
+        const response = await useHuggingFaceModels({ prompt : prompt, model : model })
+
+        if(response.status === 200) {
+            startAnimation = false
+            const respondedText = response.data.response
+            let text = ''
+            for(let i = 0; i < respondedText.length; i++) {
+                text += respondedText[i]
+                setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
+                await delay(3)
+                dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
+            }
+        }
+    }
+
+    const setupMessage = (prevPromptNonState, modelId) => {
+        const newUuid = uuid()
+            const message = {
+                isSentFromUser : true,
+                text : prevPromptNonState,
+                profilePicture : profilePhotoURL,
+                uuid : newUuid
+            }
+
+            setMessages(prev => [...prev, message])
+
+            dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start' })
+
+            const newUuid2 = uuid()
+            const messageV2 = {
+                isSentFromUser : false,
+                text : '',
+                profilePicture : modelImage,
+                uuid : newUuid2
+            }
+            setMessages(prev => [...prev, messageV2])
+            startAnimation = true
+            loadingAnimation(newUuid2)
+
+            if(modelName === 'OpenHermes' || modelName === 'LLama') 
+                callQwertyModel(prevPromptNonState, modelId, newUuid2)
+
+            else if(modelName === 'Mistral 7B')
+                callAdminHugFaceModels(prevPromptNonState, modelId, newUuid2)
     }
 
     const handleRequest = (defaultQuestion=false, question) => {
@@ -163,39 +210,35 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else if(modelName === 'Prodia')
             generateProdia()
 
-        else if(modelName === 'OpenHermes') {
-            console.log('in', prevPromptNonState)
-            const newUuid = uuid()
-            const message = {
-                isSentFromUser : true,
-                text : prevPromptNonState,
-                profilePicture : profilePhotoURL,
-                uuid : newUuid
+        else if(modelName === 'OpenHermes' || modelName === 'LLama') {
+            let modelId = '-1'
+            switch(modelName) {
+                case 'OpenHermes': 
+                    modelId = '27'
+                    break
+                
+                case 'LLama':
+                    modelId = '18'
+                    break
             }
+            setupMessage(prevPromptNonState, modelId)
+        }
 
-            setMessages(prev => [...prev, message])
-
-            dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start' })
-
-            const newUuid2 = uuid()
-            const messageV2 = {
-                isSentFromUser : false,
-                text : '',
-                profilePicture : modelImage,
-                uuid : newUuid2
+        else if(modelName === 'Mistral 7B') {
+            let modelId = '-1'
+            switch(modelName) {
+                case 'Mistral 7B':
+                    modelId = '6'
+                    break
             }
-            setMessages(prev => [...prev, messageV2])
-            startAnimation = true
-            loadingAnimation(newUuid2)
-
-            callQwertyModel(prevPromptNonState, '27', newUuid2)
+            setupMessage(prevPromptNonState, modelId)
         }
 
         setIsDisabled(false)
     }
 
     return (
-        <div className={`${lightTheme ? 'bg-[#e8e8e8] text-black' : 'bg-[#151515] text-gray-200'} relative w-full min-h-screen flex flex-col items-center justify-start select-none overflow-hidden`}>
+        <div className={`${lightTheme ? 'bg-[#e8e8e8] text-black' : 'bg-[#151515] text-gray-200'} relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden`}>
             
             {/* back button */}
             <div className={`fixed px-2 py-1 md:px-4 md:py-2 -left-[1500px] top-[20px] md:left-[80px] md:top-[60px] hover:cursor-pointer hover:opacity-80 rounded-lg ${lightTheme ? 'bg-[#ffffff] shadow-lg' : 'bg-[#333333]'}`} onClick={() => navigate(-1)}>
