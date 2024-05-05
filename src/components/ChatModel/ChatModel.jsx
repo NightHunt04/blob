@@ -10,6 +10,7 @@ import uuid from 'react-uuid'
 import useHuggingFaceModels from "../../utils/useHugginFaceModels"
 import useGeminiChatModel from "../../utils/useGeminiChatModel"
 import './style.css'
+import Highlight from 'react-highlight'
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -169,23 +170,24 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             let end = false
             for (let i = 0; i < respondedText.length; i++) {
                 if (i < respondedText.length - 2) {
-                  if (respondedText.slice(i, i + 3) === '```' && !end) {
-                    modifiedText += '<p class="code">'
-                    end = true
-                    i += 2   
-                  } else if (respondedText.slice(i, i + 3) === '```' && end) {
-                    modifiedText += '</p>'
-                    end = false
-                    i += 2
-                  } else {
+                    if (respondedText.slice(i, i + 3) === '```' && !end) {
+                        modifiedText += '<p class="code">'
+                        modifiedText += '<Highlight>'
+                        end = true
+                        i += 2   
+                    } else if (respondedText.slice(i, i + 3) === '```' && end) {
+                        modifiedText += '</Highlight>'
+                        modifiedText += '</p>'
+                        end = false
+                        i += 2
+                    } else {
+                        modifiedText += respondedText[i]
+                    }
+                    } else {
                     modifiedText += respondedText[i]
-                  }
-                } else {
-                  modifiedText += respondedText[i]
                 }
-              }
-            console.log(modifiedText)
-            return modifiedText
+            }
+        return modifiedText
     }
 
     // call admin's api
