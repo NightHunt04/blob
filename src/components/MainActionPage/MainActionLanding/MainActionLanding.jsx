@@ -28,7 +28,7 @@ function MainActionLanding() {
                     {/* custom space */}
                     <div>
                         <p className='font-inter text-[15px] md:text-[20px] font-medium ml-3 py-2'>Models</p>
-                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full md:w-[750px] mb-8 border-2 border-[#cecece]`}>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full md:w-[750px] mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'}`}>
 
                             {/* chat completion */}
                             <p className={`font-inter font-medium mb-6 text-[14px] md:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center md:text-left w-[90%]`}>Chat completion models</p>
@@ -116,7 +116,7 @@ function MainActionLanding() {
                     {/* models for fun */}
                     <div>
                         <p className='font-inter text-[15px] md:text-[20px] font-medium ml-3 py-2'>Models for fun</p>
-                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full md:w-[750px] mb-8 border-2 border-[#cecece]`}>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full md:w-[750px] mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'}`}>
                             <p className={`font-inter font-medium mb-6 text-[14px] md:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} w-[90%] text-center md:text-left`}>Fine-tunned models</p>
 
                             <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[730px]'>

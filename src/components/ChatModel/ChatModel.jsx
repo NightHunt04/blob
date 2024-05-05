@@ -8,6 +8,8 @@ import useGenProdia from "../../utils/useGenProdia"
 import useQwertyModelNonTunned from "../../utils/useQwertyModelNonTunned"
 import uuid from 'react-uuid'
 import useHuggingFaceModels from "../../utils/useHugginFaceModels"
+import useGeminiChatModel from "../../utils/useGeminiChatModel"
+import './style.css'
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -39,7 +41,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     // to fetch the generated image
     const fetchImage = async(task_id, request_id) => {
         const response = await useFetchImage({ taskId: task_id, requestId: request_id })
-        console.log(response)
 
         if(response.status === 1) {
             setImageURL(response.imageURL)
@@ -54,7 +55,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     // to generate the image
     const generateImage = async(model_id) => {
         const response = await useGenerateImage({ prompt: prevPromptNonState, model_id: model_id })
-        console.log(response)
         let task_id = response.task_id
         let request_id = response.request_id
 
@@ -105,8 +105,10 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             startAnimation = false
             const respondedText = response.text
             let text = ''
-            for(let i = 0; i < respondedText.length; i++) {
-                text += respondedText[i]
+            const modifiedText = separateTheCode(respondedText)
+
+            for(let i = 0; i < modifiedText.length; i++) {
+                text += modifiedText[i]
                 setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
                 await delay(3)
                 dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
@@ -123,16 +125,38 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setImageURL(response)
     }
 
-    // call admin's api
-    const callAdminHugFaceModels = async(prompt, model, newUuid) => {
-        const response = await useHuggingFaceModels({ prompt : prompt, model : model })
+    const callGeminiChatModel = async(prompt, newUuid) => {
+        const response = await useGeminiChatModel({ prompt : prompt})
 
-        if(response.status === 200) {
+        if(response.code === 2 ) {
             startAnimation = false
-            const respondedText = response.data.response
+            let respondedText = response.response
             let text = ''
-            for(let i = 0; i < respondedText.length; i++) {
-                text += respondedText[i]
+            let filteredRespondedText = ''
+            let k = 0
+            let end = false
+            while(k < respondedText.length) {
+                if(k < respondedText.length - 1 && respondedText[k] === '*' && respondedText[k + 1] === '*') {
+                    if(end) {
+                        filteredRespondedText += '</b>'
+                        end = false
+                    } else {
+                        filteredRespondedText += '<b>'
+                        end = true
+                    }
+                    k += 2
+                } else if(k < respondedText.length - 1 && respondedText[k] === '*' && respondedText[k + 1] !== '*') {
+                    k += 1
+                } else {
+                    filteredRespondedText += respondedText[k]
+                    k += 1
+                }
+            }
+
+            const modifiedText = separateTheCode(filteredRespondedText)
+
+            for(let i = 0; i < modifiedText.length; i++) {
+                text += modifiedText[i]
                 setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
                 await delay(3)
                 dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
@@ -140,7 +164,52 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         }
     }
 
-    const setupMessage = (prevPromptNonState, modelId) => {
+    const separateTheCode = (respondedText) => {
+        let modifiedText = ''
+            let end = false
+            for (let i = 0; i < respondedText.length; i++) {
+                if (i < respondedText.length - 2) {
+                  if (respondedText.slice(i, i + 3) === '```' && !end) {
+                    modifiedText += '<p class="code">'
+                    end = true
+                    i += 2   
+                  } else if (respondedText.slice(i, i + 3) === '```' && end) {
+                    modifiedText += '</p>'
+                    end = false
+                    i += 2
+                  } else {
+                    modifiedText += respondedText[i]
+                  }
+                } else {
+                  modifiedText += respondedText[i]
+                }
+              }
+            console.log(modifiedText)
+            return modifiedText
+    }
+
+    // call admin's api
+    const callAdminHugFaceModels = async(prompt, model, newUuid) => {
+        const response = await useHuggingFaceModels({ prompt : prompt, model : model })
+
+        if(response.status === 200) {
+            startAnimation = false
+            const respondedText = response.data.response
+            console.log(respondedText)
+            
+            const modifiedText = separateTheCode(respondedText)
+
+            let text = ''
+            for(let i = 0; i < modifiedText.length; i++) {
+                text += modifiedText[i]
+                setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
+                await delay(3)
+                dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
+            }
+        }
+    }
+
+    const setupMessage = (prevPromptNonState, modelId=null) => {
         const newUuid = uuid()
             const message = {
                 isSentFromUser : true,
@@ -169,11 +238,14 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
             else if(modelName === 'Mistral 7B')
                 callAdminHugFaceModels(prevPromptNonState, modelId, newUuid2)
+
+            else if(modelName === 'Gemini')
+                callGeminiChatModel(prevPromptNonState, newUuid2)
     }
 
     const handleRequest = (defaultQuestion=false, question) => {
         setHideDescription(true)
-
+        setIsDisabled(true)
         setIsServerError(false)
 
         if(defaultQuestion) {
@@ -191,7 +263,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         
         prevPromptNonState = localStorage.getItem('prevPrompt')
         
-        console.log(prevPromptNonState)
         setIsDisabled(true)
         setImageURL('')
 
@@ -232,6 +303,10 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     break
             }
             setupMessage(prevPromptNonState, modelId)
+        }
+
+        else if(modelName === 'Gemini') {
+            setupMessage(prevPromptNonState)
         }
 
         setIsDisabled(false)
@@ -293,7 +368,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                         return (
                             <div key={message.uuid} className={`${!message.isSentFromUser ? 'mb-[30px] md:mb-[45px]' : ''} flex items-start justify-start w-[95%] md:w-6/12 pb-4 md:pb-7 gap-3`} >
                                 <img src={message.profilePicture} alt="profile" className="w-[20px] h-[20px] md:w-[27px] md:h-[27px] flex items-center justify-center rounded-full object-cover" />
-                                <p className="font-inter text-[15px] w-[90%] md:text-[19px]">{message.text}</p>
+                                <p className={`font-inter text-[15px] w-[90%] md:text-[19px] whitespace-pre-wrap`} dangerouslySetInnerHTML={{__html: message.text}}></p>
                             </div>
                         )
                     })
