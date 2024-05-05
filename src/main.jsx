@@ -43,6 +43,42 @@ const router = createBrowserRouter([
               isImageGenerator={false}/>
   },
   {
+    path: 'action/cohere',
+    element: <ChatModel 
+              modelName={'Coral'}
+              modelDescription={"Cohere is an AI company that specializes in large language models (LLMs). Cohere's platform offers developers access to pre-built LLMs that can perform common tasks on text input, such as summarizing, classifying, and finding similarities in content. Developers can also create their own language models based on Cohere's work"}
+              modelImage={'../Assets/cohere-logo.png'}
+              modelTitleColor={'text-[#00B48A]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/zephyr',
+    element: <ChatModel 
+              modelName={'Zephyr'}
+              modelDescription={"Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr 141B-A39B is the latest model in the series, and is a fine-tuned version of mistral-community/Mixtral-8x22B-v0.1 that was trained using a novel alignment algorithm called Odds Ratio Preference Optimization (ORPO) with 7k instances for 1.3 hours on 4 nodes of 8 x H100s."}
+              modelImage={'../Assets/zephyr-logo.png'}
+              modelTitleColor={'text-[#0047AB]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/gemma',
+    element: <ChatModel 
+              modelName={'Gemma'}
+              modelDescription={"Gemma models draw inspiration and technological lineage from the Gemini family of models, and are made for the AI development community to extend and take further."}
+              modelImage={'../Assets/google-logo.png'}
+              modelTitleColor={'text-[#ADD8E6]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/phi',
+    element: <ChatModel 
+              modelName={'Phi'}
+              modelDescription={"It's a small AI model that's turning heads by showing that size isn't everything. Despite being much smaller than its counterparts, Phi can hold its own when it comes to understanding language and making sense of things."}
+              modelImage={'../Assets/microsoft-logo.png'}
+              modelTitleColor={'text-[#C70039]'}
+              isImageGenerator={false}/>
+  },
+  {
     path: 'action/gemini',
     element: <ChatModel 
               modelName={'Gemini'}

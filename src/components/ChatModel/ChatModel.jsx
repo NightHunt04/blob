@@ -111,7 +111,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             for(let i = 0; i < modifiedText.length; i++) {
                 text += modifiedText[i]
                 setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
-                await delay(3)
+                await delay(2)
                 dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
             }
         }
@@ -159,7 +159,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             for(let i = 0; i < modifiedText.length; i++) {
                 text += modifiedText[i]
                 setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
-                await delay(3)
+                await delay(2)
                 dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
             }
         }
@@ -172,11 +172,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 if (i < respondedText.length - 2) {
                     if (respondedText.slice(i, i + 3) === '```' && !end) {
                         modifiedText += '<p class="code">'
-                        modifiedText += '<Highlight>'
                         end = true
                         i += 2   
                     } else if (respondedText.slice(i, i + 3) === '```' && end) {
-                        modifiedText += '</Highlight>'
                         modifiedText += '</p>'
                         end = false
                         i += 2
@@ -197,15 +195,36 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         if(response.status === 200) {
             startAnimation = false
             const respondedText = response.data.response
-            console.log(respondedText)
             
-            const modifiedText = separateTheCode(respondedText)
+            let filteredRespondedText = ''
+            let k = 0
+            let end = false
+            while(k < respondedText.length) {
+                if(k < respondedText.length - 1 && respondedText[k] === '*' && respondedText[k + 1] === '*') {
+                    if(end) {
+                        filteredRespondedText += '</b>'
+                        end = false
+                    } else {
+                        filteredRespondedText += '<b>'
+                        end = true
+                    }
+                    k += 2
+                } else if(k < respondedText.length - 1 && respondedText[k] === '*' && respondedText[k + 1] !== '*') {
+                    k += 1
+                } else {
+                    filteredRespondedText += respondedText[k]
+                    k += 1
+                }
+            }
+
+            const modifiedText = separateTheCode(filteredRespondedText)
 
             let text = ''
+
             for(let i = 0; i < modifiedText.length; i++) {
                 text += modifiedText[i]
                 setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
-                await delay(3)
+                await delay(2)
                 dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
             }
         }
@@ -238,7 +257,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             if(modelName === 'OpenHermes' || modelName === 'LLama') 
                 callQwertyModel(prevPromptNonState, modelId, newUuid2)
 
-            else if(modelName === 'Mistral 7B')
+            else if(modelName === 'Mistral 7B' || modelName === 'ChatGPT' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName == 'Phi')
                 callAdminHugFaceModels(prevPromptNonState, modelId, newUuid2)
 
             else if(modelName === 'Gemini')
@@ -297,11 +316,31 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setupMessage(prevPromptNonState, modelId)
         }
 
-        else if(modelName === 'Mistral 7B') {
+        else if(modelName === 'Mistral 7B' || modelName === 'ChatGPT' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName === 'Phi') {
             let modelId = '-1'
             switch(modelName) {
                 case 'Mistral 7B':
                     modelId = '6'
+                    break
+                
+                case 'ChatGPT':
+                    modelId = '15'
+                    break
+
+                case 'Coral':
+                    modelId = '0'
+                    break
+
+                case 'Zephyr':
+                    modelId = '2'
+                    break
+
+                case 'Gemma':
+                    modelId = '5'
+                    break
+                
+                case 'Phi':
+                    modelId = '7'
                     break
             }
             setupMessage(prevPromptNonState, modelId)
@@ -363,7 +402,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             </div> 
 
             {/* chat completion section */}
-            <div className={`${hideDescription && !isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[100px] pb-[90px] md:pb-[150px] w-[93%] md:w-9/12 max-h-[80%] overflow-hidden items-center justify-center`} >
+            <div className={`${hideDescription && !isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[50px] md:pt-[100px] pb-[90px] md:pb-[150px] w-[95%] md:w-9/12 max-h-[80%] overflow-hidden items-center justify-center`} >
                 
                 {
                     messages.map(message => {
