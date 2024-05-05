@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import useGenerateImage from "../../utils/useGenerateImage"
 import useFetchImage from "../../utils/useFetchImage"
 import useGenPollinationsImg from "../../utils/useGenPollinationsImg"
 import useGenStableDiffusion from "../../utils/useGenStableDiffusion"
 import useGenProdia from "../../utils/useGenProdia"
+import useQwertyModelNonTunned from "../../utils/useQwertyModelNonTunned"
+import uuid from 'react-uuid'
+
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
     const [hideDescription, setHideDescription] = useState(false)
@@ -13,9 +16,11 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     const [isDisabled, setIsDisabled] = useState(false)
     const [imageURL, setImageURL] = useState('')
     const [isServerError, setIsServerError] = useState(false)
+    const [messages, setMessages] = useState([])
+    const dummy = useRef()
 
     let isRegenerate = false
-    const photoURL = localStorage.getItem('currentUserProfileURL')
+    const profilePhotoURL = localStorage.getItem('currentUserProfileURL')
     let prevPromptNonState = ''
 
     const navigate = useNavigate()
@@ -73,6 +78,43 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setImageURL(response)
     }
 
+    const delay = async (ms) => {
+        return new Promise((resolve) => 
+            setTimeout(resolve, ms));
+    }
+
+    let startAnimation = false
+    const loadingAnimation = async(newUuid) => {
+        let loader = ''
+        while(startAnimation) {
+            setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: loader} : message) )
+            loader += '❚ '
+
+            if(loader == '❚ ❚ ')
+                loader = ''
+            await delay(1000)
+        }
+    }
+
+    // call the qwerty chat completion model
+    const callQwertyModel = async(prompt, modelId, newUuid) => {
+
+
+        const response = await useQwertyModelNonTunned({ prompt : prompt, modelId : modelId })
+
+        if(response.code === 2) {
+            startAnimation = false
+            const respondedText = response.text
+            let text = ''
+            for(let i = 0; i < respondedText.length; i++) {
+                text += respondedText[i]
+                setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
+                await delay(3)
+                dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
+            }
+        }
+    }
+
     // to generate prodia images from nexra's api
     const generateProdia = async() => {
         const response = await useGenProdia({ prompt : prevPromptNonState})
@@ -84,7 +126,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
     const handleRequest = () => {
         setHideDescription(true)
-        console.log('isRegenerate', isRegenerate)
 
         setIsServerError(false)
 
@@ -117,20 +158,52 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else if(modelName === 'Prodia')
             generateProdia()
 
+        else if(modelName === 'OpenHermes') {
+            const newUuid = uuid()
+            const message = {
+                isSentFromUser : true,
+                text : prevPromptNonState,
+                profilePicture : profilePhotoURL,
+                uuid : newUuid
+            }
+
+            setMessages(prev => [...prev, message])
+
+            dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start' })
+
+            const newUuid2 = uuid()
+            const messageV2 = {
+                isSentFromUser : false,
+                text : '',
+                profilePhotoURL : '../../../../public/Assets/openhermes.jpg',
+                uuid : newUuid2
+            }
+            setMessages(prev => [...prev, messageV2])
+            startAnimation = true
+            loadingAnimation(newUuid2)
+
+            callQwertyModel(prevPromptNonState, '27', newUuid2)
+        }
+
         setIsDisabled(false)
     }
 
     return (
         <div className={`${lightTheme ? 'bg-[#e8e8e8] text-black' : 'bg-[#151515] text-gray-200'} relative w-full min-h-screen flex flex-col items-center justify-start select-none overflow-hidden`}>
+            
+            {/* back button */}
             <div className={`fixed px-2 py-1 md:px-4 md:py-2 -left-[1500px] top-[20px] md:left-[80px] md:top-[60px] hover:cursor-pointer hover:opacity-80 rounded-lg ${lightTheme ? 'bg-[#ffffff] shadow-lg' : 'bg-[#333333]'}`} onClick={() => navigate(-1)}>
                 <i className="fa-solid fa-arrow-left text-[16px]"></i>
             </div>
-
-            <div className={`${hideDescription ? 'flex flex-col' : 'hidden'} pt-[100px] w-[90%] md:w-9/12 items-center justify-center`}>
+            {/* section for image generators */}
+            <div className={`${hideDescription && isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[100px] w-[90%] md:w-9/12 items-center justify-center`}>
+                
+                {/* user's prompt along with user's google profile picture */}
                 <div className="flex items-start justify-start w-[95%] md:w-6/12 pb-7 gap-3">
-                    <img src={photoURL} alt="profile" className="w-[20px] h-[20px] md:w-[27px] md:h-[27px] flex items-center justify-center rounded-full object-cover" />
+                    <img src={profilePhotoURL} alt="profile" className="w-[20px] h-[20px] md:w-[27px] md:h-[27px] flex items-center justify-center rounded-full object-cover" />
                     <p className="font-inter text-[15px] md:text-[19px]">{prevPrompt}</p>
                 </div>
+
                 {
                     imageURL === '' && isImageGenerator && !isServerError ? 
                     <div className="relative w-full flex flex-col items-center justify-center">
@@ -138,7 +211,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                         <p className="absolute text-[14px] text-gray-400 md:text-[17px] font-inter -bottom-8 md:bottom-[30px]">Wait for a while, generating your image...</p>
                     </div>
                     :
-                    <img src={imageURL} alt='try again' className={`rounded-lg w-[95%] md:w-[40%] object-cover`} />
+                    <img src={imageURL} alt='try again' className={`${isImageGenerator ? 'flex' : 'hidden' } rounded-lg w-[95%] md:w-[40%] object-cover`} />
                 }
 
                 {/* internal server indicator */}
@@ -163,7 +236,25 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 </div>
             </div> 
 
+            {/* chat completion section */}
+            <div className={`${hideDescription && !isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[100px] pb-[90px] md:pb-[150px] w-[90%] md:w-9/12 max-h-[80%] overflow-hidden items-center justify-center`} >
+                
+                {
+                    messages.map(message => {
+                        return (
+                            <div key={message.uuid} className={`${!message.isSentFromUser ? 'mb-[30px] md:mb-[45px]' : ''} flex items-start justify-start w-[95%] md:w-6/12 pb-4 md:pb-7 gap-3`} >
+                                <img src={message.profilePicture} alt="profile" className="w-[20px] h-[20px] md:w-[27px] md:h-[27px] flex items-center justify-center rounded-full object-cover" />
+                                <p className="font-inter text-[15px] w-[90%] md:text-[19px]">{message.text}</p>
+                            </div>
+                        )
+                    })
+                }
+                <div ref={dummy} className="h-[30px]"></div>
 
+            </div>
+
+            
+            {/* description box before any prompts fired by user */}
             <div className={`${hideDescription ? 'hidden' : 'block'} font-inter mt-[50px] md:mt-[100px] border-[1px] ${lightTheme ? 'bg-[#ffffff] border-gray-300' : 'bg-[#272727] border-gray-700'} shadow-xl flex flex-col items-center justify-center px-5 py-4 mb-[190px] md:px-8 md:py-7 w-9/12 md:w-[700px] rounded-lg`}>
                 <img src={modelImage} alt="Mistral" className={`${modelImage !== '0' ? 'flex' : 'hidden'} w-[50px] h-[50px] rounded-lg mb-2`}/>
                 <p className={`font-semibold text-[18px] md:text-[23px] py-2 text-left w-full ${modelTitleColor}`}>{modelName}</p>
@@ -173,7 +264,10 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     !isImageGenerator ? 
                     <div className="w-full">
                         <p className="pt-8 pb-3 text-[16px] md:text-[18px] font-medium">Ask some questions from the given example below : </p>
-                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How much does the cloud weigh?</p>
+                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onclick={() => {
+                                                                                                                                                                                        setPrompt('How much does the cloud weigh?')
+                                                                                                                                                                                        handleRequest()
+                                                                                                                                                                                        }}>How much does the cloud weigh?</p>
                         <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
                         <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I overcome writer's block?</p>
                         <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
@@ -186,6 +280,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 }
             </div>
 
+            {/* input section - input field, send button */}
             <div className={`fixed bottom-5 border-[1px] rounded-lg flex items-center justify-center gap-3 px-2 py-2 w-[90%] md:w-[720px] shadow-lg ${lightTheme ? 'bg-[#ffffff] border-gray-200' : 'bg-[#1b1b1b] border-gray-500'}`}>
                 <input 
                     type="text" 

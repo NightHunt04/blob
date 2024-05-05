@@ -16,6 +16,15 @@ const router = createBrowserRouter([
     element : <MainActionPage />,
   },
   {
+    path : 'action/openhermes',
+    element: <ChatModel 
+              modelName={'OpenHermes'} 
+              modelDescription={'OpenHermes has been trained on a wide variety of texts, including lots of information about computer code. This training makes it particularly good at understanding and generating text related to programming, in addition to its general language skills.'} 
+              modelImage={'../Assets/openhermes.jpg'} 
+              modelTitleColor={'text-[#ff9e29]'}
+              isImageGenerator={false}/>
+  },
+  {
     path : 'action/mistral-7b',
     element: <ChatModel 
               modelName={'Mistral 7B'} 
