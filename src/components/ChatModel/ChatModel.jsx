@@ -11,6 +11,7 @@ import useHuggingFaceModels from "../../utils/useHugginFaceModels"
 import useGeminiChatModel from "../../utils/useGeminiChatModel"
 import './style.css'
 import Highlight from 'react-highlight'
+import useHumanGen from "../../utils/useHumanGen"
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -230,6 +231,24 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         }
     }
 
+    const callHuman = async(prevPromptNonState, newUuid) => {
+        const response = await useHumanGen({ prompt : prevPromptNonState, id: 0})
+
+        if(response.code === 2) {
+            startAnimation = false
+            const respondedText = response.content
+            let text = ''
+            const modifiedText = separateTheCode(respondedText)
+
+            for(let i = 0; i < modifiedText.length; i++) {
+                text += modifiedText[i]
+                setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
+                await delay(2)
+                dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
+            }
+        }
+    }
+
     const setupMessage = (prevPromptNonState, modelId=null) => {
         const newUuid = uuid()
             const message = {
@@ -262,6 +281,10 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
             else if(modelName === 'Gemini')
                 callGeminiChatModel(prevPromptNonState, newUuid2)
+            
+            else if(modelName === 'Human')
+                callHuman(prevPromptNonState, newUuid2)
+
     }
 
     const handleRequest = (defaultQuestion=false, question) => {
@@ -346,9 +369,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setupMessage(prevPromptNonState, modelId)
         }
 
-        else if(modelName === 'Gemini') {
+        else if(modelName === 'Gemini' || modelName === 'Human') 
             setupMessage(prevPromptNonState)
-        }
 
         setIsDisabled(false)
     }

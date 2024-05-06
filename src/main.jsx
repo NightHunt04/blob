@@ -147,6 +147,15 @@ const router = createBrowserRouter([
               showcaseImages={'https://framerusercontent.com/images/1R4HMVwOTPISKT7dGZl6dkkTVLo.png'}/>
   },
   {
+    path : 'action/human',
+    element: <ChatModel 
+              modelName={'Human'} 
+              modelDescription={'It just talks like a human.'} 
+              modelImage={'../Assets/human-logo.jpeg'} 
+              modelTitleColor={'text-gray-400'}
+              isImageGenerator={false}/>
+  },
+  {
     path : 'action/rahul-gandhi',
     element: <ChatModel 
               modelName={'Rahul Gandhi'} 

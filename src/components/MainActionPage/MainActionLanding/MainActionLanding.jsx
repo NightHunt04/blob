@@ -149,6 +149,13 @@ function MainActionLanding() {
 
                             <div className='grid grid-cols-4 items-start justify-center gap-2 w-full md:w-[730px]'>
 
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
+                                    <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/human-logo.jpeg" alt="Human" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 md:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Human</p>
+                                </div>
+
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('rahul-gandhi')}>
                                     <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/Rahul-Gandhi.jpeg" alt="Rahul Gandhi" className='w-full h-full object-cover'/>
