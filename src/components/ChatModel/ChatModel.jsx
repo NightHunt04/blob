@@ -402,7 +402,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             </div> 
 
             {/* chat completion section */}
-            <div className={`${hideDescription && !isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[50px] md:pt-[100px] pb-[90px] md:pb-[150px] w-[95%] md:w-9/12 max-h-[80%] overflow-hidden items-center justify-center`} >
+            <div className={`${hideDescription && !isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[50px] md:pt-[100px] pb-[90px] md:pb-[150px] w-[93%] md:w-9/12 max-h-[80%] overflow-hidden items-center justify-center`} >
                 
                 {
                     messages.map(message => {
