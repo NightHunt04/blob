@@ -3,14 +3,13 @@ import { auth } from '../../../config/firebase'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import uuid from 'react-uuid'
-import AddAssistant from '../Pop-ups/AddAssistant'
 
-function MainActionLanding({ customAssistants }) {
-    const { lightTheme, addAssistantPopUp, toggleAddAssistantPopUp } = useModelContext()
+function MainActionLanding() {
+    const { lightTheme, toggleAddAssistantPopUp } = useModelContext()
     const navigate = useNavigate()
-    useEffect(() => {
-        console.log('inside the main', customAssistants)
-    }, [])
+    // useEffect(() => {
+    //     // console.log('inside the main', customAssistants)
+    // }, [])
 
     const addAssistant = () => {
         toggleAddAssistantPopUp()
@@ -32,8 +31,7 @@ function MainActionLanding({ customAssistants }) {
             <div className={`pt-6 lg:pt-[50px] py-2 w-full ${lightTheme ? 'text-gray-900' : 'text-gray-300'}`}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 items-start justify-center'>
                     
-                    {/* custom space */}
-                    <div>
+                    <div className='row-span-2'>
                         <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Models</p>
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'}`}>
 
@@ -142,11 +140,10 @@ function MainActionLanding({ customAssistants }) {
                     </div>
 
                     {/* models for fun */}
-                    <div>
+                    <div className='row-span-1'>
                         <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Assistants</p>
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'}`}>
-                            <p className={`font-inter font-medium mb-6 text-[14px] lg:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} w-[90%] text-center lg:text-left`}>Fine-tune your assistants</p>
-                            <p className='font-inter text-[13px] lg:text-[15px] mb-6'>Set system instructions to make the bot act like you want</p>
+                            <p className={`font-inter font-medium mb-6 text-[14px] lg:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} w-[90%] text-center lg:text-left`}>Fine-tunned assistants</p>
 
                             <div className='grid grid-cols-4 items-start justify-center gap-2 w-full lg:w-calc(w-3/4 - 20px)'>
 
@@ -159,44 +156,88 @@ function MainActionLanding({ customAssistants }) {
 
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                        <img src="Assets/mario.jpg" alt="Rahul Gandhi" className='w-full h-full object-cover'/>
+                                        <img src="Assets/mario.jpg" alt="mario" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Super Mario</p>
                                 </div>
 
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/strange.jpeg" alt="Dr. Stranger" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Dr. Stranger</p>
+                                </div>
 
-                                {
-                                    customAssistants.map((assistant) => {
-                                        return (
-                                            <div key={uuid()} className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
-                                                <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                                    {
-                                                        assistant.photo === 'None' ? 
-                                                        <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#007ce9] hover:bg-[#007ce9d1] hover:text-gray-300 transition-all'>
-                                                            <p className='font-inter font-semibold text-[14px] lg:text-[20px] text-white'>{assistant.name[0]}</p>
-                                                        </div>     
-                                                        :
-                                                        <img src={assistant.photo} alt="Rahul Gandhi" className='w-full h-full object-cover'/>
-                                                    }
-                                                </div>
-                                                <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>{assistant.name}</p>
-                                            </div>
-                                        )   
-                                    })
-                                }
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/walter.png" alt="Walter White" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Walter White</p>
+                                </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer' onClick={addAssistant}>
+
+                                {/* <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer mt-2' onClick={addAssistant}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <i className={`fa-solid fa-plus text-[26px] text-gray-300`}></i>
                                     </div>
                                     <p className={`font-inter text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Add</p>
+                                </div> */}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='row-span-1'>
+                        <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Reverse Engineerd GPTs (3rd Party)</p>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'} font-inter`}>
+                            <p className={`font-medium mb-6 text-[14px] lg:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} w-[90%] text-center lg:text-left`}><span className='text-[#7eb9a9]'>GPT</span> models</p>
+                            
+                            <p className='text-[16px] p-2 pb-5'><span className='font-bold'>Note:&nbsp;</span>These models may act unusual sometimes</p>
+
+                            <div className='grid grid-cols-4 items-start justify-center gap-2 w-full lg:w-calc(w-3/4 - 20px)'>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-3.5-turbo</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-3</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Curie</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>babbage</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Davinci</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
+                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Ada</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='flex w-full items-start justify-start relative z-50'>
-                            <AddAssistant />
-                        </div>
-                        <div ref={dummy}></div>
                     </div>
                 </div>
             </div>
