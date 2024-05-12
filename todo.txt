@@ -1,0 +1,15 @@
+Todo for ModelMate:
+
+-add gpt models from yandricr/gpti-py
+-notifying errors when errors are generated in chat completions
+-integration of set/get operations of firebase for custom assistants
+-telegram bot
+-gemini vision
+-academic content generator
+-docs, about
+
+
+* To fix
+
+-responsive for big screens
+-max width for code in chat

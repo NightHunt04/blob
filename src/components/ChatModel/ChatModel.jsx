@@ -10,7 +10,6 @@ import uuid from 'react-uuid'
 import useHuggingFaceModels from "../../utils/useHugginFaceModels"
 import useGeminiChatModel from "../../utils/useGeminiChatModel"
 import './style.css'
-import Highlight from 'react-highlight'
 import useHumanGen from "../../utils/useHumanGen"
 
 
@@ -276,7 +275,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             if(modelName === 'OpenHermes' || modelName === 'LLama') 
                 callQwertyModel(prevPromptNonState, modelId, newUuid2)
 
-            else if(modelName === 'Mistral 7B' || modelName === 'ChatGPT' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName == 'Phi')
+            else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName == 'Phi')
                 callAdminHugFaceModels(prevPromptNonState, modelId, newUuid2)
 
             else if(modelName === 'Gemini')
@@ -339,15 +338,11 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setupMessage(prevPromptNonState, modelId)
         }
 
-        else if(modelName === 'Mistral 7B' || modelName === 'ChatGPT' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName === 'Phi') {
+        else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName === 'Phi') {
             let modelId = '-1'
             switch(modelName) {
                 case 'Mistral 7B':
                     modelId = '6'
-                    break
-                
-                case 'ChatGPT':
-                    modelId = '15'
                     break
 
                 case 'Coral':

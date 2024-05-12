@@ -33,15 +33,15 @@ const router = createBrowserRouter([
               modelTitleColor={'text-[#ff9e29]'}
               isImageGenerator={false}/>
   },
-  {
-    path: 'action/chatgpt',
-    element: <ChatModel 
-              modelName={'ChatGPT'}
-              modelDescription={'ChatGPT is an AI model developed by OpenAI for engaging in natural language conversations. It uses advanced techniques in natural language processing to generate coherent and contextually relevant responses, making it useful for a variety of applications.'}
-              modelImage={'../Assets/chatgpt.jpg'}
-              modelTitleColor={'text-[#00B48A]'}
-              isImageGenerator={false}/>
-  },
+  // {
+  //   path: 'action/chatgpt',
+  //   element: <ChatModel 
+  //             modelName={'ChatGPT'}
+  //             modelDescription={'ChatGPT is an AI model developed by OpenAI for engaging in natural language conversations. It uses advanced techniques in natural language processing to generate coherent and contextually relevant responses, making it useful for a variety of applications.'}
+  //             modelImage={'../Assets/chatgpt.jpg'}
+  //             modelTitleColor={'text-[#00B48A]'}
+  //             isImageGenerator={false}/>
+  // },
   {
     path: 'action/cohere',
     element: <ChatModel 

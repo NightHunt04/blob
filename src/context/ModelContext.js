@@ -7,6 +7,8 @@ export const ModelContext = createContext({
     toggleSettings : () => {},
     logoutPopUp : false,
     toggleLogoutPopUp : () => {},
+    addAssistantPopUp: false,
+    toggleAddAssistantPopUp : () => {}
 })
 
 export function useModelContext() {
