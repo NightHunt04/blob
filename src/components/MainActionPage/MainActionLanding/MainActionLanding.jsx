@@ -220,7 +220,7 @@ function MainActionLanding() {
                     </div>
 
                     <div className='row-span-1'>
-                        <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Check the bot on <span className='text-[#24A1DE]'>telegram!</span></p>
+                        <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Check out the bot on <span className='text-[#24A1DE]'>telegram!</span></p>
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'} font-inter`}>
                             <img src="Assets/pngwing.png" alt="telegram" className='animate-tele w-[100px] relative lg:w-[180px] object-cover'/>
                             <Link className='rounded-2xl text-[15px] lg:text-[17px] bg-[#1e1e1e] px-4 py-2 hover:opacity-80' to='https://t.me/modelmatebot' target='__blank'>Redirect to telegram bot? Click me</Link>
