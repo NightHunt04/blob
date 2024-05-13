@@ -191,51 +191,38 @@ function MainActionLanding() {
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'} font-inter`}>
                             <p className={`font-medium mb-6 text-[14px] lg:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} w-[90%] text-center lg:text-left`}><span className='text-[#7eb9a9]'>GPT</span> models</p>
                             
-                            <p className='text-[16px] p-2 pb-5'><span className='font-bold'>Note:&nbsp;</span>These models may act unusual sometimes</p>
+                            <p className='text-[13px] lg:text-[16px] p-2 pb-5'><span className='font-bold'>Note:&nbsp;</span>These models may act unusual sometimes</p>
 
                             <div className='grid grid-cols-4 items-start justify-center gap-2 w-full lg:w-calc(w-3/4 - 20px)'>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-3.5-turbo</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-3</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-curie')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Curie</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
-                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
-                                    </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>babbage</p>
-                                </div>
-
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-davinci')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Davinci</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('human')}>
-                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
-                                    </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Ada</p>
-                                </div>
                             </div>
                         </div>
                     </div>

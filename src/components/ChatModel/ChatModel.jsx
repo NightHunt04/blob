@@ -11,6 +11,7 @@ import useHuggingFaceModels from "../../utils/useHugginFaceModels"
 import useGeminiChatModel from "../../utils/useGeminiChatModel"
 import './style.css'
 import useHumanGen from "../../utils/useHumanGen"
+import useGPT from "../../utils/useGPT"
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -248,6 +249,21 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         }
     }
 
+    const callGPT = async(prevPromptNonState, model, newUuid) => {
+        const response = await useGPT({ prompt: prevPromptNonState, model: model})
+
+        startAnimation = false
+        let text = ''
+        const modifiedText = separateTheCode(response)
+
+        for(let i = 0; i < modifiedText.length; i++) {
+            text += modifiedText[i]
+            setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
+            await delay(2)
+            dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
+        }
+    }
+
     const setupMessage = (prevPromptNonState, modelId=null) => {
         const newUuid = uuid()
             const message = {
@@ -284,6 +300,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             else if(modelName === 'Human')
                 callHuman(prevPromptNonState, newUuid2)
 
+            else if(modelName === 'GPT-3.5-Turbo' || modelName === 'GPT-3' || modelName === 'Curie' || modelName === 'Davinci') 
+                callGPT(prevPromptNonState, modelId, newUuid2)
     }
 
     const handleRequest = (defaultQuestion=false, question) => {
@@ -360,12 +378,35 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 case 'Phi':
                     modelId = '7'
                     break
-            }
+            }            
             setupMessage(prevPromptNonState, modelId)
         }
 
         else if(modelName === 'Gemini' || modelName === 'Human') 
             setupMessage(prevPromptNonState)
+
+        else if(modelName === 'GPT-3.5-Turbo' || modelName === 'GPT-3' || modelName === 'Curie' || modelName === 'Davinci') {
+            let model = ''
+            switch(modelName) {
+                case 'GPT-3.5-Turbo':
+                    model = 'gpt-3.5-turbo'
+                    break
+                
+                case 'GPT-3':
+                    model = 'gpt-3'
+                    break
+                
+                case 'Curie':
+                    model = 'curie'
+                    break
+
+                case 'Davinci':
+                    model = 'davinci'
+                    break
+            }
+
+            setupMessage(prevPromptNonState, model)
+        }
 
         setIsDisabled(false)
     }
