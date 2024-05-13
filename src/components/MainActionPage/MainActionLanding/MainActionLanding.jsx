@@ -154,21 +154,21 @@ function MainActionLanding() {
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Human</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('mario')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/mario.jpg" alt="mario" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Super Mario</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('strange')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/strange.jpeg" alt="Dr. Stranger" className='w-full h-full object-cover'/>
                                     </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Dr. Stranger</p>
+                                    <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Dr. Strange</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2'>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('walter')}>
                                     <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/walter.png" alt="Walter White" className='w-full h-full object-cover'/>
                                     </div>

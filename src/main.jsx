@@ -183,12 +183,30 @@ const router = createBrowserRouter([
               isImageGenerator={false}/>
   },
   {
-    path : 'action/rahul-gandhi',
+    path : 'action/mario',
     element: <ChatModel 
-              modelName={'Rahul Gandhi'} 
-              modelDescription={'Rahul Gandhi, often described as the perennial "almost there" politician of India, is known for his knack of turning serious political debates into unintentional comedy gold. With a mix of earnestness and occasional gaffes, he keeps political pundits and social media meme-makers equally entertained.'} 
-              modelImage={'../Assets/Rahul-Gandhi.jpeg'} 
-              modelTitleColor={'text-[#337eff]'}
+              modelName={'Super Mario'} 
+              modelDescription={"The main hero of the Mushroom Kingdom. Mario is always bright and cheerful and instantly recognizable with his blue overalls, red cap, and trademark moustache. He's a trusted friend of Princess Peach, and he and his brother Luigi are known across the land for their acts of bravery."} 
+              modelImage={'../Assets/mario.jpg'} 
+              modelTitleColor={'text-gray-400'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/strange',
+    element: <ChatModel 
+              modelName={'Dr. Strange'} 
+              modelDescription={"Doctor Strange, also known as Stephen Strange, is a Marvel character and the Sorcerer Supreme, Earth's protector against mystical threats. He is a Master of the Mystic Arts with powerful magical abilities that allow him to cast spells, create shields and barriers, and bind opponents. He is also skilled in several martial arts, including judo, and can use magically conjured weapons like swords and axes."} 
+              modelImage={'../Assets/strange.jpeg'} 
+              modelTitleColor={'text-gray-400'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/walter',
+    element: <ChatModel 
+              modelName={'Walter White'} 
+              modelDescription={"Walter White, also known as Walt, is a character in the TV series Breaking Bad and Better Call Saul. He is a brilliant, accomplished liar, and a former chemistry teacher and co-founder of a technology firm. Walter is kind, caring, and timid, but also demanding, calculating, and ruthless. He has a dual personality, and his pseudonym, Heisenberg, becomes an alter ego that allows him to live out his love of power."} 
+              modelImage={'../Assets/walter.png'} 
+              modelTitleColor={'text-gray-400'}
               isImageGenerator={false}/>
   }
 ])

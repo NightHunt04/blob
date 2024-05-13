@@ -231,8 +231,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         }
     }
 
-    const callHuman = async(prevPromptNonState, newUuid) => {
-        const response = await useHumanGen({ prompt : prevPromptNonState, id: 0})
+    const callHuman = async(prevPromptNonState, id, newUuid) => {
+        const response = await useHumanGen({ prompt : prevPromptNonState, id: id})
 
         if(response.code === 2) {
             startAnimation = false
@@ -297,8 +297,30 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             else if(modelName === 'Gemini')
                 callGeminiChatModel(prevPromptNonState, newUuid2)
             
-            else if(modelName === 'Human')
-                callHuman(prevPromptNonState, newUuid2)
+            else if(modelName === 'Human' || modelName === 'Super Mario' || modelName === 'Dr. Strange' || modelName === 'Walter White') {
+                let id = -1
+
+                switch(modelName) {
+                    case 'Human':
+                        id = 0
+                        break
+                    
+                    case 'Super Mario':
+                        id = 1
+                        break
+                    
+                    case 'Dr. Strange':
+                        id = 2
+                        break
+                    
+                    case 'Walter White':
+                        id = 3
+                        break
+                }
+
+                callHuman(prevPromptNonState, id, newUuid2)
+            
+            }
 
             else if(modelName === 'GPT-3.5-Turbo' || modelName === 'GPT-3' || modelName === 'Curie' || modelName === 'Davinci') 
                 callGPT(prevPromptNonState, modelId, newUuid2)
@@ -382,7 +404,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setupMessage(prevPromptNonState, modelId)
         }
 
-        else if(modelName === 'Gemini' || modelName === 'Human') 
+        else if(modelName === 'Gemini' || modelName === 'Human' || modelName === 'Super Mario' || modelName === 'Dr. Strange' || modelName === 'Walter White') 
             setupMessage(prevPromptNonState)
 
         else if(modelName === 'GPT-3.5-Turbo' || modelName === 'GPT-3' || modelName === 'Curie' || modelName === 'Davinci') {
