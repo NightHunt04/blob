@@ -1,0 +1,12 @@
+.animate-tele {
+    animation: floatAnim 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnim {
+    0% {
+        transform: translateY(6px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}

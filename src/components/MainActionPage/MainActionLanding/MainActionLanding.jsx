@@ -1,8 +1,8 @@
 import { useModelContext } from '../../../context/ModelContext'
-import { auth } from '../../../config/firebase'
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useRef } from 'react'
-import uuid from 'react-uuid'
+import { useRef } from 'react'
+import { Link } from 'react-router-dom'
+import './style.css'
 
 function MainActionLanding() {
     const { lightTheme, toggleAddAssistantPopUp } = useModelContext()
@@ -31,7 +31,7 @@ function MainActionLanding() {
             <div className={`pt-6 lg:pt-[50px] py-2 w-full ${lightTheme ? 'text-gray-900' : 'text-gray-300'}`}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 items-start justify-center'>
                     
-                    <div className='row-span-2'>
+                    <div className='row-span-3'>
                         <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Models</p>
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'}`}>
 
@@ -174,14 +174,6 @@ function MainActionLanding() {
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Walter White</p>
                                 </div>
-
-
-                                {/* <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer mt-2' onClick={addAssistant}>
-                                    <div className='w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] flex items-center justify-center rounded-full border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
-                                        <i className={`fa-solid fa-plus text-[26px] text-gray-300`}></i>
-                                    </div>
-                                    <p className={`font-inter text-[13px] pt-1 lg:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Add</p>
-                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -224,6 +216,14 @@ function MainActionLanding() {
                                 </div>
 
                             </div>
+                        </div>
+                    </div>
+
+                    <div className='row-span-1'>
+                        <p className='font-inter text-[15px] lg:text-[20px] font-medium ml-3 py-2'>Check the bot on <span className='text-[#24A1DE]'>telegram!</span></p>
+                        <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex items-center justify-center shadow-lg w-full lg:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'} font-inter`}>
+                            <img src="Assets/pngwing.png" alt="telegram" className='animate-tele w-[100px] relative lg:w-[180px] object-cover'/>
+                            <Link className='rounded-2xl text-[15px] lg:text-[17px] bg-[#1e1e1e] px-4 py-2 hover:opacity-80' to='https://t.me/modelmatebot' target='__blank'>Redirect to telegram bot? Click me</Link>
                         </div>
                     </div>
                 </div>
