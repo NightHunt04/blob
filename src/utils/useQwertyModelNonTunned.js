@@ -17,7 +17,6 @@ async function useQwertyModelNonTunned({ prompt, modelId }) {
       
       try {
           const response = await axios.request(options);
-          console.log(response.data)
           const result = response.data
           return { code : result.code, text : result.content }
       } catch (error) {

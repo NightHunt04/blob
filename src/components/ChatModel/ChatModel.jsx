@@ -326,16 +326,12 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 callGPT(prevPromptNonState, modelId, newUuid2)
     }
 
-    const handleRequest = (defaultQuestion=false, question) => {
+    const QUES = ['How much does a cloud weight?', 'How can I incorporate mindfulness into my morning routine?', "How can I overcome writer's block?", 'How can I enhance my memory retention while studying?']
+
+    const handleRequest = (defaultQuestion=false, ind) => {
         setHideDescription(true)
         setIsDisabled(true)
         setIsServerError(false)
-
-        if(defaultQuestion) {
-            prevPromptNonState = question
-            console.log(question)
-            localStorage.setItem('prevPrompt', prevPromptNonState)
-        }
 
         if(!isRegenerate) {
             prevPromptNonState = prompt
@@ -344,7 +340,11 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setPrompt('')
         }
         
-        prevPromptNonState = localStorage.getItem('prevPrompt')
+        if(defaultQuestion) 
+            prevPromptNonState = QUES[ind]
+
+        else 
+            prevPromptNonState = localStorage.getItem('prevPrompt')
         
         setIsDisabled(true)
         setImageURL('')
@@ -510,11 +510,17 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     <div className="w-full">
                         <p className="pt-8 pb-3 text-[16px] md:text-[18px] font-medium">Ask some questions from the given example below : </p>
                         <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onClick={() => {
-                                                                                                                                                                                        handleRequest(true, 'How much does the cloud weigh?')
+                                                                                                                                                                                            handleRequest(true, 0)
                                                                                                                                                                                         }}>How much does the cloud weigh?</p>
-                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
-                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I overcome writer's block?</p>
-                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`}>How can I incorporate mindfulness into my morning routine?</p>
+                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onClick={() => {
+                                                                                                                                                                                            handleRequest(true, 1)
+                                                                                                                                                                                        }}>How can I incorporate mindfulness into my morning routine?</p>
+                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onClick={() => {
+                                                                                                                                                                                            handleRequest(true, 2)
+                                                                                                                                                                                        }}>How can I overcome writer's block?</p>
+                        <p className={`px-3 py-2 my-3 rounded-lg hover:cursor-pointer hover:opacity-85 text-[14px] w-full md:text-[16px] ${lightTheme ? 'bg-[#e6e6e6]' : 'bg-[#3e3e3e]'}`} onClick={() => {
+                                                                                                                                                                                            handleRequest(true, 3)
+                                                                                                                                                                                        }}>How can I enhance my memory retention while studying?</p>
                     </div>
                     :
                     <div className="w-full">
