@@ -1,6 +1,5 @@
 import { LinearGradient as Lg } from 'react-text-gradients'
 import { useModelContext } from '../../../context/ModelContext'
-import { auth } from '../../../config/firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 function Header() {

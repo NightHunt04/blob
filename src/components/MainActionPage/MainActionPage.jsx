@@ -71,7 +71,7 @@ function MainActionPage() {
     }
 
     return (
-        <ModelProvider value={{lightTheme, toggleLightTheme, settings, toggleSettings, logoutPopUp, toggleLogoutPopUp }}>
+        <ModelProvider value={{lightTheme, toggleLightTheme, settings, toggleSettings, logoutPopUp, toggleLogoutPopUp}}>
             <div className={`${lightTheme ? 'bg-[#e8e8e8]' : 'bg-[#151515]'} relative w-full min-h-screen flex flex-col items-center justify-start select-none pb-7 overflow-x-hidden`}>
                 <Header />
                 <MainActionLanding/>
