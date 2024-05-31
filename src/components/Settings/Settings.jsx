@@ -21,11 +21,6 @@ function Settings() {
                         <p className="px-5 py-2 rounded-xl hover:bg-[#272727] mb-9">About</p>
                     </Link>
                 </div>
-                <div className="text-[15px] absolute bottom-[140px]">
-                    <p>Special thanks to Sir Manan Raisinghani Ji.</p>
-                    <p>Contact Manan Ji : +91 7976563951</p>
-                    <p className="font-bold">Only available for girls.</p>
-                </div>
                 <button className="absolute text-[14px] md:text-[16px] px-4 py-1 md:px-5 md:py-2 bg-[#a40e00e7] shadow-2xl hover:bg-[#820000] bottom-[80px] md:bottom-10 text-white rounded-[30px]" onClick={toggleLogoutPopUp}>Logout &nbsp;<i className="fa-solid fa-arrow-right-from-bracket text-gray-200"></i></button>
             </div>
         </div>
