@@ -328,7 +328,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
     const QUES = ['How much does a cloud weight?', 'How can I incorporate mindfulness into my morning routine?', "How can I overcome writer's block?", 'How can I enhance my memory retention while studying?']
 
-    const handleRequest = (defaultQuestion=false, ind) => {
+    const handleRequest = (defaultQuestion=false, ind=-1) => {
+        console.log('yes')
         setHideDescription(true)
         setIsDisabled(true)
         setIsServerError(false)
@@ -440,7 +441,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             <div className={`fixed px-2 py-1 md:px-4 md:py-2 -left-[1500px] top-[20px] md:left-[80px] md:top-[60px] hover:cursor-pointer hover:opacity-80 rounded-lg ${lightTheme ? 'bg-[#ffffff] shadow-lg' : 'bg-[#333333]'}`} onClick={() => navigate(-1)}>
                 <i className="fa-solid fa-arrow-left text-[16px]"></i>
             </div>
-            
+
             {/* section for image generators */}
             <div className={`${hideDescription && isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[100px] w-[90%] md:w-9/12 items-center justify-center`}>
                 
@@ -544,7 +545,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                         if(e.key === 'Enter') 
                             handleRequest()  
                     }}/>
-                <div className="flex items-center justify-center" onClick={handleRequest}>
+                <div className="flex items-center justify-center" onClick={() => {handleRequest()}}>
                     <i className="fa-solid fa-paper-plane px-3 md:px-4 hover:opacity-60 hover:cursor-pointer"></i>
                 </div>
             </div>
