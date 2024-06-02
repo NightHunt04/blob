@@ -5,6 +5,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainActionPage from './components/MainActionPage/MainActionPage.jsx'
 import ChatModel from './components/ChatModel/ChatModel.jsx'
+import APIRef from './components/NavBarComponents/APIRef.jsx'
 
 const router = createBrowserRouter([
   {
@@ -208,6 +209,10 @@ const router = createBrowserRouter([
               modelImage={'../Assets/walter.png'} 
               modelTitleColor={'text-gray-400'}
               isImageGenerator={false}/>
+  },
+  {
+    path : 'action/APIReference',
+    element : <APIRef />
   }
 ])
 

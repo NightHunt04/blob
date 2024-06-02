@@ -440,6 +440,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             <div className={`fixed px-2 py-1 md:px-4 md:py-2 -left-[1500px] top-[20px] md:left-[80px] md:top-[60px] hover:cursor-pointer hover:opacity-80 rounded-lg ${lightTheme ? 'bg-[#ffffff] shadow-lg' : 'bg-[#333333]'}`} onClick={() => navigate(-1)}>
                 <i className="fa-solid fa-arrow-left text-[16px]"></i>
             </div>
+            
             {/* section for image generators */}
             <div className={`${hideDescription && isImageGenerator ? 'flex flex-col' : 'hidden'} pt-[100px] w-[90%] md:w-9/12 items-center justify-center`}>
                 
