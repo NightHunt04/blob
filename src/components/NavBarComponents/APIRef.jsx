@@ -22,7 +22,7 @@ function APIRef() {
             </div>
 
             <div className={'flex flex-col w-[90%] md:w-9/12 items-center pt-[80px] lg:pt-[100px] justify-center'}>
-                <div className={`w-[97%] rounded-xl lg:text-[16px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} p-4`}>
+                <div className={`w-[97%] rounded-xl lg:text-[16px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef] shadow-lg' : 'bg-[#2c2c2c] border-none'} p-4`}>
                     <p className="font-medium text-[15px] lg:text-[18px]">API References</p>
                     <div className="w-full text-left pt-3 px-2 lg:px-4">
                         <p className="text-[15px] lg:text-[17px]">Links for the APIs used in this project are given below <span className="text-[#ff2e2e]">(click on the below text to redirect to the API link) </span>: </p>
@@ -45,13 +45,13 @@ function APIRef() {
                     </div>
                 </div>
 
-                <div className={`w-[97%] rounded-xl text-[15px] lg:text-[17px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} p-4 mt-2 pb-6 lg:mt-5`}>
+                <div className={`w-[97%] rounded-xl text-[15px] lg:text-[17px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef] shadow-lg' : 'bg-[#2c2c2c]'} p-4 mt-2 pb-6 lg:mt-5`}>
                     <div className="w-full text-left pt-3 px-2 lg:px-4">
                         <p><span className="text-[#ff2e2e]">Note:&nbsp;</span>The above given APIs are handled and managed by others and there is no gauranteed that these APIs will work without any concern. There may or may not come any issues which are completely relied on the services or the servers.</p>
                     </div>
                 </div>
 
-                <div className={`w-[97%] rounded-xl text-[15px] lg:text-[17px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} p-4 mt-[50px] lg:mt-[100px]`}>
+                <div className={`w-[97%] rounded-xl text-[15px] lg:text-[17px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef] shadow-lg' : 'bg-[#2c2c2c]'} p-4 mt-[50px] lg:mt-[100px]`}>
                     <p className="font-medium text-[15px] lg:text-[18px]">Other <span className="text-[#0065bd]">Github</span> repositories for AI API wrappers</p>
                     <p className="text-[#ff2e2e] text-left w-full">Click on the below text to redirect to it's github repo: </p>
 
