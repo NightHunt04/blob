@@ -10,15 +10,11 @@ function Settings() {
             <div className={`flex transition-all relative flex-col items-center justify-start w-full h-full pt-[80px] md:pt-[120px]`}>
                 <div className="relative text-[13px] lg:text-[16px] text-center">
                     <Link to='APIReference'>
-                        <p className="px-5 py-2 rounded-xl hover:bg-[#272727] mb-9">API References</p>
+                        <p className={`px-5 py-2 rounded-xl ${lightTheme ? 'hover:bg-[#272727] hover:text-white' : 'hover:bg-[#272727]'} mb-9 transition-all`}>API References</p>
                     </Link>
 
-                    <Link to=''>
-                        <p className="px-5 py-2 rounded-xl hover:bg-[#272727] mb-9">Live Support</p>
-                    </Link>
-
-                    <Link to=''>
-                        <p className="px-5 py-2 rounded-xl hover:bg-[#272727] mb-9">About</p>
+                    <Link to='about'>
+                        <p className={`px-5 py-2 rounded-xl ${lightTheme ? 'hover:bg-[#272727] hover:text-white' : 'hover:bg-[#272727]'} mb-9`}>About</p>
                     </Link>
                 </div>
                 <button className="absolute text-[14px] md:text-[16px] px-4 py-1 md:px-5 md:py-2 bg-[#a40e00e7] shadow-2xl hover:bg-[#820000] bottom-[80px] md:bottom-10 text-white rounded-[30px]" onClick={toggleLogoutPopUp}>Logout &nbsp;<i className="fa-solid fa-arrow-right-from-bracket text-gray-200"></i></button>

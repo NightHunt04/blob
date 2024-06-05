@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainActionPage from './components/MainActionPage/MainActionPage.jsx'
 import ChatModel from './components/ChatModel/ChatModel.jsx'
 import APIRef from './components/NavBarComponents/APIRef.jsx'
+import About from './components/NavBarComponents/About.jsx'
 
 const router = createBrowserRouter([
   {
@@ -213,6 +214,10 @@ const router = createBrowserRouter([
   {
     path : 'action/APIReference',
     element : <APIRef />
+  },
+  {
+    path : 'action/about',
+    element: <About />
   }
 ])
 

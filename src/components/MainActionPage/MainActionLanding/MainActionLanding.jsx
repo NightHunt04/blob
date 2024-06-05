@@ -7,23 +7,13 @@ import './style.css'
 function MainActionLanding() {
     const { lightTheme, toggleAddAssistantPopUp } = useModelContext()
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     // console.log('inside the main', customAssistants)
-    // }, [])
-
-    const addAssistant = () => {
-        toggleAddAssistantPopUp()
-        dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start' })
-    }
-
-    const dummy = useRef()
 
     return (
         <div className="w-full flex flex-col items-start justify-center px-[20px] lg:px-[100px] pt-5">
 
-            <div className='mb-[75px] lg:mb-[120px] border-[1px] border-[#c51111] rounded-lg px-3 py-2 w-full lg:w-9/12 opacity-80 bg-[#000000]'>
+            <div className={`mb-[75px] lg:mb-[120px] border-[1px] border-[#c51111] rounded-lg px-3 py-2 w-full lg:w-9/12 opacity-80 ${lightTheme ? 'bg-[#cbcbcb] text-black' : 'bg-[#000000] text-gray-300'}`}>
                 <span className='text-red-500 text-[13px] lg:text-[17px]'>Note:&nbsp;</span>
-                <span className='text-[12px] lg:text-[16px] text-gray-300'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are may occur internal server error which isn't in my hands, and for that I apologise.</span>
+                <span className='text-[12px] lg:text-[16px]'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are may occur internal server error which isn't in my hands, and for that I apologise.</span>
             </div>
 
             <p className='text-[13px] lg:text-[16px] font-inter text-gray-400 text-center w-full'>Click on the model you want to try.</p>
@@ -225,7 +215,7 @@ function MainActionLanding() {
                             <img src="Assets/pngwing.png" alt="telegram" className='animate-tele w-[100px] relative lg:w-[180px] object-cover'/>
                             <div className='flex flex-col items-center justify-center gap-3'>
                                 <p className='font-inter text-[13px] lg:text-[17px]'><span className='text-[#24A1DE]'>@modelmatebot</span> on telegram</p>
-                                <Link className='rounded-2xl text-[15px] lg:text-[17px] bg-[#1e1e1e] px-4 py-2 hover:opacity-80' to='https://t.me/modelmatebot' target='__blank'>Redirect to telegram bot? Click me</Link>
+                                <Link className={`rounded-2xl text-[15px] lg:text-[17px] ${lightTheme ? 'bg-[#d6d6d6]' : 'bg-[#1e1e1e]'} px-4 py-2 hover:opacity-80`} to='https://t.me/modelmatebot' target='__blank'>Redirect to telegram bot? Click me</Link>
                             </div>
                         </div>
                     </div>
