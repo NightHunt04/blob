@@ -6,18 +6,18 @@ function Footer() {
     const { lightTheme } = useModelContext()
 
     return (
-        <div className="flex items-center justify-between w-full px-[40px] md:px-[94px] font-inter pt-[160px] pb-6">
+        <div className="flex items-center justify-between w-full px-[40px] xl:px-[94px] font-inter pt-[160px] pb-6">
             <div className='flex flex-col items-start justify-center'>
                 <div>
-                    <span className='text-[18px] md:text-[22px] font-bold font-roboto-serif'>
+                    <span className='text-[18px] xl:text-[22px] font-bold font-roboto-serif'>
                         <Lg gradient={['to right', '#c2e59c, #be5869']}>
                             Model
                         </Lg>
                     </span>
-                    <span className='text-[18px] md:text-[22px] font-bold font-roboto-serif text-[#555555]'>Mate</span>
+                    <span className='text-[18px] xl:text-[22px] font-bold font-roboto-serif text-[#555555]'>Mate</span>
                 </div>
                 <div>
-                    <p className='text-[14px] md:text-[17px] text-[#555555]'>By Jeet</p>
+                    <p className='text-[14px] xl:text-[17px] text-[#555555]'>By Jeet</p>
                 </div>
             </div>
             <div className='flex items-center justify-center'>

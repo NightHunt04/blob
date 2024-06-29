@@ -8,14 +8,14 @@ function LandContent() {
     return (
         <div>
             <div className={`relative w-full flex flex-col items-center justify-center pt-6 overflow-hidden`}>
-                <h1 className='text-[100px] md:text-[150px] z-30 font-bold font-roboto-serif'>
+                <h1 className='text-[100px] xl:text-[150px] z-30 font-bold font-roboto-serif'>
                     <Lg gradient={['to right', '#ABDE73, #be5869']}>Model</Lg>
-                    <span className='flex items-center justify-center z-30 leading-[30px] pb-10 md:pb-0 md:inline-block text-[100px] md:text-[150px] text-[#868686] font-bold font-roboto-serif'>Mate</span>
+                    <span className='flex items-center justify-center z-30 leading-[30px] pb-10 xl:pb-0 xl:inline-block text-[100px] xl:text-[150px] text-[#868686] font-bold font-roboto-serif'>Mate</span>
                 </h1>
-                <p className={`font-inter text-[14px] md:text-[19px] ${lightTheme ? 'text-black' : 'text-[#c4c4c4]'} pt-12 md:pb-0`}>Have your own buddy AI bot !</p>
+                <p className={`font-inter text-[14px] xl:text-[19px] ${lightTheme ? 'text-black' : 'text-[#c4c4c4]'} pt-12 xl:pb-0`}>Have your own buddy AI bot !</p>
 
-                <div className='absolute transform translate-x-[320px] z-10 -translate-y-[130px] md:translate-x-[675px]  md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
-                    <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
+                <div className='absolute transform translate-x-[320px] z-10 -translate-y-[130px] xl:translate-x-[675px]  xl:translate-y-[0px] w-[500px] h-[500px] xl:w-[900px] xl:h-[900px] opacity-30'>
+                    <svg id="sw-js-blob-svg" className="blur-xl" viewBox="10 -170 400 400">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
                                 <stop id="stop1" stopColor="rgba(194, 229, 156, 1)" offset="0%"></stop>
@@ -40,8 +40,8 @@ function LandContent() {
                     </svg>
                 </div>
 
-                <div className='absolute transform translate-x-[60px] z-10 translate-y-[20px] md:-translate-x-[60px]  md:-translate-y-[110px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
-                    <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
+                <div className='absolute transform translate-x-[60px] z-10 translate-y-[20px] xl:-translate-x-[60px]  xl:-translate-y-[110px] w-[500px] h-[500px] xl:w-[900px] xl:h-[900px] opacity-30'>
+                    <svg id="sw-js-blob-svg" className="blur-xl" viewBox="10 -170 400 400">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
                                 <stop id="stop1" stopColor="rgba(194, 229, 156, 1)" offset="0%"></stop>
@@ -67,15 +67,15 @@ function LandContent() {
                 </div>
             </div>
 
-            <div className='w-full h-[500px] md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3 z-20'>
+            <div className='w-full h-[500px] xl:w-[1200px] xl:h-[700px] rounded-xl py-4 px-3 z-20'>
                 <img src="/Assets/talk-up.JPG" alt="img" className='w-full h-full object-cover rounded-xl'/>
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
-                <p className={`font-inter text-[25px] w-full md:text-[32px] text-center font-bold z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Chat with the model</p>
-                <p className={`font-inter text-[14px] sm:text-[14px] md:text-[19px] font-regular z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 md:max-w-[580px] text-center pb-12`}>Embrace Curiosity, Empower Learning: Journey into the Depths of Knowledge with AI, Where Every Question Unveils a New Realm of Insight and Understanding</p>
-                <div className='absolute transform translate-x-[40px] translate-y-[50px] md:translate-x-[235px] md:translate-y-[170px] w-[440px] h-[440px] md:w-[700px] md:h-[800px] opacity-30 z-10'>
-                    <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
+                <p className={`font-inter text-[25px] w-full xl:text-[32px] text-center font-bold z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Chat with the model</p>
+                <p className={`font-inter text-[14px] sm:text-[14px] xl:text-[19px] font-regular z-20 ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 xl:max-w-[580px] text-center pb-12`}>Embrace Curiosity, Empower Learning: Journey into the Depths of Knowledge with AI, Where Every Question Unveils a New Realm of Insight and Understanding</p>
+                <div className='absolute transform translate-x-[40px] translate-y-[50px] xl:translate-x-[235px] xl:translate-y-[170px] w-[440px] h-[440px] xl:w-[700px] xl:h-[800px] opacity-30 z-10'>
+                    <svg id="sw-js-blob-svg" className="blur-xl" viewBox="10 5 150 150">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
                                 <stop id="stop1" stopColor="rgba(194, 229, 156, 1)" offset="0%"></stop>
@@ -100,16 +100,16 @@ function LandContent() {
                 </div> 
             </div>
 
-            <div className='w-full h-[500px] md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3 z-20'>
+            <div className='w-full h-[500px] xl:w-[1200px] xl:h-[700px] rounded-xl py-4 px-3 z-20'>
                 <img src="/Assets/bob.JPG" alt="img" className='w-full h-full object-cover rounded-xl'/>
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
-                <p className={`font-inter text-[25px] w-full md:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Generate images</p>
-                <p className={`font-inter text-[14px] sm:text-[14px] md:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 md:max-w-[580px] text-center pb-12`}>Unleash Your Imagination, Transforming Ideas into Captivating Visuals: Harness the Power of AI to Craft Beautiful Images from Your Thoughts and Words</p>
+                <p className={`font-inter text-[25px] w-full xl:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Generate images</p>
+                <p className={`font-inter text-[14px] sm:text-[14px] xl:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 xl:max-w-[580px] text-center pb-12`}>Unleash Your Imagination, Transforming Ideas into Captivating Visuals: Harness the Power of AI to Craft Beautiful Images from Your Thoughts and Words</p>
 
-                <div className='absolute transform translate-x-[130px] translate-y-[70px] md:translate-x-[105px] md:translate-y-[120px] w-[340px] h-[340px] md:w-[600px] md:h-[600px] opacity-30 z-10'>
-                    <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 5 150 150">  
+                <div className='absolute transform translate-x-[130px] translate-y-[70px] xl:translate-x-[105px] xl:translate-y-[120px] w-[340px] h-[340px] xl:w-[600px] xl:h-[600px] opacity-30 z-10'>
+                    <svg id="sw-js-blob-svg" className="blur-xl" viewBox="10 5 150 150">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
                                 <stop id="stop1" stopColor="rgba(194, 229, 156, 1)" offset="0%"></stop>
@@ -134,16 +134,16 @@ function LandContent() {
                 </div> 
             </div>
 
-            <div className='w-full h-[500px] md:w-[1200px] md:h-[700px] rounded-xl py-4 px-3 z-20'>
+            <div className='w-full h-[500px] xl:w-[1200px] xl:h-[700px] rounded-xl py-4 px-3 z-20'>
                 <img src="/Assets/tune.JPG" alt="img" className='w-full h-full object-cover rounded-xl'/>
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
-                <p className={`font-inter w-full text-[25px] md:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Tune your own model</p>
-                <p className={`font-inter text-[14px] sm:text-[14px] md:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 md:max-w-[580px] text-center pb-12`}>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
+                <p className={`font-inter w-full text-[25px] xl:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Tune your own model</p>
+                <p className={`font-inter text-[14px] sm:text-[14px] xl:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 xl:max-w-[580px] text-center pb-12`}>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
 
-                <div className='absolute transform translate-x-[60px] translate-y-[20px] md:translate-x-[175px] md:translate-y-[0px] w-[500px] h-[500px] md:w-[900px] md:h-[900px] opacity-30'>
-                    <svg id="sw-js-blob-svg" className="blur-md" viewBox="10 -170 400 400">  
+                <div className='absolute transform translate-x-[60px] translate-y-[20px] xl:translate-x-[175px] xl:translate-y-[0px] w-[500px] h-[500px] xl:w-[900px] xl:h-[900px] opacity-30'>
+                    <svg id="sw-js-blob-svg" className="blur-xl" viewBox="10 -170 400 400">  
                         <defs>                        
                             <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">          
                                 <stop id="stop1" stopColor="rgba(194, 229, 156, 1)" offset="0%"></stop>

@@ -4,8 +4,6 @@ import { ModelProvider } from "../../context/ModelContext"
 import { useEffect, useState } from "react"
 import Settings from "../Settings/Settings"
 import LogoutPopUp from "../LogoutPopUp/LogoutPopUp"
-import { db } from "../../config/firebase"
-import { getDoc, doc, setDoc } from "firebase/firestore"
 
 function MainActionPage() {
     const [lightTheme, setLightTheme] = useState(false)
