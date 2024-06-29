@@ -64,9 +64,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     }
 
     // to generate pollinations image
-    const generatePollinationsImage = async() => {
-        const response = await useGenPollinationsImg({ prompt : prevPromptNonState })
-
+    const generatePollinationsImage = () => {
+        const response = useGenPollinationsImg({ prompt : prevPromptNonState })
+        console.log('response: ', response)
         if(response !== 'ERROR')
             setImageURL(response)
         else setIsServerError(true)

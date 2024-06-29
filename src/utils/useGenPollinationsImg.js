@@ -1,15 +1,11 @@
-import axios from "axios"
-
-async function useGenPollinationsImg({ prompt }) {
-    const BASE_URL = import.meta.env.VITE_APP_ADMIN_POLLINATIONS_BASE_URL
-    try{
-        const response = await axios.post(BASE_URL, { 'prompt' : prompt, 'model' : '10' })
-        console.log(response.data.response)
-        return response.data.response
-        // return `https://image.pollinations.ai/prompt/photorealistic%20${prompt}`
-    } catch(error) {
-        return 'ERROR'
-    }
+function useGenPollinationsImg({ prompt }) {
+    const prompt_ = prompt.replace(' ', '+')
+    const ran = Math.floor(Math.random() * 1000) + 1
+    const url = `https://image.pollinations.ai/prompt/${prompt_}?nologo=poll&nofeed=yes&seed=${ran}`
+    //return response.data.response
+    console.log(url)
+    return url
+    // return `https://image.pollinations.ai/prompt/photorealistic%20${prompt}`
 }
 
 export default useGenPollinationsImg
