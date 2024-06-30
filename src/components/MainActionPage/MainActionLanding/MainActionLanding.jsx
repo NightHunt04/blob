@@ -28,21 +28,21 @@ function MainActionLanding() {
                             {/* Gpt */}
                             <p className={`font-inter font-medium mb-6 text-[14px] xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center xl:text-left w-[90%]`}>GPT</p>
                             <div className='grid grid-cols-4 items-start gap-y-[26px] xl:gap-y-[33px] justify-center gap-2 w-full xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-4o')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-4o</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-4')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-4</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo-r')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
@@ -53,28 +53,28 @@ function MainActionLanding() {
                             {/* mixtral */}
                             <p className={`font-inter font-medium mb-6 text-[14px] xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center xl:text-left w-[90%]`}>Mixtral</p>
                             <div className='grid grid-cols-4 items-start gap-y-[26px] xl:gap-y-[33px] justify-center gap-2 w-full xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b-v0.1')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/mistral-7b.jpeg" alt="Mistral" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Mistral 7B v0.1</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b-v0.2')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/mistral-7b.jpeg" alt="Mistral" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Mistral 7B v0.2</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-8x7b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/mistral-7b.jpeg" alt="Mistral" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Mistral 8x7B</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-7b')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('mistral-openocra')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/ocra.png" alt="Mistral" className='w-full h-full object-cover'/>
                                     </div>
@@ -85,23 +85,23 @@ function MainActionLanding() {
                             {/* Hermes */}
                             <p className={`font-inter font-medium mb-6 text-[14px] xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center xl:text-left w-[90%]`}>Hermes</p>
                             <div className='grid grid-cols-4 items-start gap-y-[26px] xl:gap-y-[33px] justify-center gap-2 w-full xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('noushermes-yi')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
-                                        <img src="Assets/nous.jpeg" alt="Gemma" className='w-full h-full object-cover'/>
+                                        <img src="Assets/nous.jpeg" alt="Nous-Yi" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>NousHermes-Yi</p>
                                 </div>
                                 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('noushermes-sft')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
-                                        <img src="Assets/nous-sft.jpeg" alt="Gemma" className='w-full h-full object-cover'/>
+                                        <img src="Assets/nous-sft.jpeg" alt="SFT" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>NousHermes-SFT</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('noushermes-dpo')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
-                                        <img src="Assets/nous-sft.jpeg" alt="Gemma" className='w-full h-full object-cover'/>
+                                        <img src="Assets/nous-sft.jpeg" alt="DPO" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>NousHermes-DPO</p>
                                 </div>
@@ -113,39 +113,39 @@ function MainActionLanding() {
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>OpenHermes</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chronoshermes')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
                                         <img src="Assets/chronosHermes.png" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>ChronousHermes</p>
+                                    <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Chronous Hermes</p>
                                 </div>
                             </div>
 
                             {/* LLama */}
                             <p className={`font-inter font-medium mb-6 text-[14px] xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center xl:text-left w-[90%]`}>LLama</p>
                             <div className='grid grid-cols-4 items-start gap-y-[26px] xl:gap-y-[33px] justify-center gap-2 w-full xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama-3-70b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Llama-3-70b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama-3-8b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Llama-3-8b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama-2-13b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Llama-2-13b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama-2-7b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
@@ -153,28 +153,28 @@ function MainActionLanding() {
                                 </div>
 
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('codellama-70b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>CodeLLama-70b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('codellama-34b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>CodeLLama-34b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('codellama-13b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>CodeLLama-13b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('llama')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('codellama-7b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/llama.jpeg" alt="LLama" className='w-full h-full object-cover'/>
                                     </div>
@@ -185,14 +185,14 @@ function MainActionLanding() {
                             {/* vicuna */}
                             <p className={`font-inter font-medium mb-6 text-[14px] xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center xl:text-left w-[90%]`}>Vicuna</p>
                             <div className='grid grid-cols-4 items-start gap-y-[26px] xl:gap-y-[33px] justify-center gap-2 w-full xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('vicuna-7b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] xl:text-[20px] text-white'>V</p>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Vicuna-7b</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('vicuna-13b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] xl:text-[20px] text-white'>V</p>
                                     </div>
@@ -203,28 +203,28 @@ function MainActionLanding() {
                             {/* qwen */}
                             <p className={`font-inter font-medium mb-6 text-[14px] xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center xl:text-left w-[90%]`}>Qwen</p>
                             <div className='grid grid-cols-4 items-start gap-y-[26px] xl:gap-y-[33px] justify-center gap-2 w-full xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('qwen-14b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] xl:text-[20px] text-white'>Q</p>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Qwen-14B</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('qwen-7b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] xl:text-[20px] text-white'>Q</p>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Qwen-7B</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('qwen-4b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] xl:text-[20px] text-white'>Q</p>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Qwen-4B</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemma')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('qwen-1.8b')}>
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] xl:text-[20px] text-white'>Q</p>
                                     </div>
@@ -289,7 +289,14 @@ function MainActionLanding() {
                                     <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/yi-logo.png" alt="Gemma" className='w-full h-full object-cover'/>
                                     </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>MythoMax</p>
+                                    <p className={`font-inter text-center text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Yi Chat</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('gemini')}>
+                                    <div className='w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
+                                        <img src="Assets/gemini-logo.png" alt="Gemini" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-[13px] pt-1 xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gemini</p>
                                 </div>
                                 
                                 {/* added new end */}

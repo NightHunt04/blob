@@ -288,7 +288,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             startAnimation = true
             loadingAnimation(newUuid2)
 
-            if(modelName === 'OpenHermes' || modelName === 'LLama') 
+            if(modelName === 'OpenHermes') 
                 callQwertyModel(prevPromptNonState, modelId, newUuid2)
 
             else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName == 'Phi')
@@ -365,45 +365,34 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else if(modelName === 'Prodia')
             generateProdia()
 
-        else if(modelName === 'OpenHermes' || modelName === 'LLama') {
-            let modelId = '-1'
-            switch(modelName) {
-                case 'OpenHermes': 
-                    modelId = '27'
-                    break
+        else if(modelName === 'OpenHermes') 
+            setupMessage(prevPromptNonState, 27)
+
+        // else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName === 'Phi') {
+        //     let modelId = '-1'
+        //     switch(modelName) {
+        //         case 'Mistral 7B':
+        //             modelId = '6'
+        //             break
+
+        //         case 'Coral':
+        //             modelId = '0'
+        //             break
+
+        //         case 'Zephyr':
+        //             modelId = '2'
+        //             break
+
+        //         case 'Gemma':
+        //             modelId = '5'
+        //             break
                 
-                case 'LLama':
-                    modelId = '18'
-                    break
-            }
-            setupMessage(prevPromptNonState, modelId)
-        }
-
-        else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName === 'Phi') {
-            let modelId = '-1'
-            switch(modelName) {
-                case 'Mistral 7B':
-                    modelId = '6'
-                    break
-
-                case 'Coral':
-                    modelId = '0'
-                    break
-
-                case 'Zephyr':
-                    modelId = '2'
-                    break
-
-                case 'Gemma':
-                    modelId = '5'
-                    break
-                
-                case 'Phi':
-                    modelId = '7'
-                    break
-            }            
-            setupMessage(prevPromptNonState, modelId)
-        }
+        //         case 'Phi':
+        //             modelId = '7'
+        //             break
+        //     }            
+        //     setupMessage(prevPromptNonState, modelId)
+        // }
 
         else if(modelName === 'Gemini' || modelName === 'Human' || modelName === 'Super Mario' || modelName === 'Dr. Strange' || modelName === 'Walter White') 
             setupMessage(prevPromptNonState)
@@ -429,6 +418,31 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             }
 
             setupMessage(prevPromptNonState, model)
+        }
+
+        else {
+            let modelId = -1
+            switch(modelName) {
+                case 'Gpt-4o':
+                    modelId = 0
+                    break
+                case 'Gpt-4':
+                    modelId = 1
+                    break
+                case 'Gpt-3.5-turbo':
+                    modelId = 2
+                    break
+                case 'Mistral 8x7B':
+                    modelId = 3
+                    break
+                case 'Mistral 7B v0.2':
+                    modelId = 4
+                    break
+                case 'Mistral 7B v0.1':
+                    modelId = 5
+                    break
+                
+            }
         }
 
         setIsDisabled(false)

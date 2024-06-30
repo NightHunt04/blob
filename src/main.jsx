@@ -17,24 +17,253 @@ const router = createBrowserRouter([
     path : '/action',
     element : <MainActionPage />,
   },
+  // gpt
+  {
+    path: 'action/chatgpt-4o',
+    element: <ChatModel 
+              modelName={'Gpt-4o'}
+              modelDescription={'Know more about OpenAI on their site: https://openai.com/en-GB/'}
+              modelImage={'../Assets/chatgpt.jpg'}
+              modelTitleColor={'text-[#00B48A]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/chatgpt-4',
+    element: <ChatModel 
+              modelName={'Gpt-4'}
+              modelDescription={'Know more about OpenAI on their site: https://openai.com/en-GB/'}
+              modelImage={'../Assets/chatgpt.jpg'}
+              modelTitleColor={'text-[#00B48A]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/chatgpt-3.5-turbo-r',
+    element: <ChatModel 
+              modelName={'Gpt-3.5 Turbo'}
+              modelDescription={'Know more about OpenAI on their site: https://openai.com/en-GB/'}
+              modelImage={'../Assets/chatgpt.jpg'}
+              modelTitleColor={'text-[#00B48A]'}
+              isImageGenerator={false}/>
+  },
+
+  // Mistral 
+  {
+    path : 'action/mistral-7b-v0.1',
+    element: <ChatModel 
+              modelName={'Mistral 7B v0.1'} 
+              modelDescription={`Know about Mistral on there site: https://mistral.ai/`} 
+              modelImage={'../Assets/mistral-7b.jpeg'} 
+              modelTitleColor={'text-[#ff9e29]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/mistral-7b-v0.2',
+    element: <ChatModel 
+              modelName={'Mistral 7B v0.2'} 
+              modelDescription={`Know about Mistral on there site: https://mistral.ai/`} 
+              modelImage={'../Assets/mistral-7b.jpeg'} 
+              modelTitleColor={'text-[#ff9e29]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/mistral-8x7b',
+    element: <ChatModel 
+              modelName={'Mistral 8x7B'} 
+              modelDescription={`Know about Mistral on there site: https://mistral.ai/`} 
+              modelImage={'../Assets/mistral-7b.jpeg'} 
+              modelTitleColor={'text-[#ff9e29]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/mistral-openocra',
+    element: <ChatModel 
+              modelName={'Mistral OpenOcra'} 
+              modelDescription={`Know about Mistral on there site: https://mistral.ai/`} 
+              modelImage={'../Assets/ocra.png'} 
+              modelTitleColor={'text-[#ff9e29]'}
+              isImageGenerator={false}/>
+  },
+
+  // Hermes
   {
     path : 'action/openhermes',
     element: <ChatModel 
               modelName={'OpenHermes'} 
               modelDescription={'OpenHermes has been trained on a wide variety of texts, including lots of information about computer code. This training makes it particularly good at understanding and generating text related to programming, in addition to its general language skills.'} 
               modelImage={'../Assets/openhermes.jpg'} 
-              modelTitleColor={'text-[#ff9e29]'}
+              modelTitleColor={'text-[#B2BEB5]'}
               isImageGenerator={false}/>
   },
   {
-    path : 'action/mistral-7b',
+    path : 'action/noushermes-yi',
     element: <ChatModel 
-              modelName={'Mistral 7B'} 
-              modelDescription={'The Mistral 7B model is a high-performance glider by Nova Performance Paragliders, ideal for intermediate to advanced pilots seeking agility, speed, and stability for cross-country flying and competitions.'} 
-              modelImage={'../Assets/mistral-7b.jpeg'} 
-              modelTitleColor={'text-[#ff9e29]'}
+              modelName={'NouseHermes Yi'} 
+              modelDescription={'Know about NousHermes Yi here: https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B'} 
+              modelImage={'../Assets/nous.jpeg'} 
+              modelTitleColor={'text-[#B2BEB5]'}
               isImageGenerator={false}/>
   },
+  {
+    path : 'action/noushermes-sft',
+    element: <ChatModel 
+              modelName={'NouseHermes SFT'} 
+              modelDescription={'Know about NouseHermes SFT here: https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-SFT'} 
+              modelImage={'../Assets/nous-sft.jpeg'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/noushermes-dpo',
+    element: <ChatModel 
+              modelName={'NouseHermes DPO'} 
+              modelDescription={'Know about NousHermes DPO here: https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO'} 
+              modelImage={'../Assets/nous-sft.jpeg'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/chronoshermes',
+    element: <ChatModel 
+              modelName={'ChronosHermes'} 
+              modelDescription={'Know about ChronosHermes here: https://huggingface.co/Austism/chronos-hermes-13b'} 
+              modelImage={'../Assets/chronosHermes.png'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+
+  // llama
+  {
+    path: 'action/llama-3-70b',
+    element: <ChatModel 
+              modelName={'LLama 3 70B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/llama-3-8b',
+    element: <ChatModel 
+              modelName={'LLama 3 8B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/llama-2-13b',
+    element: <ChatModel 
+              modelName={'LLama 2 13B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/llama-2-7b',
+    element: <ChatModel 
+              modelName={'LLama 2 7B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/codellama-70b',
+    element: <ChatModel 
+              modelName={'CodeLLama 70B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/codellama-34b',
+    element: <ChatModel 
+              modelName={'CodeLLama 34B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/codellama-13b',
+    element: <ChatModel 
+              modelName={'CodeLLama 13B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/codellama-7b',
+    element: <ChatModel 
+              modelName={'CodeLLama 7B'}
+              modelDescription={'Know about LLama here: https://llama.meta.com/'}
+              modelImage={'../Assets/llama.jpeg'}
+              modelTitleColor={'text-[#FFA500]'}
+              isImageGenerator={false}/>
+  },
+
+  // vicuna
+  {
+    path : 'action/vicuna-7b',
+    element: <ChatModel 
+              modelName={'Vicuna 7B'} 
+              modelDescription={'Know about Vicuna 7B here: https://huggingface.co/lmsys/vicuna-7b-v1.5'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/vicuna-13b',
+    element: <ChatModel 
+              modelName={'Vicuna 13B'} 
+              modelDescription={'Know about Vicuna 7B here: https://huggingface.co/lmsys/vicuna-13b-v1.5'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+
+  // qwen
+  {
+    path : 'action/qwen-14b',
+    element: <ChatModel 
+              modelName={'Qwen 14B'} 
+              modelDescription={'Know about Qwen 14B here: https://huggingface.co/Qwen/Qwen1.5-14B-Chat'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/qwen-7b',
+    element: <ChatModel 
+              modelName={'Qwen 7B'} 
+              modelDescription={'Know about Qwen 7B here: https://huggingface.co/Qwen/Qwen1.5-7B-Chat'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/qwen-4b',
+    element: <ChatModel 
+              modelName={'Qwen 4B'} 
+              modelDescription={'Know about Qwen 4B here: https://huggingface.co/Qwen/Qwen1.5-4B-Chat'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/qwen-1.8b',
+    element: <ChatModel 
+              modelName={'Qwen 1.8B'} 
+              modelDescription={'Know about Qwen 1.8B here: https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+
+
   {
     path: 'action/chatgpt-3.5-turbo',
     element: <ChatModel 
