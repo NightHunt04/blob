@@ -263,6 +263,17 @@ const router = createBrowserRouter([
               isImageGenerator={false}/>
   },
 
+  // other models
+  {
+    path : 'action/qwen-1.8b',
+    element: <ChatModel 
+              modelName={'Qwen 1.8B'} 
+              modelDescription={'Know about Qwen 1.8B here: https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat'} 
+              modelImage={'0'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+
 
   {
     path: 'action/chatgpt-3.5-turbo',
