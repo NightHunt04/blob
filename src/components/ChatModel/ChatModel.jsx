@@ -12,6 +12,7 @@ import useGeminiChatModel from "../../utils/useGeminiChatModel"
 import './style.css'
 import useHumanGen from "../../utils/useHumanGen"
 import useGPT from "../../utils/useGPT"
+import useAimlapi from "../../utils/useAimlapi"
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -189,6 +190,47 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         return modifiedText
     }
 
+    // call aimlapi
+    const callAimlapi = async(prompt, modelId, newUuid) => {
+        const response = await useAimlapi({ prompt: prompt, modelId: modelId })
+
+        if(response.status === 201) {
+            startAnimation = false
+            const respondedText = response.data.completion.choices[0].message.content.trim()
+            let filteredRespondedText = ''
+            let k = 0
+            let end = false
+            while(k < respondedText.length) {
+                if(k < respondedText.length - 1 && respondedText[k] === '*' && respondedText[k + 1] === '*') {
+                    if(end) {
+                        filteredRespondedText += '</b>'
+                        end = false
+                    } else {
+                        filteredRespondedText += '<b>'
+                        end = true
+                    }
+                    k += 2
+                } else if(k < respondedText.length - 1 && respondedText[k] === '*' && respondedText[k + 1] !== '*') {
+                    k += 1
+                } else {
+                    filteredRespondedText += respondedText[k]
+                    k += 1
+                }
+            }
+
+            const modifiedText = separateTheCode(filteredRespondedText)
+
+            let text = ''
+
+            for(let i = 0; i < modifiedText.length; i++) {
+                text += modifiedText[i]
+                setMessages(prev => prev.map(message => message.uuid === newUuid ? { ...message, text: text} : message) )
+                await delay(2)
+                dummy.current.scrollIntoView({ behavior: 'smooth', block : 'start'  })
+            }
+        } 
+    }
+
     // call admin's api
     const callAdminHugFaceModels = async(prompt, model, newUuid) => {
         const response = await useHuggingFaceModels({ prompt : prompt, model : model })
@@ -291,8 +333,8 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             if(modelName === 'OpenHermes') 
                 callQwertyModel(prevPromptNonState, modelId, newUuid2)
 
-            else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName == 'Phi')
-                callAdminHugFaceModels(prevPromptNonState, modelId, newUuid2)
+            // else if(modelName === 'Mistral 7B' || modelName === 'Coral' || modelName === 'Zephyr' || modelName === 'Gemma' || modelName == 'Phi')
+            //     callAdminHugFaceModels(prevPromptNonState, modelId, newUuid2)
 
             else if(modelName === 'Gemini')
                 callGeminiChatModel(prevPromptNonState, newUuid2)
@@ -324,6 +366,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
             else if(modelName === 'GPT-3.5-Turbo' || modelName === 'GPT-3' || modelName === 'Curie' || modelName === 'Davinci') 
                 callGPT(prevPromptNonState, modelId, newUuid2)
+
+            else 
+                callAimlapi(prevPromptNonState, modelId, newUuid2)
     }
 
     const QUES = ['How much does a cloud weight?', 'How can I incorporate mindfulness into my morning routine?', "How can I overcome writer's block?", 'How can I enhance my memory retention while studying?']
@@ -429,7 +474,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                 case 'Gpt-4':
                     modelId = 1
                     break
-                case 'Gpt-3.5-turbo':
+                case 'Gpt-3.5 Turbo':
                     modelId = 2
                     break
                 case 'Mistral 8x7B':
@@ -440,9 +485,90 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
                     break
                 case 'Mistral 7B v0.1':
                     modelId = 5
+                    break               
+                case 'Mistral OpenOcra':
+                    modelId = 26
                     break
-                
+                case 'NouseHermes Yi':
+                    modelId = 22
+                    break
+                case 'NouseHermes SFT':
+                    modelId = 23
+                    break
+                case 'NouseHermes DPO':
+                    modelId = 24
+                    break
+                case 'ChronosHermes':
+                    modelId = 6
+                    break
+                case 'LLama 3 70B':
+                    modelId = 14
+                    break  
+                case 'LLama 3 8B':
+                    modelId = 15
+                    break
+                case 'LLama 2 13B':
+                    modelId = 16
+                    break
+                case 'LLama 2 7B':
+                    modelId = 17
+                    break
+                case 'CodeLLama 70B':
+                    modelId = 21
+                    break
+                case 'CodeLLama 34B':
+                    modelId = 20
+                    break
+                case 'CodeLLama 13B':
+                    modelId = 19
+                    break
+                case 'CodeLLama 7B':
+                    modelId = 18
+                    break
+                case 'Vicuna 7B':
+                    modelId = 12
+                    break
+                case 'Vicuna 13B':
+                    modelId = 13
+                    break
+                case 'Qwen 14B':
+                    modelId = 27
+                    break
+                case 'Qwen 7B':
+                    modelId = 28
+                    break
+                case 'Qwen 4B':
+                    modelId = 29
+                    break
+                case 'Qwen 1.8B':
+                    modelId = 30
+                    break
+                case 'Dolphin 2.5 Mixtral 8x7b':
+                    modelId = 7
+                    break
+                case 'Deepseek 67b':
+                    modelId = 8
+                    break
+                case 'Platypus2 70B':
+                    modelId = 9
+                    break
+                case 'Gemma':
+                    modelId = 10
+                    break
+                case 'MythoMax 13B':
+                    modelId = 11
+                    break
+                case 'OpenChat':
+                    modelId = 25
+                    break
+                case 'Toppy-M':
+                    modelId = 31
+                    break
+                case 'Yi Chat':
+                    modelId = 32
+                    break
             }
+            setupMessage(prevPromptNonState, modelId)
         }
 
         setIsDisabled(false)

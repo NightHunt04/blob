@@ -1,6 +1,7 @@
 import axios from "axios"
 
 async function useAimlapi({ prompt, modelId} ) {
+  console.log(prompt, modelId)
     const models = [
                     'gpt-4o', 
                     'gpt-4', 
@@ -33,6 +34,8 @@ async function useAimlapi({ prompt, modelId} ) {
                     'Qwen/Qwen1.5-7B-Chat', 
                     'Qwen/Qwen1.5-4B-Chat', 
                     'Qwen/Qwen1.5-1.8B-Chat',
+                    'Undi95/Toppy-M-7B', 
+                    'zero-one-ai/Yi-34B-Chat'
                 ]
 
     const options = {
@@ -52,8 +55,8 @@ async function useAimlapi({ prompt, modelId} ) {
       
       try {
           const response = await axios.request(options)
-          console.log(response.data)
-      } catch (error) {
+          return response
+        } catch (error) {
           console.error(error)
       }
 }

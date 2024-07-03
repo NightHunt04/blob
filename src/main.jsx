@@ -265,16 +265,88 @@ const router = createBrowserRouter([
 
   // other models
   {
-    path : 'action/qwen-1.8b',
+    path : 'action/dolphin',
     element: <ChatModel 
-              modelName={'Qwen 1.8B'} 
-              modelDescription={'Know about Qwen 1.8B here: https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat'} 
-              modelImage={'0'} 
+              modelName={'Dolphin 2.5 Mixtral 8x7b'} 
+              modelDescription={'Know about Delphin here: https://huggingface.co/TheBloke/dolphin-2.5-mixtral-8x7b-GGUF'} 
+              modelImage={'../Assets/dolphin.jpeg'} 
               modelTitleColor={'text-[#B2BEB5]'}
               isImageGenerator={false}/>
   },
+  {
+    path : 'action/deepseek',
+    element: <ChatModel 
+              modelName={'Deepseek 67b'} 
+              modelDescription={'Know about Deepseek here: https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat'} 
+              modelImage={'../Assets/deepseek.png'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path : 'action/platypus2',
+    element: <ChatModel 
+              modelName={'Platypus2 70B'} 
+              modelDescription={'Know about Platypus here: https://huggingface.co/garage-bAInd/Platypus2-70B-instruct'} 
+              modelImage={'../Assets/platypus.jpeg'} 
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/gemma',
+    element: <ChatModel 
+              modelName={'Gemma'}
+              modelDescription={"Gemma models draw inspiration and technological lineage from the Gemini family of models, and are made for the AI development community to extend and take further."}
+              modelImage={'../Assets/google-logo.png'}
+              modelTitleColor={'text-[#ADD8E6]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/mythomax',
+    element: <ChatModel 
+              modelName={'MythoMax 13B'}
+              modelDescription={"Know about MythoMax here: https://huggingface.co/Gryphe/MythoMax-L2-13b"}
+              modelImage={'../Assets/mythomax.png'}
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/openchat',
+    element: <ChatModel 
+              modelName={'OpenChat'}
+              modelDescription={"Know about OpenChat here: https://huggingface.co/openchat/openchat-3.5-1210"}
+              modelImage={'../Assets/openchat.png'}
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/toppy',
+    element: <ChatModel 
+              modelName={'Toppy-M'}
+              modelDescription={"Know about Toppy-M here: https://huggingface.co/Undi95/Toppy-M-7B"}
+              modelImage={'0'}
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/yi',
+    element: <ChatModel 
+              modelName={'Yi Chat'}
+              modelDescription={"Know about Yi Chat here: https://huggingface.co/01-ai/Yi-34B-Chat"}
+              modelImage={'../Assets/yi-logo.png'}
+              modelTitleColor={'text-[#B2BEB5]'}
+              isImageGenerator={false}/>
+  },
+  {
+    path: 'action/gemini',
+    element: <ChatModel 
+              modelName={'Gemini'}
+              modelDescription={'Gemini AI is an artificial intelligence company that develops advanced natural language processing (NLP) technology. It was developed by a team of AI researchers and engineers. In short, Gemini AI provides cutting-edge solutions for conversational agents and text analysis, empowering businesses and individuals with powerful AI-driven capabilities.'}
+              modelImage={'../Assets/gemini.png'}
+              modelTitleColor={'text-[#0055FF]'}
+              isImageGenerator={false}/>
+  },
 
-
+  // 3rd party gpt
   {
     path: 'action/chatgpt-3.5-turbo',
     element: <ChatModel 
@@ -311,60 +383,43 @@ const router = createBrowserRouter([
               modelTitleColor={'text-[#00B48A]'}
               isImageGenerator={false}/>
   },
-  {
-    path: 'action/cohere',
-    element: <ChatModel 
-              modelName={'Coral'}
-              modelDescription={"Cohere is an AI company that specializes in large language models (LLMs). Cohere's platform offers developers access to pre-built LLMs that can perform common tasks on text input, such as summarizing, classifying, and finding similarities in content. Developers can also create their own language models based on Cohere's work"}
-              modelImage={'../Assets/cohere-logo.png'}
-              modelTitleColor={'text-[#00B48A]'}
-              isImageGenerator={false}/>
-  },
-  {
-    path: 'action/zephyr',
-    element: <ChatModel 
-              modelName={'Zephyr'}
-              modelDescription={"Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr 141B-A39B is the latest model in the series, and is a fine-tuned version of mistral-community/Mixtral-8x22B-v0.1 that was trained using a novel alignment algorithm called Odds Ratio Preference Optimization (ORPO) with 7k instances for 1.3 hours on 4 nodes of 8 x H100s."}
-              modelImage={'../Assets/zephyr-logo.png'}
-              modelTitleColor={'text-[#0047AB]'}
-              isImageGenerator={false}/>
-  },
-  {
-    path: 'action/gemma',
-    element: <ChatModel 
-              modelName={'Gemma'}
-              modelDescription={"Gemma models draw inspiration and technological lineage from the Gemini family of models, and are made for the AI development community to extend and take further."}
-              modelImage={'../Assets/google-logo.png'}
-              modelTitleColor={'text-[#ADD8E6]'}
-              isImageGenerator={false}/>
-  },
-  {
-    path: 'action/phi',
-    element: <ChatModel 
-              modelName={'Phi'}
-              modelDescription={"It's a small AI model that's turning heads by showing that size isn't everything. Despite being much smaller than its counterparts, Phi can hold its own when it comes to understanding language and making sense of things."}
-              modelImage={'../Assets/microsoft-logo.png'}
-              modelTitleColor={'text-[#C70039]'}
-              isImageGenerator={false}/>
-  },
-  {
-    path: 'action/gemini',
-    element: <ChatModel 
-              modelName={'Gemini'}
-              modelDescription={'Gemini AI is an artificial intelligence company that develops advanced natural language processing (NLP) technology. It was developed by a team of AI researchers and engineers. In short, Gemini AI provides cutting-edge solutions for conversational agents and text analysis, empowering businesses and individuals with powerful AI-driven capabilities.'}
-              modelImage={'../Assets/gemini.png'}
-              modelTitleColor={'text-[#0055FF]'}
-              isImageGenerator={false}/>
-  },
-  {
-    path: 'action/llama',
-    element: <ChatModel 
-              modelName={'LLama'}
-              modelDescription={'Meta AI developed the Large Language Model (LLaMA) family of artificial intelligence (AI) models in February 2023. The first version of the model was released in four sizes: 7B, 13B, 33B, and 65 billion parameters. Meta announced Llama-2, the next generation of LLaMA, in partnership with Microsoft on July 18, 2023.'}
-              modelImage={'../Assets/llama.jpeg'}
-              modelTitleColor={'text-[#FFA500]'}
-              isImageGenerator={false}/>
-  },
+  // {
+  //   path: 'action/cohere',
+  //   element: <ChatModel 
+  //             modelName={'Coral'}
+  //             modelDescription={"Cohere is an AI company that specializes in large language models (LLMs). Cohere's platform offers developers access to pre-built LLMs that can perform common tasks on text input, such as summarizing, classifying, and finding similarities in content. Developers can also create their own language models based on Cohere's work"}
+  //             modelImage={'../Assets/cohere-logo.png'}
+  //             modelTitleColor={'text-[#00B48A]'}
+  //             isImageGenerator={false}/>
+  // },
+  // {
+  //   path: 'action/zephyr',
+  //   element: <ChatModel 
+  //             modelName={'Zephyr'}
+  //             modelDescription={"Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr 141B-A39B is the latest model in the series, and is a fine-tuned version of mistral-community/Mixtral-8x22B-v0.1 that was trained using a novel alignment algorithm called Odds Ratio Preference Optimization (ORPO) with 7k instances for 1.3 hours on 4 nodes of 8 x H100s."}
+  //             modelImage={'../Assets/zephyr-logo.png'}
+  //             modelTitleColor={'text-[#0047AB]'}
+  //             isImageGenerator={false}/>
+  // },
+  // {
+  //   path: 'action/phi',
+  //   element: <ChatModel 
+  //             modelName={'Phi'}
+  //             modelDescription={"It's a small AI model that's turning heads by showing that size isn't everything. Despite being much smaller than its counterparts, Phi can hold its own when it comes to understanding language and making sense of things."}
+  //             modelImage={'../Assets/microsoft-logo.png'}
+  //             modelTitleColor={'text-[#C70039]'}
+  //             isImageGenerator={false}/>
+  // },
+  
+  // {
+  //   path: 'action/llama',
+  //   element: <ChatModel 
+  //             modelName={'LLama'}
+  //             modelDescription={'Meta AI developed the Large Language Model (LLaMA) family of artificial intelligence (AI) models in February 2023. The first version of the model was released in four sizes: 7B, 13B, 33B, and 65 billion parameters. Meta announced Llama-2, the next generation of LLaMA, in partnership with Microsoft on July 18, 2023.'}
+  //             modelImage={'../Assets/llama.jpeg'}
+  //             modelTitleColor={'text-[#FFA500]'}
+  //             isImageGenerator={false}/>
+  // },
   {
     path: 'action/pollinations',
     element: <ChatModel 
