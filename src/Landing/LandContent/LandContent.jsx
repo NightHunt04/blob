@@ -67,8 +67,8 @@ function LandContent() {
                 </div>
             </div>
 
-            <div className='w-full h-[500px] 2xl:w-[1200px] 2xl:h-[700px] rounded-2xl py-4 px-3 z-20'>
-                <img src="/Assets/talk-up.JPG" alt="img" className='w-full h-full object-cover rounded-2xl'/>
+            <div className='w-full h-[500px] 2xl:w-[1200px] 2xl:h-[700px] overflow-hidden rounded-2xl py-4 px-3 z-20'>
+                <img src="/Assets/talk-up.JPG" alt="img" className='w-full h-full object-cover rounded-2xl hover:scale-105 transition-all duration-300'/>
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
@@ -100,8 +100,8 @@ function LandContent() {
                 </div> 
             </div>
 
-            <div className='w-full h-[500px] 2xl:w-[1200px] 2xl:h-[700px] rounded-2xl py-4 px-3 z-20'>
-                <img src="/Assets/bob.JPG" alt="img" className='w-full h-full object-cover rounded-2xl'/>
+            <div className='w-full h-[500px] 2xl:w-[1200px] 2xl:h-[700px] overflow-hidden rounded-2xl py-4 px-3 z-20'>
+                <img src="/Assets/bob.JPG" alt="img" className='w-full h-full object-cover rounded-2xl hover:scale-105 transition-all duration-300'/>
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
@@ -134,8 +134,8 @@ function LandContent() {
                 </div> 
             </div>
 
-            <div className='w-full h-[500px] 2xl:w-[1200px] 2xl:h-[700px] rounded-2xl py-4 px-3 z-20'>
-                <img src="/Assets/tune.JPG" alt="img" className='w-full h-full object-cover rounded-2xl'/>
+            <div className='w-full h-[500px] 2xl:w-[1200px] 2xl:h-[700px] overflow-hidden rounded-2xl py-4 px-3 z-20'>
+                <img src="/Assets/tune.JPG" alt="img" className='w-full h-full object-cover rounded-2xl hover:scale-105 transition-all duration-300'/>
             </div>
 
             <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
