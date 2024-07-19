@@ -3,12 +3,12 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAew_qpP3jXxHK2lnGeW3mp8aIWrh2rXnE",
-  authDomain: "modelmate-90572.firebaseapp.com",
-  projectId: "modelmate-90572",
-  storageBucket: "modelmate-90572.appspot.com",
+  apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: "807879335870",
-  appId: "1:807879335870:web:f2f38891a5be401c1e63ef",
+  appId: import.meta.env.VITE_APP_FIREBASE_APP_ID,
   measurementId: "G-GN6VLEGFFF"
 }
 
