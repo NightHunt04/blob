@@ -400,6 +400,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         else 
             prevPromptNonState = localStorage.getItem('prevPrompt')
         
+        if(prevPromptNonState !== '') {
+            
+
         setIsDisabled(true)
         setImageURL('')
 
@@ -581,6 +584,7 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             }
             setupMessage(prevPromptNonState, modelId)
         }
+    }
 
         setIsDisabled(false)
     }
