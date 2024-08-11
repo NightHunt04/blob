@@ -16,27 +16,27 @@ async function useGenProdia({ prompt }) {
                             'Content-Type': 'application/json'
                         }
                     }).then(response => {
-                        let err = null;
-                        let result = null;
+                        let err = null
+                        let result = null
                     
                         if((typeof response.data).toString().toLowerCase() === "Object".toLowerCase()){
                             if(response.data.code != undefined && response.data.code != null && response.data.code === 200 && response.data.status != undefined && response.data.status != null && response.data.status === true){
-                                result = response.data;
-                                err = null;
+                                result = response.data
+                                err = null
                             } else {
-                                result = null;
-                                err = response.data;
+                                result = null
+                                err = response.data
                             }
                         } else {
-                            let js = null;
-                            let count = -1;
+                            let js = null
+                            let count = -1
                             for(let i = 0; i < response.data.length; i++){
                                 if(count <= -1){
                                     if(response.data[i] === "{"){
-                                        count = i;
+                                        count = i
                                     }
                                 } else {
-                                    break;
+                                    break
                                 }
                             }
                     
@@ -47,17 +47,17 @@ async function useGenProdia({ prompt }) {
                                     "error": "INTERNAL_SERVER_ERROR",
                                     "message": "general (unknown) error"
                                 };
-                                result = null;
+                                result = null
                             } else {
                                 try {
                                     js = response.data.slice(count);
                                     js = JSON.parse(js);
                                     if(js != undefined && js != null && js.code != undefined && js.code != null && js.code === 200 && js.status != undefined && js.status != null && js.status === true){
-                                        result = js;
-                                        err = null;
+                                        result = js
+                                        err = null
                                     } else {
-                                        err = js;
-                                        result = null;
+                                        err = js
+                                        result = null
                                     }
                                 } catch(e){
                                     err = {
@@ -66,7 +66,7 @@ async function useGenProdia({ prompt }) {
                                         "error": "INTERNAL_SERVER_ERROR",
                                         "message": "general (unknown) error"
                                     };
-                                    result = null;
+                                    result = null
                                 }
                             }
                         }
