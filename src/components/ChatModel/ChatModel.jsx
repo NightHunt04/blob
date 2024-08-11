@@ -383,10 +383,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     const QUES = ['How much does a cloud weight?', 'How can I incorporate mindfulness into my morning routine?', "How can I overcome writer's block?", 'How can I enhance my memory retention while studying?']
 
     const handleRequest = (defaultQuestion=false, ind=-1) => {
-        setHideDescription(true)
-        setIsDisabled(true)
-        setIsServerError(false)
-
         if(!isRegenerate) {
             prevPromptNonState = prompt
             localStorage.setItem('prevPrompt', prevPromptNonState)
@@ -402,9 +398,11 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         
         if(prevPromptNonState !== '') {
             
-
-        setIsDisabled(true)
-        setImageURL('')
+            setHideDescription(true)
+            setIsDisabled(true)
+            setIsServerError(false)
+            setIsDisabled(true)
+            setImageURL('')
 
         // if(modelName === 'Dall-E') 
         //     generateImage(33) // model id for dalle
