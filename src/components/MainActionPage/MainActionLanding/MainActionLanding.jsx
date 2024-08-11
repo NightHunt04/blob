@@ -13,7 +13,7 @@ function MainActionLanding() {
 
             <div className={`mb-[75px] 2xl:mb-[120px] border-[1px] border-[#c51111] rounded-2xl px-3 py-2 w-full 2xl:w-9/12 opacity-80 ${lightTheme ? 'bg-[#cbcbcb] text-black' : 'bg-[#000000] text-gray-300'}`}>
                 <span className='text-red-500 text-[13px] 2xl:text-[17px]'>Note:&nbsp;</span>
-                <span className='text-[12px] 2xl:text-[16px]'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else and are provided for absolutely free. So, in case if any model is not providing the expected response, then there are may occur internal server error which isn't in my hands, and for that I apologise.</span>
+                <span className='text-[12px] 2xl:text-[16px]'>The APIs which are being used for fetching the responses from the below models are reverse engineered by someone else or are 3rd party and are provided for absolutely free. So, in case if any model is not providing the expected response, then that might be the internal server error which isn't in my hands, and for that I apologise.</span>
             </div>
 
             <p className='text-[13px] 2xl:text-[16px] font-inter text-gray-400 text-center w-full'>Click on the model you want to try.</p>
@@ -25,30 +25,7 @@ function MainActionLanding() {
                         <p className='font-inter text-[15px] 2xl:text-[20px] font-medium ml-3 py-2'>Chat Completion Models</p>
                         <div className={`px-3 py-5 rounded-[17px] ${lightTheme ? 'bg-[#efefef]' : 'bg-[#2c2c2c]'} flex flex-col items-center justify-center shadow-2xl w-full 2xl:w-3/4 mb-8 border-2 ${lightTheme ? 'border-[#cecece]' : 'border-none'}`}>                            
                             
-                            {/* Gpt */}
-                            <p className={`font-inter font-medium mb-6 text-[14px] 2xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center 2xl:text-left w-[90%]`}>GPT</p>
-                            <div className='grid grid-cols-4 items-start gap-y-[26px] 2xl:gap-y-[33px] justify-center gap-2 w-full 2xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-4o')}>
-                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
-                                    </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-4o</p>
-                                </div>
-
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-4')}>
-                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
-                                    </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-4</p>
-                                </div>
-
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo-r')}>
-                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
-                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
-                                    </div>
-                                    <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-3.5-turbo</p>
-                                </div>
-                            </div>
+                            
 
                             {/* mixtral */}
                             <p className={`font-inter font-medium mb-6 text-[14px] 2xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center 2xl:text-left w-[90%]`}>Mixtral</p>
@@ -118,6 +95,31 @@ function MainActionLanding() {
                                         <img src="Assets/chronosHermes.png" alt="gpt" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Chronous Hermes</p>
+                                </div>
+                            </div>
+
+                            {/* Gpt */}
+                            <p className={`font-inter font-medium mb-6 text-[14px] 2xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} text-center 2xl:text-left w-[90%]`}>GPT</p>
+                            <div className='grid grid-cols-4 items-start gap-y-[26px] 2xl:gap-y-[33px] justify-center gap-2 w-full 2xl:w-calc(w-3/4 - 20px) border-b-[1px] pb-4 mb-10 border-gray-600'>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-4o')}>
+                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-4o</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-4')}>
+                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-4</p>
+                                </div>
+
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer my-2' onClick={() => navigate('chatgpt-3.5-turbo-r')}>
+                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:opacity-70 transition-all'>
+                                        <img src="Assets/chatgpt.jpg" alt="gpt" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-center text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Gpt-3.5-turbo</p>
                                 </div>
                             </div>
 
@@ -347,19 +349,26 @@ function MainActionLanding() {
                             <p className={`font-inter font-medium mb-6 text-[14px] 2xl:text-[17px] px-5 py-2 rounded-[20px] ${lightTheme ? 'bg-[#dbdbdb]' : 'bg-[#1e1e1e]'} w-[90%] text-center 2xl:text-left`}>Image Generative Models</p>
 
                             <div className='grid grid-cols-4 items-start justify-center gap-2 w-full 2xl:w-calc(w-3/4 - 20px)'>
-                            <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('pollinations')}>
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('pixart')}>
+                                    <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#ce4f00] hover:bg-[#ce4f00e3] hover:text-gray-300 transition-all'>
+                                        <img src="Assets/pix.jpeg" alt="prodia" className='w-full h-full object-cover'/>
+                                    </div>
+                                    <p className={`font-inter text-[13px] pt-1 2xl:text-[16px] e-full text-center ${lightTheme ? 'text-black' : 'text-gray-300'}`}>PixArt</p>
+                                </div>
+                                
+                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('pollinations')}>
                                     <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/pollination.png" alt="Pollinations" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Pollinations</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('dalle')}>
+                                {/* <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('dalle')}>
                                     <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#1f1f1f] hover:bg-[#363636] hover:text-gray-300 transition-all'>
                                         <img src="Assets/dalle.png" alt="Dall-E" className='w-full h-full object-cover'/>
                                     </div>
                                     <p className={`font-inter text-[13px] pt-1 2xl:text-[16px] ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Dall-E</p>
-                                </div>
+                                </div> */}
 
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('sd')}>
                                     <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#ce9000] hover:bg-[#ce9000e4] hover:text-gray-300 transition-all'>
@@ -368,12 +377,12 @@ function MainActionLanding() {
                                     <p className={`font-inter text-[13px] pt-1 2xl:text-[16px] e-full text-center ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Stable Diffusion</p>
                                 </div>
 
-                                <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('sdxl')}>
+                                {/* <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('sdxl')}>
                                     <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#ce4f00] hover:bg-[#ce4f00e3] hover:text-gray-300 transition-all'>
                                         <p className='font-inter font-semibold text-[14px] text-white 2xl:text-[20px]'>SDXL</p>
                                     </div>
                                     <p className={`font-inter text-[13px] pt-1 2xl:text-[16px] e-full text-center ${lightTheme ? 'text-black' : 'text-gray-300'}`}>Stable Diffusion XL</p>
-                                </div>
+                                </div> */}
 
                                 <div className='flex flex-col items-center justify-center gap-1 hover:cursor-pointer hover:opacity-80 my-2' onClick={() => navigate('prodia')}>
                                     <div className='w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] flex items-center justify-center rounded-full overflow-hidden border-[1px] border-[#737373] bg-[#ce4f00] hover:bg-[#ce4f00e3] hover:text-gray-300 transition-all'>

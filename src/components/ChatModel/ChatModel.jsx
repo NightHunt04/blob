@@ -13,6 +13,7 @@ import './style.css'
 import useHumanGen from "../../utils/useHumanGen"
 import useGPT from "../../utils/useGPT"
 import useAimlapi from "../../utils/useAimlapi"
+import usePixArt from "../../utils/usePixArt"
 
 
 function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, isImageGenerator, showcaseImages=null}) {
@@ -126,6 +127,14 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
             setIsServerError(true)
         else
             setImageURL(response)
+    }
+
+    const generatePix = async() => {
+        const response = await usePixArt({ prompt: prevPromptNonState })
+        if(response === 'ERROR')
+            setIsServerError(true)
+        else
+            setImageURL(`https://api.codetabs.com/v1/proxy/?quest=${response}`)
     }
 
     const callGeminiChatModel = async(prompt, newUuid) => {
@@ -374,7 +383,6 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
     const QUES = ['How much does a cloud weight?', 'How can I incorporate mindfulness into my morning routine?', "How can I overcome writer's block?", 'How can I enhance my memory retention while studying?']
 
     const handleRequest = (defaultQuestion=false, ind=-1) => {
-        console.log('yes')
         setHideDescription(true)
         setIsDisabled(true)
         setIsServerError(false)
@@ -395,13 +403,13 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
         setIsDisabled(true)
         setImageURL('')
 
-        if(modelName === 'Dall-E') 
-            generateImage(33) // model id for dalle
+        // if(modelName === 'Dall-E') 
+        //     generateImage(33) // model id for dalle
 
-        else if(modelName === 'SDXL')
-            generateImage(10) // model id for sdxl
+        // else if(modelName === 'SDXL')
+        //     generateImage(10) // model id for sdxl
     
-        else if(modelName === 'SD') 
+        if(modelName === 'SD') 
             generateStableDiff()
 
         else if(modelName === 'Pollinations') 
@@ -409,6 +417,9 @@ function ChatModel({modelName, modelDescription, modelImage, modelTitleColor, is
 
         else if(modelName === 'Prodia')
             generateProdia()
+
+        else if(modelName === 'PixArt') 
+            generatePix()
 
         else if(modelName === 'OpenHermes') 
             setupMessage(prevPromptNonState, 27)

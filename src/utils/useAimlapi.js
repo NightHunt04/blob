@@ -1,7 +1,6 @@
 import axios from "axios"
 
 async function useAimlapi({ prompt, modelId} ) {
-  console.log(prompt, modelId)
     const models = [
                     'gpt-4o', 
                     'gpt-4', 

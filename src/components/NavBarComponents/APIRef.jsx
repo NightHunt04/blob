@@ -25,7 +25,7 @@ function APIRef() {
                 <div className={`w-[97%] rounded-xl lg:text-[16px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef] shadow-lg' : 'bg-[#2c2c2c] border-none'} p-4`}>
                     <p className="font-medium text-[15px] lg:text-[18px]">API References</p>
                     <div className="w-full text-left pt-3 px-2 lg:px-4">
-                        <p className="text-[15px] lg:text-[17px]">Links for the APIs used in this project are given below <span className="text-[#ff2e2e]">(click on the below text to redirect to the API link) </span>: </p>
+                        <p className="text-[15px] lg:text-[17px]">Links for the APIs are given below <span className="text-[#ff2e2e]">(click on the below text to redirect to the API link) </span>: </p>
                         <div className="flex text-left w-full gap-3 pt-4">
                             <p>1)</p>
                             <Link to='https://rapidapi.com/qewertyyirl/api/models3/' className="hover:opacity-70 text-[15px] lg:text-[16px]" target="__blank">Rapid API :  models By qewertyy</Link>
@@ -42,12 +42,16 @@ function APIRef() {
                             <p>4)</p>
                             <Link to='https://github.com/python-telegram-bot/python-telegram-bot' className="hover:opacity-70 text-[15px] lg:text-[16px]" target="__blank">API for telegram bot</Link>
                         </div>
+                        <div className="flex text-left w-full gap-3 pt-4">
+                            <p>5)</p>
+                            <Link to='https://api.kastg.xyz/ai' className="hover:opacity-70 text-[15px] lg:text-[16px]" target="__blank">Kastg API: Consists of wide variety of apis</Link>
+                        </div>
                     </div>
                 </div>
 
                 <div className={`w-[97%] rounded-xl text-[15px] lg:text-[17px] flex flex-col items-center justify-center ${lightTheme ? 'bg-[#efefef] shadow-lg' : 'bg-[#2c2c2c]'} p-4 mt-2 pb-6 lg:mt-5`}>
                     <div className="w-full text-left pt-3 px-2 lg:px-4">
-                        <p><span className="text-[#ff2e2e]">Note:&nbsp;</span>The above given APIs are handled and managed by others and there is no gauranteed that these APIs will work without any concern. There may or may not come any issues which are completely relied on the services or the servers.</p>
+                        <p><span className="text-[#ff2e2e]">Note:&nbsp;</span>The above given APIs are handled and managed by others and it may or may not work.</p>
                     </div>
                 </div>
 

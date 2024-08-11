@@ -1,9 +1,31 @@
 import { LinearGradient as Lg } from 'react-text-gradients'
 import { useModelContext } from '../../context/ModelContext'
-
+import { auth, googleProvider } from '../../config/firebase'
+import { signInWithPopup } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 function LandContent() {
     const { lightTheme } = useModelContext()
+    const navigate = useNavigate()
+
+    const handleEntrance = async() => {
+        if(localStorage.getItem('currentUserDisplayName') === null) {
+            try {
+                await signInWithPopup(auth, googleProvider)
+    
+                // set the details regarding the current user in localstorage
+                localStorage.setItem('currentUserDisplayName', auth?.currentUser?.displayName)
+                localStorage.setItem('currentUserUUID', auth?.currentUser?.uid)
+                localStorage.setItem('currentUserProfileURL', auth?.currentUser?.photoURL)
+                localStorage.setItem('currentUserEmail', auth?.currentUser?.email)
+    
+                navigate('action')
+            } catch(err) {
+                console.error(err)
+            }
+        }
+        else navigate('action')   
+    }
 
     return (
         <div>
@@ -12,6 +34,19 @@ function LandContent() {
                     <Lg gradient={['to right', '#ABDE73, #be5869']}>Model</Lg>
                     <span className='flex items-center justify-center z-30 leading-[30px] pb-10 2xl:pb-0 2xl:inline-block text-[100px] 2xl:text-[150px] text-[#868686] font-bold font-roboto-serif'>Mate</span>
                 </h1>
+
+                <div className='relative group z-30 mt-5'>
+                    <div className='z-30 absolute rounded-[28px] -inset-[1px] opacity-75 bg-gradient-to-r from-[#ABDE73] to-[#be5869]'></div>
+                    <button className='z-30 relative bg-[#323232] group-hover:bg-[#282828] transition duration-300 font-inter text-[14px] xl:text-[17px] px-[8px] py-[4px] xl:px-[11px] xl:py-[6px] rounded-[28px] text-[#dedede]' onClick={handleEntrance}>
+                        {
+                            localStorage.getItem('currentUserDisplayName') !== null ?
+                                <div><span className='text-[14px] px-1 xl:text-[16px] font-inter group-hover:text-white transition duration-200'>Go to action <i class="fa-solid fa-arrow-right"></i></span></div>
+                            :
+                                <div><i className="fa-brands fa-google px-1 text-[#DB4437]"></i> <span className='group-hover:text-white transition duration-200'>Sign in</span></div>
+                        }
+                    </button>
+                </div>
+
                 <p className={`font-inter text-[14px] 2xl:text-[19px] ${lightTheme ? 'text-black' : 'text-[#c4c4c4]'} pt-12 2xl:pb-0`}>Have your own buddy AI bot !</p>
 
                 <div className='absolute transform translate-x-[320px] z-10 -translate-y-[130px] 2xl:translate-x-[675px]  2xl:translate-y-[0px] w-[500px] h-[500px] 2xl:w-[900px] 2xl:h-[900px] opacity-30'>
@@ -39,6 +74,8 @@ function LandContent() {
                         </path>              
                     </svg>
                 </div>
+
+                
 
                 <div className='absolute transform translate-x-[60px] z-10 translate-y-[20px] 2xl:-translate-x-[60px]  2xl:-translate-y-[110px] w-[500px] h-[500px] 2xl:w-[900px] 2xl:h-[900px] opacity-30'>
                     <svg id="sw-js-blob-svg" className="blur-2xl" viewBox="10 -170 400 400">  
@@ -138,7 +175,7 @@ function LandContent() {
                 <img src="/Assets/tune.JPG" alt="img" className='w-full h-full object-cover rounded-2xl hover:scale-105 transition-all duration-300'/>
             </div>
 
-            <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
+            {/* <div className='relative flex flex-col items-center justify-center py-[100px] overflow-hidden'>
                 <p className={`font-inter w-full text-[25px] 2xl:text-[32px] text-center z-20 font-bold ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} pt-12 px-3`}>Tune your own model</p>
                 <p className={`font-inter text-[14px] sm:text-[14px] 2xl:text-[19px] z-20 font-regular ${lightTheme ? 'text-black' : 'text-[#e6e6e6]'} w-full px-6 2xl:max-w-[580px] text-center pb-12`}>Unlocking AI Authenticity: Molding Distinctive Personalities through the Creative Influence of Words and Prompts, Where Every Expression Shapes a Unique Identity</p>
 
@@ -167,7 +204,7 @@ function LandContent() {
                         </path>              
                     </svg>
                 </div>        
-            </div>
+            </div> */}
       </div>
     )
 }

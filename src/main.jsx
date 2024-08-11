@@ -430,16 +430,16 @@ const router = createBrowserRouter([
               isImageGenerator={true}
               showcaseImages={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShRo4yLC0LiNnX0q8JOhyj9A9MhOGdcuwDfOA2UL7phg&s'}/>
   },
-  {
-    path: 'action/dalle',
-    element: <ChatModel 
-              modelName={'Dall-E'}
-              modelDescription={'DALL-E is an artificial intelligence (AI) tool that generates images from text prompts in various styles, including paintings, emoji, and photorealistic imagery. It uses natural language processing (NLP), large language models (LLMs), and diffusion processing to create new images.'}
-              modelImage={'../Assets/dalle.png'}
-              modelTitleColor={'text-gray-400'}
-              isImageGenerator={true}
-              showcaseImages={'https://api.time.com/wp-content/uploads/2022/11/best-inventions-2022-OpenAI-DALL-E-2.jpg'}/>
-  },
+  // {
+  //   path: 'action/dalle',
+  //   element: <ChatModel 
+  //             modelName={'Dall-E'}
+  //             modelDescription={'DALL-E is an artificial intelligence (AI) tool that generates images from text prompts in various styles, including paintings, emoji, and photorealistic imagery. It uses natural language processing (NLP), large language models (LLMs), and diffusion processing to create new images.'}
+  //             modelImage={'../Assets/dalle.png'}
+  //             modelTitleColor={'text-gray-400'}
+  //             isImageGenerator={true}
+  //             showcaseImages={'https://api.time.com/wp-content/uploads/2022/11/best-inventions-2022-OpenAI-DALL-E-2.jpg'}/>
+  // },
   {
     path: 'action/sd',
     element: <ChatModel 
@@ -451,15 +451,25 @@ const router = createBrowserRouter([
               showcaseImages={'https://cdm.link/app/uploads/2022/08/stablediffusion.jpg'}/>
   },
   {
-    path: 'action/sdxl',
+    path: 'action/pixart',
     element: <ChatModel 
-              modelName={'SDXL'}
-              modelDescription={"SDXL stands for Stable Diffusion XL, and it's an open-source text-to-image model that can generate high-resolution images from text prompts. SDXL uses deep learning techniques to interpret text descriptions and produce images that match the prompt's intent."}
+              modelName={'PixArt'}
+              modelDescription={''}
               modelImage={'0'}
-              modelTitleColor={'text-orange-400'}
+              modelTitleColor={'text-[#00B48A]'}
               isImageGenerator={true}
-              showcaseImages={'https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/01.png'}/>
+              showcaseImages={'https://public-assets.comfyworkflows.com/optimized_comfy_workflows_user_uploads/5d3a27ca-28ba-41fc-bd9f-077f7331c17a/assets/ComfyUI_08195_.webp'}/>
   },
+  // {
+  //   path: 'action/sdxl',
+  //   element: <ChatModel 
+  //             modelName={'SDXL'}
+  //             modelDescription={"SDXL stands for Stable Diffusion XL, and it's an open-source text-to-image model that can generate high-resolution images from text prompts. SDXL uses deep learning techniques to interpret text descriptions and produce images that match the prompt's intent."}
+  //             modelImage={'0'}
+  //             modelTitleColor={'text-orange-400'}
+  //             isImageGenerator={true}
+  //             showcaseImages={'https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/01.png'}/>
+  // },
   {
     path: 'action/prodia',
     element: <ChatModel 

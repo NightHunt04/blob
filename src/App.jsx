@@ -1,6 +1,7 @@
 import Landing from './Landing/Landing'
 import { ModelProvider } from './context/ModelContext' 
 import { useEffect, useState } from 'react'
+import './style.css'
 
 function App() {
   const [lightTheme, setLightTheme] = useState(false)
